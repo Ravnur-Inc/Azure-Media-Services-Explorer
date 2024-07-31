@@ -54,7 +54,7 @@
             resources.ApplyResources(buttonImport, "buttonImport");
             buttonImport.DialogResult = System.Windows.Forms.DialogResult.OK;
             buttonImport.Name = "buttonImport";
-            buttonImport.UseVisualStyleBackColor = true;
+            buttonImport.UseVisualStyleBackColor = true;            
             // 
             // buttonCancel
             // 

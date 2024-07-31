@@ -27,6 +27,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
+using System.Xml;
 using System.Xml.Linq;
 
 using Azure;
@@ -36,6 +37,7 @@ using Azure.ResourceManager.Media.Models;
 using Microsoft.Azure.Storage;
 using Microsoft.Azure.Storage.Blob;
 using Microsoft.Win32;
+using Newtonsoft.Json.Linq;
 
 namespace AMSExplorer
 {
@@ -424,14 +426,45 @@ namespace AMSExplorer
         {
             // get the manifest
 
-            /*
-            ListContainerSasInput input = new()
-            {
-                Permissions = AssetContainerPermission.Read,
-                ExpiryTime = DateTime.Now.AddMinutes(5).ToUniversalTime()
-            };
-            */
+            var ismc = await GetBlobsBySuffix(asset, _amsClient, ".ismc");
 
+            if (!ismc.Any())
+            {
+                throw new Exception("No ISMC file in asset.");
+            }
+
+            string contentismc = await ismc.First().DownloadTextAsync();
+
+            return XDocument.Parse(contentismc);
+        }
+
+        public static async Task<ManifestTimingData> GetJsonManifestTimingData(MediaAssetResource asset, AMSClientV3 _amsClient)
+        {
+
+            ManifestTimingData manifestTimingData = new() { IsLive = false, Error = false, TimestampOffset = 0, TimestampList = new List<ulong>(), DiscontinuityDetected = false };
+            try
+            {
+                var manifests = await GetBlobsBySuffix(asset, _amsClient, "_manifest.json");
+                if (!manifests.Any())
+                {
+                    throw new InvalidOperationException("No _manifest.json file in asset.");
+                }
+
+                string contentjson = await manifests.First().DownloadTextAsync();
+                JObject json = JObject.Parse(contentjson);
+                string duration = json["AssetFile"].First["Duration"].ToString();
+                manifestTimingData.AssetDuration = XmlConvert.ToTimeSpan(duration);
+            }
+            catch
+            {
+                manifestTimingData.Error = true;
+            }
+
+            return manifestTimingData;
+        }
+
+        private static async Task<IEnumerable<CloudBlockBlob>> GetBlobsBySuffix(MediaAssetResource asset, AMSClientV3 _amsClient, string extension)
+        {
             MediaAssetStorageContainerSasContent content = new()
             {
                 Permissions = MediaAssetContainerPermission.Read,
@@ -440,13 +473,7 @@ namespace AMSExplorer
 
             var response = asset.GetStorageContainerUris(content);
 
-            // AssetContainerSas responseSas = await _amsClient.AMSclient.Assets.ListContainerSasAsync(_amsClient.credentialsEntry.ResourceGroup, _amsClient.credentialsEntry.AccountName, asset.Name, input.Permissions, input.ExpiryTime);
-
-            //string uploadSasUrl = response.First();
-
-            //Uri sasUri = response.First();
             CloudBlobContainer container = new(response.First());
-
 
             BlobContinuationToken continuationToken = null;
             List<CloudBlockBlob> blobs = new();
@@ -459,16 +486,9 @@ namespace AMSExplorer
                 continuationToken = segment.ContinuationToken;
             }
             while (continuationToken != null);
-            IEnumerable<CloudBlockBlob> ismc = blobs.Where(b => b.Name.EndsWith(".ismc", StringComparison.OrdinalIgnoreCase));
+            IEnumerable<CloudBlockBlob> ismc = blobs.Where(b => b.Name.EndsWith(extension, StringComparison.OrdinalIgnoreCase));
 
-            if (!ismc.Any())
-            {
-                throw new Exception("No ISMC file in asset.");
-            }
-
-            string contentismc = await ismc.First().DownloadTextAsync();
-
-            return XDocument.Parse(contentismc);
+            return ismc;
         }
 
         public static async Task<XDocument> TryToGetClientManifestContentUsingStreamingLocatorAsync(MediaAssetResource asset, AMSClientV3 _amsClient, string preferredLocatorName = null)

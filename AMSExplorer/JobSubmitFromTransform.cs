@@ -190,11 +190,6 @@ namespace AMSExplorer
                     checkBoxSourceTrimmingEnd.CheckState = CheckState.Checked;
                 }
             }
-
-            if(_client.IsRavnurClient)
-            {
-                tabControlCreateJob.TabPages.Remove(tabPageTrimming);
-            }
         }
 
 

@@ -84,13 +84,16 @@ namespace AMSExplorer.Utils.JobInfo
             else if (MyJob.Data.Input is MediaJobInputHttp inputH)
             {
                 infoStr.Add("   --- Job Input (Https) ----------------------------------------");
-
-                infoStr.Add("   Base Url", inputH.BaseUri.ToString());
+                if (inputH.BaseUri != null)
+                {
+                    infoStr.Add("   Base Url", inputH.BaseUri.ToString());
+                }
 
                 if (inputH.Start != null && inputH.Start is AbsoluteClipTime startA)
                 {
                     infoStr.Add("   Absolute Clip Time Start", startA.Time.ToString());
                 }
+
                 if (inputH.End != null && inputH.End is AbsoluteClipTime endA)
                 {
                     infoStr.Add("   Absolute Clip Time End", endA.Time.ToString());

@@ -195,6 +195,31 @@ namespace AMSExplorer
             };
 
 
+            ///////////////////////
+            // SEARCH
+            ///////////////////////
+            if (_searchinname != null && !string.IsNullOrEmpty(_searchinname.Text))
+            {
+                string search = _searchinname.Text;
+
+                switch (_searchinname.SearchType)
+                {
+                    // Search on Asset name Equals
+                    case SearchIn.JobName:
+                        search = "'" + search + "'";
+                        odataQuery.Filter = "name eq " + search;
+                        break;
+
+                    // Search on Asset name starts with
+                    case SearchIn.JobId:                        
+                        odataQuery.Filter = "id eq " + "'" + Uri.EscapeDataString(search) + "'";
+
+                        break;
+
+                    default:
+                        break;
+                }
+            }
 
             ///////////////////////
             // Filter
@@ -206,7 +231,11 @@ namespace AMSExplorer
                     break;
 
                 default:
-                    odataQuery.Filter = string.Format("Properties/state eq Microsoft.Media.JobState'{0}'", _filterjobsstate);
+                    if (odataQuery.Filter != null)
+                    {
+                        odataQuery.Filter += " and ";
+                    }
+                    odataQuery.Filter += string.Format("Properties/state eq Microsoft.Media.JobState'{0}'", _filterjobsstate);
                     break;
             }
 

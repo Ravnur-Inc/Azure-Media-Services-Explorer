@@ -147,17 +147,7 @@ namespace AMSExplorer
             oktobuildlocator = true;
 
             if (_amsClient.IsRavnurClient)
-            {
-                // Asset Filters API is not supported in Ravnur
-                tabControl1.TabPages.Remove(tabPageAssetFilters);
-
-                // Tracks API is not supported in Ravnur
-                tabControl1.TabPages.Remove(tabPageTracks);
-                createAnAudioTrackFromThisBlobToolStripMenuItem.Visible = false;
-                createTextTrackFromThisBlobToolStripMenuItem.Visible = false;
-
-                // Ravnur use *.json files for manifests instead of *.ism and *.ismc
-                buttonGenerateServerManifest.Visible = false;
+            {               
                 buttonGenerateClientManifest.Visible = false;
 
                 // Replace link to Azure Media Player with link to Ravnur Player
@@ -510,6 +500,10 @@ namespace AMSExplorer
                 if (manifest != null)
                 {
                     myassetmanifesttimingdata = AssetTools.GetManifestTimingData(manifest);
+                }
+                else
+                {
+                    myassetmanifesttimingdata = await AssetTools.GetJsonManifestTimingData(_asset, _amsClient);
                 }
             }
 

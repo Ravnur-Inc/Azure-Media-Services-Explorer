@@ -205,27 +205,30 @@ namespace AMSExplorer
                 {
                     manifest = await AssetTools.TryToGetClientManifestContentAsABlobAsync(_parentAsset, _amsClient);
                 }
-                catch
+                catch (Exception ex)
                 {
-                }
-
-                if (manifest == null)
-                {
-                    try
+                    if (ex.Message != "No ISMC file in asset." && manifest == null)
                     {
-                        if (MessageBox.Show(TextCreateTempLoc, "Locator creation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+                        try
                         {
-                            manifest = await AssetTools.TryToGetClientManifestContentUsingStreamingLocatorAsync(_parentAsset, _amsClient);
+                            if (MessageBox.Show(TextCreateTempLoc, "Locator creation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+                            {
+                                manifest = await AssetTools.TryToGetClientManifestContentUsingStreamingLocatorAsync(_parentAsset, _amsClient);
+                            }
                         }
-                    }
-                    catch
-                    {
+                        catch
+                        {
+                        }
                     }
                 }
 
                 if (manifest != null)
                 {
                     _parentassetmanifestdata = AssetTools.GetManifestTimingData(manifest);
+                }
+                else
+                {
+                    _parentassetmanifestdata = await AssetTools.GetJsonManifestTimingData(_parentAsset, _amsClient);
                 }
 
                 if (!_parentassetmanifestdata.Error)  // we were able to read asset timings and not live
@@ -314,27 +317,30 @@ namespace AMSExplorer
                 {
                     manifest = await AssetTools.TryToGetClientManifestContentAsABlobAsync(_parentAsset, _amsClient);
                 }
-                catch
+                catch (Exception ex)
                 {
-                }
-
-                if (manifest == null)
-                {
-                    try
+                    if (ex.Message != "No ISMC file in asset." && manifest == null)
                     {
-                        if (MessageBox.Show(TextCreateTempLoc, "Locator creation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+                        try
                         {
-                            manifest = await AssetTools.TryToGetClientManifestContentUsingStreamingLocatorAsync(_parentAsset, _amsClient);
+                            if (MessageBox.Show(TextCreateTempLoc, "Locator creation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+                            {
+                                manifest = await AssetTools.TryToGetClientManifestContentUsingStreamingLocatorAsync(_parentAsset, _amsClient);
+                            }
                         }
-                    }
-                    catch
-                    {
+                        catch
+                        {
+                        }
                     }
                 }
 
                 if (manifest != null)
                 {
                     _parentassetmanifestdata = AssetTools.GetManifestTimingData(manifest);
+                }
+                else
+                {
+                    _parentassetmanifestdata = await AssetTools.GetJsonManifestTimingData(_parentAsset, _amsClient);
                 }
 
                 timeControlStart.TimeScale = timeControlEnd.TimeScale = timeControlDVR.TimeScale = _timescale;

@@ -110,6 +110,10 @@ namespace AMSExplorer
                 {
                     _parentAssetManifestData = AssetTools.GetManifestTimingData(manifest);
                 }
+                else
+                {
+                    _parentAssetManifestData = AssetTools.GetJsonManifestTimingData(myAsset, _amsClientV3).GetAwaiter().GetResult();
+                }
 
                 labelDiscountinuity.Visible = _parentAssetManifestData.DiscontinuityDetected;
 

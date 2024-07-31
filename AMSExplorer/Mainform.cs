@@ -3342,8 +3342,9 @@ namespace AMSExplorer
             comboBoxStateJobs.Items.Add("All");
             comboBoxStateJobs.Items.AddRange(
             typeof(MediaJobState)
-            .GetFields()
-            .Select(i => i.Name)
+            .GetFields(BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance)            
+            .Where(f => f.IsLiteral)
+            .Select(i => i.GetValue(null))
             .ToArray()
             );
             comboBoxStateJobs.Items[0] = "All";

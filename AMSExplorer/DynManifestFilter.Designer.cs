@@ -28,1300 +28,907 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DynManifestFilter));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonOk = new System.Windows.Forms.Button();
-            this.textBoxFilterName = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.buttonInsertSample = new System.Windows.Forms.Button();
-            this.checkBoxPresentationWindowDuration = new System.Windows.Forms.CheckBox();
-            this.checkBoxEndTime = new System.Windows.Forms.CheckBox();
-            this.checkBoxStartTime = new System.Windows.Forms.CheckBox();
-            this.timeControlStart = new AMSExplorer.TimeControl();
-            this.timeControlDVR = new AMSExplorer.TimeControl();
-            this.timeControlEnd = new AMSExplorer.TimeControl();
-            this.checkBoxLiveBackoff = new System.Windows.Forms.CheckBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPageTR = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBoxDurationTime = new System.Windows.Forms.TextBox();
-            this.checkBoxForValueForLive = new System.Windows.Forms.CheckBox();
-            this.labelDefaultBakckoff = new System.Windows.Forms.Label();
-            this.numericUpDownBackoffSeconds = new System.Windows.Forms.NumericUpDown();
-            this.labelStartTimeDefault = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.labelDefaultEnd = new System.Windows.Forms.Label();
-            this.labelDefaultDVR = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.tabPageTRRaw = new System.Windows.Forms.TabPage();
-            this.checkBoxForValueLiveRaw = new System.Windows.Forms.CheckBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBoxRawTimescale = new System.Windows.Forms.TextBox();
-            this.labeltime1 = new System.Windows.Forms.Label();
-            this.textBoxRawBackoff = new System.Windows.Forms.TextBox();
-            this.textBoxRawDVR = new System.Windows.Forms.TextBox();
-            this.textBoxRawEnd = new System.Windows.Forms.TextBox();
-            this.textBoxRawStart = new System.Windows.Forms.TextBox();
-            this.labeltime5 = new System.Windows.Forms.Label();
-            this.labeltime4 = new System.Windows.Forms.Label();
-            this.labeltime3 = new System.Windows.Forms.Label();
-            this.labeltime2 = new System.Windows.Forms.Label();
-            this.tabPageTF = new System.Windows.Forms.TabPage();
-            this.numericUpDownFirstQualityBitrate = new System.Windows.Forms.NumericUpDown();
-            this.checkBoxFirstQualityBitrate = new System.Windows.Forms.CheckBox();
-            this.label40 = new System.Windows.Forms.Label();
-            this.comboBoxLocatorsFilters = new System.Windows.Forms.ComboBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonDeleteCondition = new System.Windows.Forms.Button();
-            this.buttonDeleteTrack = new System.Windows.Forms.Button();
-            this.buttonAddCondition = new System.Windows.Forms.Button();
-            this.buttonAddTrack = new System.Windows.Forms.Button();
-            this.listBoxTracks = new System.Windows.Forms.ListBox();
-            this.dataGridViewTracks = new System.Windows.Forms.DataGridView();
-            this.tabPageInformation = new System.Windows.Forms.TabPage();
-            this.DGInfo = new System.Windows.Forms.DataGridView();
-            this.contextMenuStripInfo = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItemFilesCopyClipboard = new System.Windows.Forms.ToolStripMenuItem();
-            this.moreinfoprofilelink = new System.Windows.Forms.LinkLabel();
-            this.labelFilterTitle = new System.Windows.Forms.Label();
-            this.textBoxAssetName = new System.Windows.Forms.TextBox();
-            this.labelassetname = new System.Windows.Forms.Label();
-            this.textBoxAssetDuration = new System.Windows.Forms.TextBox();
-            this.labelassetduration = new System.Windows.Forms.Label();
-            this.textBoxFilterTimeScale = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBoxOffset = new System.Windows.Forms.TextBox();
-            this.labelOffset = new System.Windows.Forms.Label();
-            this.checkBoxRawMode = new System.Windows.Forms.CheckBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.panel1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPageTR.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBackoffSeconds)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.tabPageTRRaw.SuspendLayout();
-            this.tabPageTF.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFirstQualityBitrate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTracks)).BeginInit();
-            this.tabPageInformation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGInfo)).BeginInit();
-            this.contextMenuStripInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.SuspendLayout();
+            panel1 = new System.Windows.Forms.Panel();
+            buttonCancel = new System.Windows.Forms.Button();
+            buttonOk = new System.Windows.Forms.Button();
+            textBoxFilterName = new System.Windows.Forms.TextBox();
+            label4 = new System.Windows.Forms.Label();
+            toolTip1 = new System.Windows.Forms.ToolTip(components);
+            buttonInsertSample = new System.Windows.Forms.Button();
+            checkBoxPresentationWindowDuration = new System.Windows.Forms.CheckBox();
+            checkBoxEndTime = new System.Windows.Forms.CheckBox();
+            checkBoxStartTime = new System.Windows.Forms.CheckBox();
+            timeControlStart = new TimeControl();
+            timeControlDVR = new TimeControl();
+            timeControlEnd = new TimeControl();
+            checkBoxLiveBackoff = new System.Windows.Forms.CheckBox();
+            tabControl1 = new System.Windows.Forms.TabControl();
+            tabPageTR = new System.Windows.Forms.TabPage();
+            tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            textBoxDurationTime = new System.Windows.Forms.TextBox();
+            checkBoxForValueForLive = new System.Windows.Forms.CheckBox();
+            labelDefaultBakckoff = new System.Windows.Forms.Label();
+            numericUpDownBackoffSeconds = new System.Windows.Forms.NumericUpDown();
+            labelStartTimeDefault = new System.Windows.Forms.Label();
+            pictureBox2 = new System.Windows.Forms.PictureBox();
+            labelDefaultEnd = new System.Windows.Forms.Label();
+            labelDefaultDVR = new System.Windows.Forms.Label();
+            label39 = new System.Windows.Forms.Label();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            pictureBox3 = new System.Windows.Forms.PictureBox();
+            tabPageTRRaw = new System.Windows.Forms.TabPage();
+            checkBoxForValueLiveRaw = new System.Windows.Forms.CheckBox();
+            label21 = new System.Windows.Forms.Label();
+            label19 = new System.Windows.Forms.Label();
+            label18 = new System.Windows.Forms.Label();
+            label17 = new System.Windows.Forms.Label();
+            label16 = new System.Windows.Forms.Label();
+            textBoxRawTimescale = new System.Windows.Forms.TextBox();
+            labeltime1 = new System.Windows.Forms.Label();
+            textBoxRawBackoff = new System.Windows.Forms.TextBox();
+            textBoxRawDVR = new System.Windows.Forms.TextBox();
+            textBoxRawEnd = new System.Windows.Forms.TextBox();
+            textBoxRawStart = new System.Windows.Forms.TextBox();
+            labeltime5 = new System.Windows.Forms.Label();
+            labeltime4 = new System.Windows.Forms.Label();
+            labeltime3 = new System.Windows.Forms.Label();
+            labeltime2 = new System.Windows.Forms.Label();
+            tabPageTF = new System.Windows.Forms.TabPage();
+            numericUpDownFirstQualityBitrate = new System.Windows.Forms.NumericUpDown();
+            checkBoxFirstQualityBitrate = new System.Windows.Forms.CheckBox();
+            label40 = new System.Windows.Forms.Label();
+            comboBoxLocatorsFilters = new System.Windows.Forms.ComboBox();
+            pictureBox4 = new System.Windows.Forms.PictureBox();
+            tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            label10 = new System.Windows.Forms.Label();
+            label11 = new System.Windows.Forms.Label();
+            label12 = new System.Windows.Forms.Label();
+            label14 = new System.Windows.Forms.Label();
+            label15 = new System.Windows.Forms.Label();
+            label20 = new System.Windows.Forms.Label();
+            label23 = new System.Windows.Forms.Label();
+            label24 = new System.Windows.Forms.Label();
+            label25 = new System.Windows.Forms.Label();
+            label26 = new System.Windows.Forms.Label();
+            label27 = new System.Windows.Forms.Label();
+            label22 = new System.Windows.Forms.Label();
+            label29 = new System.Windows.Forms.Label();
+            label30 = new System.Windows.Forms.Label();
+            label31 = new System.Windows.Forms.Label();
+            label32 = new System.Windows.Forms.Label();
+            label33 = new System.Windows.Forms.Label();
+            label34 = new System.Windows.Forms.Label();
+            label35 = new System.Windows.Forms.Label();
+            label36 = new System.Windows.Forms.Label();
+            label37 = new System.Windows.Forms.Label();
+            label38 = new System.Windows.Forms.Label();
+            label13 = new System.Windows.Forms.Label();
+            label28 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            buttonDeleteCondition = new System.Windows.Forms.Button();
+            buttonDeleteTrack = new System.Windows.Forms.Button();
+            buttonAddCondition = new System.Windows.Forms.Button();
+            buttonAddTrack = new System.Windows.Forms.Button();
+            listBoxTracks = new System.Windows.Forms.ListBox();
+            dataGridViewTracks = new System.Windows.Forms.DataGridView();
+            tabPageInformation = new System.Windows.Forms.TabPage();
+            DGInfo = new System.Windows.Forms.DataGridView();
+            contextMenuStripInfo = new System.Windows.Forms.ContextMenuStrip(components);
+            toolStripMenuItemFilesCopyClipboard = new System.Windows.Forms.ToolStripMenuItem();
+            moreinfoprofilelink = new System.Windows.Forms.LinkLabel();
+            labelFilterTitle = new System.Windows.Forms.Label();
+            textBoxAssetName = new System.Windows.Forms.TextBox();
+            labelassetname = new System.Windows.Forms.Label();
+            textBoxAssetDuration = new System.Windows.Forms.TextBox();
+            labelassetduration = new System.Windows.Forms.Label();
+            textBoxFilterTimeScale = new System.Windows.Forms.TextBox();
+            label2 = new System.Windows.Forms.Label();
+            textBoxOffset = new System.Windows.Forms.TextBox();
+            labelOffset = new System.Windows.Forms.Label();
+            checkBoxRawMode = new System.Windows.Forms.CheckBox();
+            errorProvider1 = new System.Windows.Forms.ErrorProvider(components);
+            panel1.SuspendLayout();
+            tabControl1.SuspendLayout();
+            tabPageTR.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownBackoffSeconds).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            tabPageTRRaw.SuspendLayout();
+            tabPageTF.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownFirstQualityBitrate).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTracks).BeginInit();
+            tabPageInformation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DGInfo).BeginInit();
+            contextMenuStripInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
+            SuspendLayout();
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.buttonCancel);
-            this.panel1.Controls.Add(this.buttonOk);
-            this.errorProvider1.SetError(this.panel1, resources.GetString("panel1.Error"));
-            this.errorProvider1.SetIconAlignment(this.panel1, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("panel1.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.panel1, ((int)(resources.GetObject("panel1.IconPadding"))));
-            this.panel1.Name = "panel1";
-            this.toolTip1.SetToolTip(this.panel1, resources.GetString("panel1.ToolTip"));
+            panel1.BackColor = System.Drawing.SystemColors.Control;
+            panel1.Controls.Add(buttonCancel);
+            panel1.Controls.Add(buttonOk);
+            resources.ApplyResources(panel1, "panel1");
+            panel1.Name = "panel1";
             // 
             // buttonCancel
             // 
-            resources.ApplyResources(this.buttonCancel, "buttonCancel");
-            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.errorProvider1.SetError(this.buttonCancel, resources.GetString("buttonCancel.Error"));
-            this.errorProvider1.SetIconAlignment(this.buttonCancel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("buttonCancel.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.buttonCancel, ((int)(resources.GetObject("buttonCancel.IconPadding"))));
-            this.buttonCancel.Name = "buttonCancel";
-            this.toolTip1.SetToolTip(this.buttonCancel, resources.GetString("buttonCancel.ToolTip"));
-            this.buttonCancel.UseVisualStyleBackColor = true;
+            resources.ApplyResources(buttonCancel, "buttonCancel");
+            buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            buttonCancel.Name = "buttonCancel";
+            buttonCancel.UseVisualStyleBackColor = true;
             // 
             // buttonOk
             // 
-            resources.ApplyResources(this.buttonOk, "buttonOk");
-            this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.errorProvider1.SetError(this.buttonOk, resources.GetString("buttonOk.Error"));
-            this.errorProvider1.SetIconAlignment(this.buttonOk, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("buttonOk.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.buttonOk, ((int)(resources.GetObject("buttonOk.IconPadding"))));
-            this.buttonOk.Name = "buttonOk";
-            this.toolTip1.SetToolTip(this.buttonOk, resources.GetString("buttonOk.ToolTip"));
-            this.buttonOk.UseVisualStyleBackColor = true;
+            resources.ApplyResources(buttonOk, "buttonOk");
+            buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            buttonOk.Name = "buttonOk";
+            buttonOk.UseVisualStyleBackColor = true;
             // 
             // textBoxFilterName
             // 
-            resources.ApplyResources(this.textBoxFilterName, "textBoxFilterName");
-            this.errorProvider1.SetError(this.textBoxFilterName, resources.GetString("textBoxFilterName.Error"));
-            this.errorProvider1.SetIconAlignment(this.textBoxFilterName, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("textBoxFilterName.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.textBoxFilterName, ((int)(resources.GetObject("textBoxFilterName.IconPadding"))));
-            this.textBoxFilterName.Name = "textBoxFilterName";
-            this.toolTip1.SetToolTip(this.textBoxFilterName, resources.GetString("textBoxFilterName.ToolTip"));
-            this.textBoxFilterName.TextChanged += new System.EventHandler(this.textBoxFilterName_TextChanged);
-            this.textBoxFilterName.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxFilterName_Validating);
+            resources.ApplyResources(textBoxFilterName, "textBoxFilterName");
+            textBoxFilterName.Name = "textBoxFilterName";
+            textBoxFilterName.TextChanged += textBoxFilterName_TextChanged;
+            textBoxFilterName.Validating += textBoxFilterName_Validating;
             // 
             // label4
             // 
-            resources.ApplyResources(this.label4, "label4");
-            this.errorProvider1.SetError(this.label4, resources.GetString("label4.Error"));
-            this.errorProvider1.SetIconAlignment(this.label4, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label4.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label4, ((int)(resources.GetObject("label4.IconPadding"))));
-            this.label4.Name = "label4";
-            this.toolTip1.SetToolTip(this.label4, resources.GetString("label4.ToolTip"));
+            resources.ApplyResources(label4, "label4");
+            label4.Name = "label4";
             // 
             // buttonInsertSample
             // 
-            resources.ApplyResources(this.buttonInsertSample, "buttonInsertSample");
-            this.errorProvider1.SetError(this.buttonInsertSample, resources.GetString("buttonInsertSample.Error"));
-            this.errorProvider1.SetIconAlignment(this.buttonInsertSample, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("buttonInsertSample.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.buttonInsertSample, ((int)(resources.GetObject("buttonInsertSample.IconPadding"))));
-            this.buttonInsertSample.Name = "buttonInsertSample";
-            this.toolTip1.SetToolTip(this.buttonInsertSample, resources.GetString("buttonInsertSample.ToolTip"));
-            this.buttonInsertSample.UseVisualStyleBackColor = true;
-            this.buttonInsertSample.Click += new System.EventHandler(this.buttonInsertSample_Click);
+            resources.ApplyResources(buttonInsertSample, "buttonInsertSample");
+            buttonInsertSample.Name = "buttonInsertSample";
+            toolTip1.SetToolTip(buttonInsertSample, resources.GetString("buttonInsertSample.ToolTip"));
+            buttonInsertSample.UseVisualStyleBackColor = true;
+            buttonInsertSample.Click += buttonInsertSample_Click;
             // 
             // checkBoxPresentationWindowDuration
             // 
-            resources.ApplyResources(this.checkBoxPresentationWindowDuration, "checkBoxPresentationWindowDuration");
-            this.errorProvider1.SetError(this.checkBoxPresentationWindowDuration, resources.GetString("checkBoxPresentationWindowDuration.Error"));
-            this.errorProvider1.SetIconAlignment(this.checkBoxPresentationWindowDuration, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("checkBoxPresentationWindowDuration.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.checkBoxPresentationWindowDuration, ((int)(resources.GetObject("checkBoxPresentationWindowDuration.IconPadding"))));
-            this.checkBoxPresentationWindowDuration.Name = "checkBoxPresentationWindowDuration";
-            this.toolTip1.SetToolTip(this.checkBoxPresentationWindowDuration, resources.GetString("checkBoxPresentationWindowDuration.ToolTip"));
-            this.checkBoxPresentationWindowDuration.UseVisualStyleBackColor = true;
-            this.checkBoxPresentationWindowDuration.CheckedChanged += new System.EventHandler(this.checkBoxDVRWindow_CheckedChanged);
+            resources.ApplyResources(checkBoxPresentationWindowDuration, "checkBoxPresentationWindowDuration");
+            checkBoxPresentationWindowDuration.Name = "checkBoxPresentationWindowDuration";
+            toolTip1.SetToolTip(checkBoxPresentationWindowDuration, resources.GetString("checkBoxPresentationWindowDuration.ToolTip"));
+            checkBoxPresentationWindowDuration.UseVisualStyleBackColor = true;
+            checkBoxPresentationWindowDuration.CheckedChanged += checkBoxDVRWindow_CheckedChanged;
             // 
             // checkBoxEndTime
             // 
-            resources.ApplyResources(this.checkBoxEndTime, "checkBoxEndTime");
-            this.errorProvider1.SetError(this.checkBoxEndTime, resources.GetString("checkBoxEndTime.Error"));
-            this.errorProvider1.SetIconAlignment(this.checkBoxEndTime, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("checkBoxEndTime.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.checkBoxEndTime, ((int)(resources.GetObject("checkBoxEndTime.IconPadding"))));
-            this.checkBoxEndTime.Name = "checkBoxEndTime";
-            this.toolTip1.SetToolTip(this.checkBoxEndTime, resources.GetString("checkBoxEndTime.ToolTip"));
-            this.checkBoxEndTime.UseVisualStyleBackColor = true;
-            this.checkBoxEndTime.CheckedChanged += new System.EventHandler(this.checkBoxEndTime_CheckedChanged);
+            resources.ApplyResources(checkBoxEndTime, "checkBoxEndTime");
+            checkBoxEndTime.Name = "checkBoxEndTime";
+            toolTip1.SetToolTip(checkBoxEndTime, resources.GetString("checkBoxEndTime.ToolTip"));
+            checkBoxEndTime.UseVisualStyleBackColor = true;
+            checkBoxEndTime.CheckedChanged += checkBoxEndTime_CheckedChanged;
             // 
             // checkBoxStartTime
             // 
-            resources.ApplyResources(this.checkBoxStartTime, "checkBoxStartTime");
-            this.errorProvider1.SetError(this.checkBoxStartTime, resources.GetString("checkBoxStartTime.Error"));
-            this.errorProvider1.SetIconAlignment(this.checkBoxStartTime, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("checkBoxStartTime.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.checkBoxStartTime, ((int)(resources.GetObject("checkBoxStartTime.IconPadding"))));
-            this.checkBoxStartTime.Name = "checkBoxStartTime";
-            this.toolTip1.SetToolTip(this.checkBoxStartTime, resources.GetString("checkBoxStartTime.ToolTip"));
-            this.checkBoxStartTime.UseVisualStyleBackColor = true;
-            this.checkBoxStartTime.CheckedChanged += new System.EventHandler(this.checkBoxStartTime_CheckedChanged);
+            resources.ApplyResources(checkBoxStartTime, "checkBoxStartTime");
+            checkBoxStartTime.Name = "checkBoxStartTime";
+            toolTip1.SetToolTip(checkBoxStartTime, resources.GetString("checkBoxStartTime.ToolTip"));
+            checkBoxStartTime.UseVisualStyleBackColor = true;
+            checkBoxStartTime.CheckedChanged += checkBoxStartTime_CheckedChanged;
             // 
             // timeControlStart
             // 
-            resources.ApplyResources(this.timeControlStart, "timeControlStart");
-            this.timeControlStart.BackColor = System.Drawing.SystemColors.Window;
-            this.timeControlStart.DisplayTrackBar = true;
-            this.errorProvider1.SetError(this.timeControlStart, resources.GetString("timeControlStart.Error"));
-            this.errorProvider1.SetIconAlignment(this.timeControlStart, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("timeControlStart.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.timeControlStart, ((int)(resources.GetObject("timeControlStart.IconPadding"))));
-            this.timeControlStart.Label1 = "Start time :";
-            this.timeControlStart.Label2 = "(Live and VOD)";
-            this.timeControlStart.Max = System.TimeSpan.Parse("10675199.02:48:05.4775807");
-            this.timeControlStart.Min = System.TimeSpan.Parse("00:00:00");
-            this.timeControlStart.Name = "timeControlStart";
-            this.timeControlStart.ScaledFirstTimestampOffset = ((ulong)(0ul));
-            this.timeControlStart.TimeScale = ((long)(10000000));
-            this.toolTip1.SetToolTip(this.timeControlStart, resources.GetString("timeControlStart.ToolTip"));
-            this.timeControlStart.TotalDuration = System.TimeSpan.Parse("00:00:00");
-            this.timeControlStart.ValueChanged += new System.EventHandler(this.timeControlStart_ValueChanged);
+            resources.ApplyResources(timeControlStart, "timeControlStart");
+            timeControlStart.BackColor = System.Drawing.SystemColors.Window;
+            timeControlStart.DisplayTrackBar = true;
+            timeControlStart.Label1 = "Start time :";
+            timeControlStart.Label2 = "(Live and VOD)";
+            timeControlStart.Max = System.TimeSpan.Parse("10675199.02:48:05.4775807");
+            timeControlStart.Min = System.TimeSpan.Parse("00:00:00");
+            timeControlStart.Name = "timeControlStart";
+            timeControlStart.ScaledFirstTimestampOffset = 0UL;
+            timeControlStart.TimeScale = 10000000L;
+            toolTip1.SetToolTip(timeControlStart, resources.GetString("timeControlStart.ToolTip"));
+            timeControlStart.TotalDuration = System.TimeSpan.Parse("00:00:00");
+            timeControlStart.ValueChanged += timeControlStart_ValueChanged;
             // 
             // timeControlDVR
             // 
-            resources.ApplyResources(this.timeControlDVR, "timeControlDVR");
-            this.timeControlDVR.BackColor = System.Drawing.SystemColors.Window;
-            this.timeControlDVR.DisplayTrackBar = true;
-            this.errorProvider1.SetError(this.timeControlDVR, resources.GetString("timeControlDVR.Error"));
-            this.errorProvider1.SetIconAlignment(this.timeControlDVR, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("timeControlDVR.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.timeControlDVR, ((int)(resources.GetObject("timeControlDVR.IconPadding"))));
-            this.timeControlDVR.Label1 = "";
-            this.timeControlDVR.Label2 = "DVR Window :";
-            this.timeControlDVR.Max = System.TimeSpan.Parse("24.00:00:00");
-            this.timeControlDVR.Min = System.TimeSpan.Parse("00:00:00");
-            this.timeControlDVR.Name = "timeControlDVR";
-            this.timeControlDVR.ScaledFirstTimestampOffset = ((ulong)(0ul));
-            this.timeControlDVR.TimeScale = ((long)(10000000));
-            this.toolTip1.SetToolTip(this.timeControlDVR, resources.GetString("timeControlDVR.ToolTip"));
-            this.timeControlDVR.TotalDuration = System.TimeSpan.Parse("00:00:00");
-            this.timeControlDVR.ValueChanged += new System.EventHandler(this.timeControlDVR_ValueChanged);
-            this.timeControlDVR.Load += new System.EventHandler(this.timeControlDVR_Load);
+            resources.ApplyResources(timeControlDVR, "timeControlDVR");
+            timeControlDVR.BackColor = System.Drawing.SystemColors.Window;
+            timeControlDVR.DisplayTrackBar = true;
+            timeControlDVR.Label1 = "";
+            timeControlDVR.Label2 = "DVR Window :";
+            timeControlDVR.Max = System.TimeSpan.Parse("24.00:00:00");
+            timeControlDVR.Min = System.TimeSpan.Parse("00:00:00");
+            timeControlDVR.Name = "timeControlDVR";
+            timeControlDVR.ScaledFirstTimestampOffset = 0UL;
+            timeControlDVR.TimeScale = 10000000L;
+            toolTip1.SetToolTip(timeControlDVR, resources.GetString("timeControlDVR.ToolTip"));
+            timeControlDVR.TotalDuration = System.TimeSpan.Parse("00:00:00");
+            timeControlDVR.ValueChanged += timeControlDVR_ValueChanged;
+            timeControlDVR.Load += timeControlDVR_Load;
             // 
             // timeControlEnd
             // 
-            resources.ApplyResources(this.timeControlEnd, "timeControlEnd");
-            this.timeControlEnd.BackColor = System.Drawing.SystemColors.Window;
-            this.timeControlEnd.DisplayTrackBar = true;
-            this.errorProvider1.SetError(this.timeControlEnd, resources.GetString("timeControlEnd.Error"));
-            this.errorProvider1.SetIconAlignment(this.timeControlEnd, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("timeControlEnd.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.timeControlEnd, ((int)(resources.GetObject("timeControlEnd.IconPadding"))));
-            this.timeControlEnd.Label1 = "End time :";
-            this.timeControlEnd.Label2 = "(VOD)";
-            this.timeControlEnd.Max = System.TimeSpan.Parse("10675199.02:48:05.4775807");
-            this.timeControlEnd.Min = System.TimeSpan.Parse("00:00:00");
-            this.timeControlEnd.Name = "timeControlEnd";
-            this.timeControlEnd.ScaledFirstTimestampOffset = ((ulong)(0ul));
-            this.timeControlEnd.TimeScale = ((long)(10000000));
-            this.toolTip1.SetToolTip(this.timeControlEnd, resources.GetString("timeControlEnd.ToolTip"));
-            this.timeControlEnd.TotalDuration = System.TimeSpan.Parse("00:00:00");
-            this.timeControlEnd.ValueChanged += new System.EventHandler(this.timeControlEnd_ValueChanged);
+            resources.ApplyResources(timeControlEnd, "timeControlEnd");
+            timeControlEnd.BackColor = System.Drawing.SystemColors.Window;
+            timeControlEnd.DisplayTrackBar = true;
+            timeControlEnd.Label1 = "End time :";
+            timeControlEnd.Label2 = "(VOD)";
+            timeControlEnd.Max = System.TimeSpan.Parse("10675199.02:48:05.4775807");
+            timeControlEnd.Min = System.TimeSpan.Parse("00:00:00");
+            timeControlEnd.Name = "timeControlEnd";
+            timeControlEnd.ScaledFirstTimestampOffset = 0UL;
+            timeControlEnd.TimeScale = 10000000L;
+            toolTip1.SetToolTip(timeControlEnd, resources.GetString("timeControlEnd.ToolTip"));
+            timeControlEnd.TotalDuration = System.TimeSpan.Parse("00:00:00");
+            timeControlEnd.ValueChanged += timeControlEnd_ValueChanged;
             // 
             // checkBoxLiveBackoff
             // 
-            resources.ApplyResources(this.checkBoxLiveBackoff, "checkBoxLiveBackoff");
-            this.errorProvider1.SetError(this.checkBoxLiveBackoff, resources.GetString("checkBoxLiveBackoff.Error"));
-            this.errorProvider1.SetIconAlignment(this.checkBoxLiveBackoff, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("checkBoxLiveBackoff.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.checkBoxLiveBackoff, ((int)(resources.GetObject("checkBoxLiveBackoff.IconPadding"))));
-            this.checkBoxLiveBackoff.Name = "checkBoxLiveBackoff";
-            this.toolTip1.SetToolTip(this.checkBoxLiveBackoff, resources.GetString("checkBoxLiveBackoff.ToolTip"));
+            resources.ApplyResources(checkBoxLiveBackoff, "checkBoxLiveBackoff");
+            checkBoxLiveBackoff.Name = "checkBoxLiveBackoff";
             // 
             // tabControl1
             // 
-            resources.ApplyResources(this.tabControl1, "tabControl1");
-            this.tabControl1.Controls.Add(this.tabPageTR);
-            this.tabControl1.Controls.Add(this.tabPageTRRaw);
-            this.tabControl1.Controls.Add(this.tabPageTF);
-            this.tabControl1.Controls.Add(this.tabPageInformation);
-            this.errorProvider1.SetError(this.tabControl1, resources.GetString("tabControl1.Error"));
-            this.errorProvider1.SetIconAlignment(this.tabControl1, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("tabControl1.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.tabControl1, ((int)(resources.GetObject("tabControl1.IconPadding"))));
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.toolTip1.SetToolTip(this.tabControl1, resources.GetString("tabControl1.ToolTip"));
+            resources.ApplyResources(tabControl1, "tabControl1");
+            tabControl1.Controls.Add(tabPageTR);
+            tabControl1.Controls.Add(tabPageTRRaw);
+            tabControl1.Controls.Add(tabPageTF);
+            tabControl1.Controls.Add(tabPageInformation);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
             // 
             // tabPageTR
             // 
-            resources.ApplyResources(this.tabPageTR, "tabPageTR");
-            this.tabPageTR.Controls.Add(this.tableLayoutPanel2);
-            this.errorProvider1.SetError(this.tabPageTR, resources.GetString("tabPageTR.Error"));
-            this.errorProvider1.SetIconAlignment(this.tabPageTR, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("tabPageTR.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.tabPageTR, ((int)(resources.GetObject("tabPageTR.IconPadding"))));
-            this.tabPageTR.Name = "tabPageTR";
-            this.toolTip1.SetToolTip(this.tabPageTR, resources.GetString("tabPageTR.ToolTip"));
-            this.tabPageTR.UseVisualStyleBackColor = true;
-            this.tabPageTR.Click += new System.EventHandler(this.tabPage1_Click);
+            tabPageTR.Controls.Add(tableLayoutPanel2);
+            resources.ApplyResources(tabPageTR, "tabPageTR");
+            tabPageTR.Name = "tabPageTR";
+            tabPageTR.UseVisualStyleBackColor = true;
+            tabPageTR.Click += tabPage1_Click;
             // 
             // tableLayoutPanel2
             // 
-            resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
-            this.tableLayoutPanel2.Controls.Add(this.textBoxDurationTime, 3, 4);
-            this.tableLayoutPanel2.Controls.Add(this.checkBoxForValueForLive, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.timeControlStart, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.labelDefaultBakckoff, 2, 10);
-            this.tableLayoutPanel2.Controls.Add(this.checkBoxStartTime, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.numericUpDownBackoffSeconds, 3, 9);
-            this.tableLayoutPanel2.Controls.Add(this.labelStartTimeDefault, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(this.pictureBox2, 0, 9);
-            this.tableLayoutPanel2.Controls.Add(this.checkBoxEndTime, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.checkBoxPresentationWindowDuration, 1, 6);
-            this.tableLayoutPanel2.Controls.Add(this.timeControlDVR, 2, 6);
-            this.tableLayoutPanel2.Controls.Add(this.checkBoxLiveBackoff, 1, 9);
-            this.tableLayoutPanel2.Controls.Add(this.labelDefaultEnd, 2, 4);
-            this.tableLayoutPanel2.Controls.Add(this.labelDefaultDVR, 2, 7);
-            this.tableLayoutPanel2.Controls.Add(this.timeControlEnd, 2, 3);
-            this.tableLayoutPanel2.Controls.Add(this.label39, 3, 3);
-            this.tableLayoutPanel2.Controls.Add(this.pictureBox1, 0, 6);
-            this.tableLayoutPanel2.Controls.Add(this.pictureBox3, 0, 0);
-            this.errorProvider1.SetError(this.tableLayoutPanel2, resources.GetString("tableLayoutPanel2.Error"));
-            this.errorProvider1.SetIconAlignment(this.tableLayoutPanel2, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("tableLayoutPanel2.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.tableLayoutPanel2, ((int)(resources.GetObject("tableLayoutPanel2.IconPadding"))));
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.toolTip1.SetToolTip(this.tableLayoutPanel2, resources.GetString("tableLayoutPanel2.ToolTip"));
+            resources.ApplyResources(tableLayoutPanel2, "tableLayoutPanel2");
+            tableLayoutPanel2.Controls.Add(textBoxDurationTime, 3, 4);
+            tableLayoutPanel2.Controls.Add(checkBoxForValueForLive, 3, 0);
+            tableLayoutPanel2.Controls.Add(timeControlStart, 2, 0);
+            tableLayoutPanel2.Controls.Add(labelDefaultBakckoff, 2, 10);
+            tableLayoutPanel2.Controls.Add(checkBoxStartTime, 1, 0);
+            tableLayoutPanel2.Controls.Add(numericUpDownBackoffSeconds, 3, 9);
+            tableLayoutPanel2.Controls.Add(labelStartTimeDefault, 2, 1);
+            tableLayoutPanel2.Controls.Add(pictureBox2, 0, 9);
+            tableLayoutPanel2.Controls.Add(checkBoxEndTime, 1, 3);
+            tableLayoutPanel2.Controls.Add(checkBoxPresentationWindowDuration, 1, 6);
+            tableLayoutPanel2.Controls.Add(timeControlDVR, 2, 6);
+            tableLayoutPanel2.Controls.Add(checkBoxLiveBackoff, 1, 9);
+            tableLayoutPanel2.Controls.Add(labelDefaultEnd, 2, 4);
+            tableLayoutPanel2.Controls.Add(labelDefaultDVR, 2, 7);
+            tableLayoutPanel2.Controls.Add(timeControlEnd, 2, 3);
+            tableLayoutPanel2.Controls.Add(label39, 3, 3);
+            tableLayoutPanel2.Controls.Add(pictureBox1, 0, 6);
+            tableLayoutPanel2.Controls.Add(pictureBox3, 0, 0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
             // 
             // textBoxDurationTime
             // 
-            resources.ApplyResources(this.textBoxDurationTime, "textBoxDurationTime");
-            this.errorProvider1.SetError(this.textBoxDurationTime, resources.GetString("textBoxDurationTime.Error"));
-            this.errorProvider1.SetIconAlignment(this.textBoxDurationTime, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("textBoxDurationTime.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.textBoxDurationTime, ((int)(resources.GetObject("textBoxDurationTime.IconPadding"))));
-            this.textBoxDurationTime.Name = "textBoxDurationTime";
-            this.textBoxDurationTime.ReadOnly = true;
-            this.tableLayoutPanel2.SetRowSpan(this.textBoxDurationTime, 2);
-            this.toolTip1.SetToolTip(this.textBoxDurationTime, resources.GetString("textBoxDurationTime.ToolTip"));
+            resources.ApplyResources(textBoxDurationTime, "textBoxDurationTime");
+            textBoxDurationTime.Name = "textBoxDurationTime";
+            textBoxDurationTime.ReadOnly = true;
+            tableLayoutPanel2.SetRowSpan(textBoxDurationTime, 2);
             // 
             // checkBoxForValueForLive
             // 
-            resources.ApplyResources(this.checkBoxForValueForLive, "checkBoxForValueForLive");
-            this.errorProvider1.SetError(this.checkBoxForValueForLive, resources.GetString("checkBoxForValueForLive.Error"));
-            this.errorProvider1.SetIconAlignment(this.checkBoxForValueForLive, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("checkBoxForValueForLive.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.checkBoxForValueForLive, ((int)(resources.GetObject("checkBoxForValueForLive.IconPadding"))));
-            this.checkBoxForValueForLive.Name = "checkBoxForValueForLive";
-            this.toolTip1.SetToolTip(this.checkBoxForValueForLive, resources.GetString("checkBoxForValueForLive.ToolTip"));
-            this.checkBoxForValueForLive.UseVisualStyleBackColor = true;
+            resources.ApplyResources(checkBoxForValueForLive, "checkBoxForValueForLive");
+            checkBoxForValueForLive.Name = "checkBoxForValueForLive";
+            checkBoxForValueForLive.UseVisualStyleBackColor = true;
             // 
             // labelDefaultBakckoff
             // 
-            resources.ApplyResources(this.labelDefaultBakckoff, "labelDefaultBakckoff");
-            this.errorProvider1.SetError(this.labelDefaultBakckoff, resources.GetString("labelDefaultBakckoff.Error"));
-            this.errorProvider1.SetIconAlignment(this.labelDefaultBakckoff, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("labelDefaultBakckoff.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.labelDefaultBakckoff, ((int)(resources.GetObject("labelDefaultBakckoff.IconPadding"))));
-            this.labelDefaultBakckoff.Name = "labelDefaultBakckoff";
-            this.toolTip1.SetToolTip(this.labelDefaultBakckoff, resources.GetString("labelDefaultBakckoff.ToolTip"));
+            resources.ApplyResources(labelDefaultBakckoff, "labelDefaultBakckoff");
+            labelDefaultBakckoff.Name = "labelDefaultBakckoff";
             // 
             // numericUpDownBackoffSeconds
             // 
-            resources.ApplyResources(this.numericUpDownBackoffSeconds, "numericUpDownBackoffSeconds");
-            this.numericUpDownBackoffSeconds.DecimalPlaces = 2;
-            this.errorProvider1.SetError(this.numericUpDownBackoffSeconds, resources.GetString("numericUpDownBackoffSeconds.Error"));
-            this.errorProvider1.SetIconAlignment(this.numericUpDownBackoffSeconds, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("numericUpDownBackoffSeconds.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.numericUpDownBackoffSeconds, ((int)(resources.GetObject("numericUpDownBackoffSeconds.IconPadding"))));
-            this.numericUpDownBackoffSeconds.Maximum = new decimal(new int[] {
-            60,
-            0,
-            0,
-            0});
-            this.numericUpDownBackoffSeconds.Name = "numericUpDownBackoffSeconds";
-            this.toolTip1.SetToolTip(this.numericUpDownBackoffSeconds, resources.GetString("numericUpDownBackoffSeconds.ToolTip"));
+            numericUpDownBackoffSeconds.DecimalPlaces = 2;
+            resources.ApplyResources(numericUpDownBackoffSeconds, "numericUpDownBackoffSeconds");
+            numericUpDownBackoffSeconds.Maximum = new decimal(new int[] { 60, 0, 0, 0 });
+            numericUpDownBackoffSeconds.Name = "numericUpDownBackoffSeconds";
             // 
             // labelStartTimeDefault
             // 
-            resources.ApplyResources(this.labelStartTimeDefault, "labelStartTimeDefault");
-            this.errorProvider1.SetError(this.labelStartTimeDefault, resources.GetString("labelStartTimeDefault.Error"));
-            this.errorProvider1.SetIconAlignment(this.labelStartTimeDefault, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("labelStartTimeDefault.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.labelStartTimeDefault, ((int)(resources.GetObject("labelStartTimeDefault.IconPadding"))));
-            this.labelStartTimeDefault.Name = "labelStartTimeDefault";
-            this.toolTip1.SetToolTip(this.labelStartTimeDefault, resources.GetString("labelStartTimeDefault.ToolTip"));
+            resources.ApplyResources(labelStartTimeDefault, "labelStartTimeDefault");
+            labelStartTimeDefault.Name = "labelStartTimeDefault";
             // 
             // pictureBox2
             // 
-            resources.ApplyResources(this.pictureBox2, "pictureBox2");
-            this.errorProvider1.SetError(this.pictureBox2, resources.GetString("pictureBox2.Error"));
-            this.errorProvider1.SetIconAlignment(this.pictureBox2, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("pictureBox2.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.pictureBox2, ((int)(resources.GetObject("pictureBox2.IconPadding"))));
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox2, resources.GetString("pictureBox2.ToolTip"));
+            resources.ApplyResources(pictureBox2, "pictureBox2");
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.TabStop = false;
             // 
             // labelDefaultEnd
             // 
-            resources.ApplyResources(this.labelDefaultEnd, "labelDefaultEnd");
-            this.errorProvider1.SetError(this.labelDefaultEnd, resources.GetString("labelDefaultEnd.Error"));
-            this.errorProvider1.SetIconAlignment(this.labelDefaultEnd, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("labelDefaultEnd.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.labelDefaultEnd, ((int)(resources.GetObject("labelDefaultEnd.IconPadding"))));
-            this.labelDefaultEnd.Name = "labelDefaultEnd";
-            this.toolTip1.SetToolTip(this.labelDefaultEnd, resources.GetString("labelDefaultEnd.ToolTip"));
+            resources.ApplyResources(labelDefaultEnd, "labelDefaultEnd");
+            labelDefaultEnd.Name = "labelDefaultEnd";
             // 
             // labelDefaultDVR
             // 
-            resources.ApplyResources(this.labelDefaultDVR, "labelDefaultDVR");
-            this.errorProvider1.SetError(this.labelDefaultDVR, resources.GetString("labelDefaultDVR.Error"));
-            this.errorProvider1.SetIconAlignment(this.labelDefaultDVR, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("labelDefaultDVR.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.labelDefaultDVR, ((int)(resources.GetObject("labelDefaultDVR.IconPadding"))));
-            this.labelDefaultDVR.Name = "labelDefaultDVR";
-            this.toolTip1.SetToolTip(this.labelDefaultDVR, resources.GetString("labelDefaultDVR.ToolTip"));
+            resources.ApplyResources(labelDefaultDVR, "labelDefaultDVR");
+            labelDefaultDVR.Name = "labelDefaultDVR";
             // 
             // label39
             // 
-            resources.ApplyResources(this.label39, "label39");
-            this.errorProvider1.SetError(this.label39, resources.GetString("label39.Error"));
-            this.label39.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label39, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label39.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label39, ((int)(resources.GetObject("label39.IconPadding"))));
-            this.label39.Name = "label39";
-            this.toolTip1.SetToolTip(this.label39, resources.GetString("label39.ToolTip"));
+            resources.ApplyResources(label39, "label39");
+            label39.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label39.Name = "label39";
             // 
             // pictureBox1
             // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.errorProvider1.SetError(this.pictureBox1, resources.GetString("pictureBox1.Error"));
-            this.errorProvider1.SetIconAlignment(this.pictureBox1, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("pictureBox1.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.pictureBox1, ((int)(resources.GetObject("pictureBox1.IconPadding"))));
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox1, resources.GetString("pictureBox1.ToolTip"));
+            resources.ApplyResources(pictureBox1, "pictureBox1");
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.TabStop = false;
             // 
             // pictureBox3
             // 
-            resources.ApplyResources(this.pictureBox3, "pictureBox3");
-            this.errorProvider1.SetError(this.pictureBox3, resources.GetString("pictureBox3.Error"));
-            this.errorProvider1.SetIconAlignment(this.pictureBox3, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("pictureBox3.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.pictureBox3, ((int)(resources.GetObject("pictureBox3.IconPadding"))));
-            this.pictureBox3.Name = "pictureBox3";
-            this.tableLayoutPanel2.SetRowSpan(this.pictureBox3, 5);
-            this.pictureBox3.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox3, resources.GetString("pictureBox3.ToolTip"));
+            resources.ApplyResources(pictureBox3, "pictureBox3");
+            pictureBox3.Name = "pictureBox3";
+            tableLayoutPanel2.SetRowSpan(pictureBox3, 5);
+            pictureBox3.TabStop = false;
             // 
             // tabPageTRRaw
             // 
-            resources.ApplyResources(this.tabPageTRRaw, "tabPageTRRaw");
-            this.tabPageTRRaw.Controls.Add(this.checkBoxForValueLiveRaw);
-            this.tabPageTRRaw.Controls.Add(this.label21);
-            this.tabPageTRRaw.Controls.Add(this.label19);
-            this.tabPageTRRaw.Controls.Add(this.label18);
-            this.tabPageTRRaw.Controls.Add(this.label17);
-            this.tabPageTRRaw.Controls.Add(this.label16);
-            this.tabPageTRRaw.Controls.Add(this.textBoxRawTimescale);
-            this.tabPageTRRaw.Controls.Add(this.labeltime1);
-            this.tabPageTRRaw.Controls.Add(this.textBoxRawBackoff);
-            this.tabPageTRRaw.Controls.Add(this.textBoxRawDVR);
-            this.tabPageTRRaw.Controls.Add(this.textBoxRawEnd);
-            this.tabPageTRRaw.Controls.Add(this.textBoxRawStart);
-            this.tabPageTRRaw.Controls.Add(this.labeltime5);
-            this.tabPageTRRaw.Controls.Add(this.labeltime4);
-            this.tabPageTRRaw.Controls.Add(this.labeltime3);
-            this.tabPageTRRaw.Controls.Add(this.labeltime2);
-            this.errorProvider1.SetError(this.tabPageTRRaw, resources.GetString("tabPageTRRaw.Error"));
-            this.errorProvider1.SetIconAlignment(this.tabPageTRRaw, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("tabPageTRRaw.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.tabPageTRRaw, ((int)(resources.GetObject("tabPageTRRaw.IconPadding"))));
-            this.tabPageTRRaw.Name = "tabPageTRRaw";
-            this.toolTip1.SetToolTip(this.tabPageTRRaw, resources.GetString("tabPageTRRaw.ToolTip"));
-            this.tabPageTRRaw.UseVisualStyleBackColor = true;
+            tabPageTRRaw.Controls.Add(checkBoxForValueLiveRaw);
+            tabPageTRRaw.Controls.Add(label21);
+            tabPageTRRaw.Controls.Add(label19);
+            tabPageTRRaw.Controls.Add(label18);
+            tabPageTRRaw.Controls.Add(label17);
+            tabPageTRRaw.Controls.Add(label16);
+            tabPageTRRaw.Controls.Add(textBoxRawTimescale);
+            tabPageTRRaw.Controls.Add(labeltime1);
+            tabPageTRRaw.Controls.Add(textBoxRawBackoff);
+            tabPageTRRaw.Controls.Add(textBoxRawDVR);
+            tabPageTRRaw.Controls.Add(textBoxRawEnd);
+            tabPageTRRaw.Controls.Add(textBoxRawStart);
+            tabPageTRRaw.Controls.Add(labeltime5);
+            tabPageTRRaw.Controls.Add(labeltime4);
+            tabPageTRRaw.Controls.Add(labeltime3);
+            tabPageTRRaw.Controls.Add(labeltime2);
+            resources.ApplyResources(tabPageTRRaw, "tabPageTRRaw");
+            tabPageTRRaw.Name = "tabPageTRRaw";
+            tabPageTRRaw.UseVisualStyleBackColor = true;
             // 
             // checkBoxForValueLiveRaw
             // 
-            resources.ApplyResources(this.checkBoxForValueLiveRaw, "checkBoxForValueLiveRaw");
-            this.errorProvider1.SetError(this.checkBoxForValueLiveRaw, resources.GetString("checkBoxForValueLiveRaw.Error"));
-            this.errorProvider1.SetIconAlignment(this.checkBoxForValueLiveRaw, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("checkBoxForValueLiveRaw.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.checkBoxForValueLiveRaw, ((int)(resources.GetObject("checkBoxForValueLiveRaw.IconPadding"))));
-            this.checkBoxForValueLiveRaw.Name = "checkBoxForValueLiveRaw";
-            this.toolTip1.SetToolTip(this.checkBoxForValueLiveRaw, resources.GetString("checkBoxForValueLiveRaw.ToolTip"));
-            this.checkBoxForValueLiveRaw.UseVisualStyleBackColor = true;
+            resources.ApplyResources(checkBoxForValueLiveRaw, "checkBoxForValueLiveRaw");
+            checkBoxForValueLiveRaw.Name = "checkBoxForValueLiveRaw";
+            checkBoxForValueLiveRaw.UseVisualStyleBackColor = true;
             // 
             // label21
             // 
-            resources.ApplyResources(this.label21, "label21");
-            this.errorProvider1.SetError(this.label21, resources.GetString("label21.Error"));
-            this.label21.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label21, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label21.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label21, ((int)(resources.GetObject("label21.IconPadding"))));
-            this.label21.Name = "label21";
-            this.toolTip1.SetToolTip(this.label21, resources.GetString("label21.ToolTip"));
+            label21.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            resources.ApplyResources(label21, "label21");
+            label21.Name = "label21";
             // 
             // label19
             // 
-            resources.ApplyResources(this.label19, "label19");
-            this.errorProvider1.SetError(this.label19, resources.GetString("label19.Error"));
-            this.label19.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label19, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label19.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label19, ((int)(resources.GetObject("label19.IconPadding"))));
-            this.label19.Name = "label19";
-            this.toolTip1.SetToolTip(this.label19, resources.GetString("label19.ToolTip"));
+            label19.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            resources.ApplyResources(label19, "label19");
+            label19.Name = "label19";
             // 
             // label18
             // 
-            resources.ApplyResources(this.label18, "label18");
-            this.errorProvider1.SetError(this.label18, resources.GetString("label18.Error"));
-            this.label18.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label18, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label18.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label18, ((int)(resources.GetObject("label18.IconPadding"))));
-            this.label18.Name = "label18";
-            this.toolTip1.SetToolTip(this.label18, resources.GetString("label18.ToolTip"));
+            label18.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            resources.ApplyResources(label18, "label18");
+            label18.Name = "label18";
             // 
             // label17
             // 
-            resources.ApplyResources(this.label17, "label17");
-            this.errorProvider1.SetError(this.label17, resources.GetString("label17.Error"));
-            this.label17.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label17, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label17.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label17, ((int)(resources.GetObject("label17.IconPadding"))));
-            this.label17.Name = "label17";
-            this.toolTip1.SetToolTip(this.label17, resources.GetString("label17.ToolTip"));
+            label17.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            resources.ApplyResources(label17, "label17");
+            label17.Name = "label17";
             // 
             // label16
             // 
-            resources.ApplyResources(this.label16, "label16");
-            this.errorProvider1.SetError(this.label16, resources.GetString("label16.Error"));
-            this.label16.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label16, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label16.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label16, ((int)(resources.GetObject("label16.IconPadding"))));
-            this.label16.Name = "label16";
-            this.toolTip1.SetToolTip(this.label16, resources.GetString("label16.ToolTip"));
+            label16.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            resources.ApplyResources(label16, "label16");
+            label16.Name = "label16";
             // 
             // textBoxRawTimescale
             // 
-            resources.ApplyResources(this.textBoxRawTimescale, "textBoxRawTimescale");
-            this.errorProvider1.SetError(this.textBoxRawTimescale, resources.GetString("textBoxRawTimescale.Error"));
-            this.errorProvider1.SetIconAlignment(this.textBoxRawTimescale, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("textBoxRawTimescale.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.textBoxRawTimescale, ((int)(resources.GetObject("textBoxRawTimescale.IconPadding"))));
-            this.textBoxRawTimescale.Name = "textBoxRawTimescale";
-            this.toolTip1.SetToolTip(this.textBoxRawTimescale, resources.GetString("textBoxRawTimescale.ToolTip"));
-            this.textBoxRawTimescale.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxRawulong_Validating);
+            resources.ApplyResources(textBoxRawTimescale, "textBoxRawTimescale");
+            textBoxRawTimescale.Name = "textBoxRawTimescale";
+            textBoxRawTimescale.Validating += textBoxRawulong_Validating;
             // 
             // labeltime1
             // 
-            resources.ApplyResources(this.labeltime1, "labeltime1");
-            this.errorProvider1.SetError(this.labeltime1, resources.GetString("labeltime1.Error"));
-            this.errorProvider1.SetIconAlignment(this.labeltime1, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("labeltime1.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.labeltime1, ((int)(resources.GetObject("labeltime1.IconPadding"))));
-            this.labeltime1.Name = "labeltime1";
-            this.toolTip1.SetToolTip(this.labeltime1, resources.GetString("labeltime1.ToolTip"));
+            resources.ApplyResources(labeltime1, "labeltime1");
+            labeltime1.Name = "labeltime1";
             // 
             // textBoxRawBackoff
             // 
-            resources.ApplyResources(this.textBoxRawBackoff, "textBoxRawBackoff");
-            this.errorProvider1.SetError(this.textBoxRawBackoff, resources.GetString("textBoxRawBackoff.Error"));
-            this.errorProvider1.SetIconAlignment(this.textBoxRawBackoff, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("textBoxRawBackoff.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.textBoxRawBackoff, ((int)(resources.GetObject("textBoxRawBackoff.IconPadding"))));
-            this.textBoxRawBackoff.Name = "textBoxRawBackoff";
-            this.toolTip1.SetToolTip(this.textBoxRawBackoff, resources.GetString("textBoxRawBackoff.ToolTip"));
-            this.textBoxRawBackoff.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxRawTimeSpan_Validating);
+            resources.ApplyResources(textBoxRawBackoff, "textBoxRawBackoff");
+            textBoxRawBackoff.Name = "textBoxRawBackoff";
+            textBoxRawBackoff.Validating += textBoxRawTimeSpan_Validating;
             // 
             // textBoxRawDVR
             // 
-            resources.ApplyResources(this.textBoxRawDVR, "textBoxRawDVR");
-            this.errorProvider1.SetError(this.textBoxRawDVR, resources.GetString("textBoxRawDVR.Error"));
-            this.errorProvider1.SetIconAlignment(this.textBoxRawDVR, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("textBoxRawDVR.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.textBoxRawDVR, ((int)(resources.GetObject("textBoxRawDVR.IconPadding"))));
-            this.textBoxRawDVR.Name = "textBoxRawDVR";
-            this.toolTip1.SetToolTip(this.textBoxRawDVR, resources.GetString("textBoxRawDVR.ToolTip"));
-            this.textBoxRawDVR.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxRawTimeSpan_Validating);
+            resources.ApplyResources(textBoxRawDVR, "textBoxRawDVR");
+            textBoxRawDVR.Name = "textBoxRawDVR";
+            textBoxRawDVR.Validating += textBoxRawTimeSpan_Validating;
             // 
             // textBoxRawEnd
             // 
-            resources.ApplyResources(this.textBoxRawEnd, "textBoxRawEnd");
-            this.errorProvider1.SetError(this.textBoxRawEnd, resources.GetString("textBoxRawEnd.Error"));
-            this.errorProvider1.SetIconAlignment(this.textBoxRawEnd, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("textBoxRawEnd.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.textBoxRawEnd, ((int)(resources.GetObject("textBoxRawEnd.IconPadding"))));
-            this.textBoxRawEnd.Name = "textBoxRawEnd";
-            this.toolTip1.SetToolTip(this.textBoxRawEnd, resources.GetString("textBoxRawEnd.ToolTip"));
-            this.textBoxRawEnd.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxRawulong_Validating);
+            resources.ApplyResources(textBoxRawEnd, "textBoxRawEnd");
+            textBoxRawEnd.Name = "textBoxRawEnd";
+            textBoxRawEnd.Validating += textBoxRawulong_Validating;
             // 
             // textBoxRawStart
             // 
-            resources.ApplyResources(this.textBoxRawStart, "textBoxRawStart");
-            this.errorProvider1.SetError(this.textBoxRawStart, resources.GetString("textBoxRawStart.Error"));
-            this.errorProvider1.SetIconAlignment(this.textBoxRawStart, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("textBoxRawStart.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.textBoxRawStart, ((int)(resources.GetObject("textBoxRawStart.IconPadding"))));
-            this.textBoxRawStart.Name = "textBoxRawStart";
-            this.toolTip1.SetToolTip(this.textBoxRawStart, resources.GetString("textBoxRawStart.ToolTip"));
-            this.textBoxRawStart.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxRawulong_Validating);
+            resources.ApplyResources(textBoxRawStart, "textBoxRawStart");
+            textBoxRawStart.Name = "textBoxRawStart";
+            textBoxRawStart.Validating += textBoxRawulong_Validating;
             // 
             // labeltime5
             // 
-            resources.ApplyResources(this.labeltime5, "labeltime5");
-            this.errorProvider1.SetError(this.labeltime5, resources.GetString("labeltime5.Error"));
-            this.errorProvider1.SetIconAlignment(this.labeltime5, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("labeltime5.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.labeltime5, ((int)(resources.GetObject("labeltime5.IconPadding"))));
-            this.labeltime5.Name = "labeltime5";
-            this.toolTip1.SetToolTip(this.labeltime5, resources.GetString("labeltime5.ToolTip"));
+            resources.ApplyResources(labeltime5, "labeltime5");
+            labeltime5.Name = "labeltime5";
             // 
             // labeltime4
             // 
-            resources.ApplyResources(this.labeltime4, "labeltime4");
-            this.errorProvider1.SetError(this.labeltime4, resources.GetString("labeltime4.Error"));
-            this.errorProvider1.SetIconAlignment(this.labeltime4, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("labeltime4.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.labeltime4, ((int)(resources.GetObject("labeltime4.IconPadding"))));
-            this.labeltime4.Name = "labeltime4";
-            this.toolTip1.SetToolTip(this.labeltime4, resources.GetString("labeltime4.ToolTip"));
+            resources.ApplyResources(labeltime4, "labeltime4");
+            labeltime4.Name = "labeltime4";
             // 
             // labeltime3
             // 
-            resources.ApplyResources(this.labeltime3, "labeltime3");
-            this.errorProvider1.SetError(this.labeltime3, resources.GetString("labeltime3.Error"));
-            this.errorProvider1.SetIconAlignment(this.labeltime3, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("labeltime3.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.labeltime3, ((int)(resources.GetObject("labeltime3.IconPadding"))));
-            this.labeltime3.Name = "labeltime3";
-            this.toolTip1.SetToolTip(this.labeltime3, resources.GetString("labeltime3.ToolTip"));
+            resources.ApplyResources(labeltime3, "labeltime3");
+            labeltime3.Name = "labeltime3";
             // 
             // labeltime2
             // 
-            resources.ApplyResources(this.labeltime2, "labeltime2");
-            this.errorProvider1.SetError(this.labeltime2, resources.GetString("labeltime2.Error"));
-            this.errorProvider1.SetIconAlignment(this.labeltime2, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("labeltime2.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.labeltime2, ((int)(resources.GetObject("labeltime2.IconPadding"))));
-            this.labeltime2.Name = "labeltime2";
-            this.toolTip1.SetToolTip(this.labeltime2, resources.GetString("labeltime2.ToolTip"));
+            resources.ApplyResources(labeltime2, "labeltime2");
+            labeltime2.Name = "labeltime2";
             // 
             // tabPageTF
             // 
-            resources.ApplyResources(this.tabPageTF, "tabPageTF");
-            this.tabPageTF.Controls.Add(this.numericUpDownFirstQualityBitrate);
-            this.tabPageTF.Controls.Add(this.checkBoxFirstQualityBitrate);
-            this.tabPageTF.Controls.Add(this.label40);
-            this.tabPageTF.Controls.Add(this.comboBoxLocatorsFilters);
-            this.tabPageTF.Controls.Add(this.pictureBox4);
-            this.tabPageTF.Controls.Add(this.tableLayoutPanel1);
-            this.tabPageTF.Controls.Add(this.label6);
-            this.tabPageTF.Controls.Add(this.label1);
-            this.tabPageTF.Controls.Add(this.buttonDeleteCondition);
-            this.tabPageTF.Controls.Add(this.buttonDeleteTrack);
-            this.tabPageTF.Controls.Add(this.buttonAddCondition);
-            this.tabPageTF.Controls.Add(this.buttonAddTrack);
-            this.tabPageTF.Controls.Add(this.listBoxTracks);
-            this.tabPageTF.Controls.Add(this.dataGridViewTracks);
-            this.tabPageTF.Controls.Add(this.buttonInsertSample);
-            this.errorProvider1.SetError(this.tabPageTF, resources.GetString("tabPageTF.Error"));
-            this.errorProvider1.SetIconAlignment(this.tabPageTF, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("tabPageTF.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.tabPageTF, ((int)(resources.GetObject("tabPageTF.IconPadding"))));
-            this.tabPageTF.Name = "tabPageTF";
-            this.toolTip1.SetToolTip(this.tabPageTF, resources.GetString("tabPageTF.ToolTip"));
-            this.tabPageTF.UseVisualStyleBackColor = true;
+            tabPageTF.Controls.Add(numericUpDownFirstQualityBitrate);
+            tabPageTF.Controls.Add(checkBoxFirstQualityBitrate);
+            tabPageTF.Controls.Add(label40);
+            tabPageTF.Controls.Add(comboBoxLocatorsFilters);
+            tabPageTF.Controls.Add(pictureBox4);
+            tabPageTF.Controls.Add(tableLayoutPanel1);
+            tabPageTF.Controls.Add(label6);
+            tabPageTF.Controls.Add(label1);
+            tabPageTF.Controls.Add(buttonDeleteCondition);
+            tabPageTF.Controls.Add(buttonDeleteTrack);
+            tabPageTF.Controls.Add(buttonAddCondition);
+            tabPageTF.Controls.Add(buttonAddTrack);
+            tabPageTF.Controls.Add(listBoxTracks);
+            tabPageTF.Controls.Add(dataGridViewTracks);
+            tabPageTF.Controls.Add(buttonInsertSample);
+            resources.ApplyResources(tabPageTF, "tabPageTF");
+            tabPageTF.Name = "tabPageTF";
+            tabPageTF.UseVisualStyleBackColor = true;
             // 
             // numericUpDownFirstQualityBitrate
             // 
-            resources.ApplyResources(this.numericUpDownFirstQualityBitrate, "numericUpDownFirstQualityBitrate");
-            this.errorProvider1.SetError(this.numericUpDownFirstQualityBitrate, resources.GetString("numericUpDownFirstQualityBitrate.Error"));
-            this.errorProvider1.SetIconAlignment(this.numericUpDownFirstQualityBitrate, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("numericUpDownFirstQualityBitrate.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.numericUpDownFirstQualityBitrate, ((int)(resources.GetObject("numericUpDownFirstQualityBitrate.IconPadding"))));
-            this.numericUpDownFirstQualityBitrate.Maximum = new decimal(new int[] {
-            100000000,
-            0,
-            0,
-            0});
-            this.numericUpDownFirstQualityBitrate.Name = "numericUpDownFirstQualityBitrate";
-            this.toolTip1.SetToolTip(this.numericUpDownFirstQualityBitrate, resources.GetString("numericUpDownFirstQualityBitrate.ToolTip"));
+            resources.ApplyResources(numericUpDownFirstQualityBitrate, "numericUpDownFirstQualityBitrate");
+            numericUpDownFirstQualityBitrate.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
+            numericUpDownFirstQualityBitrate.Name = "numericUpDownFirstQualityBitrate";
             // 
             // checkBoxFirstQualityBitrate
             // 
-            resources.ApplyResources(this.checkBoxFirstQualityBitrate, "checkBoxFirstQualityBitrate");
-            this.errorProvider1.SetError(this.checkBoxFirstQualityBitrate, resources.GetString("checkBoxFirstQualityBitrate.Error"));
-            this.errorProvider1.SetIconAlignment(this.checkBoxFirstQualityBitrate, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("checkBoxFirstQualityBitrate.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.checkBoxFirstQualityBitrate, ((int)(resources.GetObject("checkBoxFirstQualityBitrate.IconPadding"))));
-            this.checkBoxFirstQualityBitrate.Name = "checkBoxFirstQualityBitrate";
-            this.toolTip1.SetToolTip(this.checkBoxFirstQualityBitrate, resources.GetString("checkBoxFirstQualityBitrate.ToolTip"));
-            this.checkBoxFirstQualityBitrate.UseVisualStyleBackColor = true;
-            this.checkBoxFirstQualityBitrate.CheckedChanged += new System.EventHandler(this.checkBoxFirstQualityBitrate_CheckedChanged);
+            resources.ApplyResources(checkBoxFirstQualityBitrate, "checkBoxFirstQualityBitrate");
+            checkBoxFirstQualityBitrate.Name = "checkBoxFirstQualityBitrate";
+            checkBoxFirstQualityBitrate.UseVisualStyleBackColor = true;
+            checkBoxFirstQualityBitrate.CheckedChanged += checkBoxFirstQualityBitrate_CheckedChanged;
             // 
             // label40
             // 
-            resources.ApplyResources(this.label40, "label40");
-            this.errorProvider1.SetError(this.label40, resources.GetString("label40.Error"));
-            this.label40.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label40, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label40.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label40, ((int)(resources.GetObject("label40.IconPadding"))));
-            this.label40.Name = "label40";
-            this.toolTip1.SetToolTip(this.label40, resources.GetString("label40.ToolTip"));
+            resources.ApplyResources(label40, "label40");
+            label40.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label40.Name = "label40";
             // 
             // comboBoxLocatorsFilters
             // 
-            resources.ApplyResources(this.comboBoxLocatorsFilters, "comboBoxLocatorsFilters");
-            this.comboBoxLocatorsFilters.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.errorProvider1.SetError(this.comboBoxLocatorsFilters, resources.GetString("comboBoxLocatorsFilters.Error"));
-            this.comboBoxLocatorsFilters.FormattingEnabled = true;
-            this.errorProvider1.SetIconAlignment(this.comboBoxLocatorsFilters, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("comboBoxLocatorsFilters.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.comboBoxLocatorsFilters, ((int)(resources.GetObject("comboBoxLocatorsFilters.IconPadding"))));
-            this.comboBoxLocatorsFilters.Name = "comboBoxLocatorsFilters";
-            this.toolTip1.SetToolTip(this.comboBoxLocatorsFilters, resources.GetString("comboBoxLocatorsFilters.ToolTip"));
-            this.comboBoxLocatorsFilters.SelectedIndexChanged += new System.EventHandler(this.comboBoxLocatorsFilters_SelectedIndexChanged);
+            resources.ApplyResources(comboBoxLocatorsFilters, "comboBoxLocatorsFilters");
+            comboBoxLocatorsFilters.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            comboBoxLocatorsFilters.FormattingEnabled = true;
+            comboBoxLocatorsFilters.Name = "comboBoxLocatorsFilters";
+            comboBoxLocatorsFilters.SelectedIndexChanged += comboBoxLocatorsFilters_SelectedIndexChanged;
             // 
             // pictureBox4
             // 
-            resources.ApplyResources(this.pictureBox4, "pictureBox4");
-            this.errorProvider1.SetError(this.pictureBox4, resources.GetString("pictureBox4.Error"));
-            this.errorProvider1.SetIconAlignment(this.pictureBox4, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("pictureBox4.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.pictureBox4, ((int)(resources.GetObject("pictureBox4.IconPadding"))));
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox4, resources.GetString("pictureBox4.ToolTip"));
+            resources.ApplyResources(pictureBox4, "pictureBox4");
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.TabStop = false;
             // 
             // tableLayoutPanel1
             // 
-            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
-            this.tableLayoutPanel1.Controls.Add(this.label10, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label11, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label12, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label14, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label15, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label20, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label23, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label24, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label25, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label26, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label27, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label22, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label29, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label30, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label31, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label32, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label33, 2, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label34, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label35, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label36, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label37, 3, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label38, 3, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label13, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label28, 0, 5);
-            this.errorProvider1.SetError(this.tableLayoutPanel1, resources.GetString("tableLayoutPanel1.Error"));
-            this.errorProvider1.SetIconAlignment(this.tableLayoutPanel1, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("tableLayoutPanel1.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.tableLayoutPanel1, ((int)(resources.GetObject("tableLayoutPanel1.IconPadding"))));
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.toolTip1.SetToolTip(this.tableLayoutPanel1, resources.GetString("tableLayoutPanel1.ToolTip"));
-            this.tableLayoutPanel1.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel1_CellPaint);
+            resources.ApplyResources(tableLayoutPanel1, "tableLayoutPanel1");
+            tableLayoutPanel1.Controls.Add(label10, 0, 0);
+            tableLayoutPanel1.Controls.Add(label11, 1, 0);
+            tableLayoutPanel1.Controls.Add(label12, 2, 0);
+            tableLayoutPanel1.Controls.Add(label14, 0, 2);
+            tableLayoutPanel1.Controls.Add(label15, 0, 3);
+            tableLayoutPanel1.Controls.Add(label20, 0, 4);
+            tableLayoutPanel1.Controls.Add(label23, 3, 0);
+            tableLayoutPanel1.Controls.Add(label24, 1, 1);
+            tableLayoutPanel1.Controls.Add(label25, 1, 2);
+            tableLayoutPanel1.Controls.Add(label26, 1, 3);
+            tableLayoutPanel1.Controls.Add(label27, 1, 4);
+            tableLayoutPanel1.Controls.Add(label22, 1, 5);
+            tableLayoutPanel1.Controls.Add(label29, 2, 1);
+            tableLayoutPanel1.Controls.Add(label30, 2, 2);
+            tableLayoutPanel1.Controls.Add(label31, 2, 3);
+            tableLayoutPanel1.Controls.Add(label32, 2, 4);
+            tableLayoutPanel1.Controls.Add(label33, 2, 5);
+            tableLayoutPanel1.Controls.Add(label34, 3, 1);
+            tableLayoutPanel1.Controls.Add(label35, 3, 2);
+            tableLayoutPanel1.Controls.Add(label36, 3, 3);
+            tableLayoutPanel1.Controls.Add(label37, 3, 4);
+            tableLayoutPanel1.Controls.Add(label38, 3, 5);
+            tableLayoutPanel1.Controls.Add(label13, 0, 1);
+            tableLayoutPanel1.Controls.Add(label28, 0, 5);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.CellPaint += tableLayoutPanel1_CellPaint;
             // 
             // label10
             // 
-            resources.ApplyResources(this.label10, "label10");
-            this.errorProvider1.SetError(this.label10, resources.GetString("label10.Error"));
-            this.label10.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label10, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label10.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label10, ((int)(resources.GetObject("label10.IconPadding"))));
-            this.label10.Name = "label10";
-            this.toolTip1.SetToolTip(this.label10, resources.GetString("label10.ToolTip"));
+            resources.ApplyResources(label10, "label10");
+            label10.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label10.Name = "label10";
             // 
             // label11
             // 
-            resources.ApplyResources(this.label11, "label11");
-            this.errorProvider1.SetError(this.label11, resources.GetString("label11.Error"));
-            this.label11.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label11, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label11.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label11, ((int)(resources.GetObject("label11.IconPadding"))));
-            this.label11.Name = "label11";
-            this.toolTip1.SetToolTip(this.label11, resources.GetString("label11.ToolTip"));
+            resources.ApplyResources(label11, "label11");
+            label11.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label11.Name = "label11";
             // 
             // label12
             // 
-            resources.ApplyResources(this.label12, "label12");
-            this.errorProvider1.SetError(this.label12, resources.GetString("label12.Error"));
-            this.label12.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label12, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label12.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label12, ((int)(resources.GetObject("label12.IconPadding"))));
-            this.label12.Name = "label12";
-            this.toolTip1.SetToolTip(this.label12, resources.GetString("label12.ToolTip"));
+            resources.ApplyResources(label12, "label12");
+            label12.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label12.Name = "label12";
             // 
             // label14
             // 
-            resources.ApplyResources(this.label14, "label14");
-            this.errorProvider1.SetError(this.label14, resources.GetString("label14.Error"));
-            this.label14.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label14, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label14.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label14, ((int)(resources.GetObject("label14.IconPadding"))));
-            this.label14.Name = "label14";
-            this.toolTip1.SetToolTip(this.label14, resources.GetString("label14.ToolTip"));
+            resources.ApplyResources(label14, "label14");
+            label14.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label14.Name = "label14";
             // 
             // label15
             // 
-            resources.ApplyResources(this.label15, "label15");
-            this.errorProvider1.SetError(this.label15, resources.GetString("label15.Error"));
-            this.label15.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label15, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label15.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label15, ((int)(resources.GetObject("label15.IconPadding"))));
-            this.label15.Name = "label15";
-            this.toolTip1.SetToolTip(this.label15, resources.GetString("label15.ToolTip"));
+            resources.ApplyResources(label15, "label15");
+            label15.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label15.Name = "label15";
             // 
             // label20
             // 
-            resources.ApplyResources(this.label20, "label20");
-            this.errorProvider1.SetError(this.label20, resources.GetString("label20.Error"));
-            this.label20.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label20, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label20.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label20, ((int)(resources.GetObject("label20.IconPadding"))));
-            this.label20.Name = "label20";
-            this.toolTip1.SetToolTip(this.label20, resources.GetString("label20.ToolTip"));
+            resources.ApplyResources(label20, "label20");
+            label20.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label20.Name = "label20";
             // 
             // label23
             // 
-            resources.ApplyResources(this.label23, "label23");
-            this.errorProvider1.SetError(this.label23, resources.GetString("label23.Error"));
-            this.label23.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label23, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label23.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label23, ((int)(resources.GetObject("label23.IconPadding"))));
-            this.label23.Name = "label23";
-            this.toolTip1.SetToolTip(this.label23, resources.GetString("label23.ToolTip"));
+            resources.ApplyResources(label23, "label23");
+            label23.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label23.Name = "label23";
             // 
             // label24
             // 
-            resources.ApplyResources(this.label24, "label24");
-            this.errorProvider1.SetError(this.label24, resources.GetString("label24.Error"));
-            this.label24.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label24, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label24.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label24, ((int)(resources.GetObject("label24.IconPadding"))));
-            this.label24.Name = "label24";
-            this.toolTip1.SetToolTip(this.label24, resources.GetString("label24.ToolTip"));
+            resources.ApplyResources(label24, "label24");
+            label24.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label24.Name = "label24";
             // 
             // label25
             // 
-            resources.ApplyResources(this.label25, "label25");
-            this.errorProvider1.SetError(this.label25, resources.GetString("label25.Error"));
-            this.label25.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label25, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label25.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label25, ((int)(resources.GetObject("label25.IconPadding"))));
-            this.label25.Name = "label25";
-            this.toolTip1.SetToolTip(this.label25, resources.GetString("label25.ToolTip"));
+            resources.ApplyResources(label25, "label25");
+            label25.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label25.Name = "label25";
             // 
             // label26
             // 
-            resources.ApplyResources(this.label26, "label26");
-            this.errorProvider1.SetError(this.label26, resources.GetString("label26.Error"));
-            this.label26.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label26, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label26.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label26, ((int)(resources.GetObject("label26.IconPadding"))));
-            this.label26.Name = "label26";
-            this.toolTip1.SetToolTip(this.label26, resources.GetString("label26.ToolTip"));
+            resources.ApplyResources(label26, "label26");
+            label26.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label26.Name = "label26";
             // 
             // label27
             // 
-            resources.ApplyResources(this.label27, "label27");
-            this.errorProvider1.SetError(this.label27, resources.GetString("label27.Error"));
-            this.label27.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label27, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label27.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label27, ((int)(resources.GetObject("label27.IconPadding"))));
-            this.label27.Name = "label27";
-            this.toolTip1.SetToolTip(this.label27, resources.GetString("label27.ToolTip"));
+            resources.ApplyResources(label27, "label27");
+            label27.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label27.Name = "label27";
             // 
             // label22
             // 
-            resources.ApplyResources(this.label22, "label22");
-            this.errorProvider1.SetError(this.label22, resources.GetString("label22.Error"));
-            this.label22.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label22, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label22.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label22, ((int)(resources.GetObject("label22.IconPadding"))));
-            this.label22.Name = "label22";
-            this.toolTip1.SetToolTip(this.label22, resources.GetString("label22.ToolTip"));
+            resources.ApplyResources(label22, "label22");
+            label22.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label22.Name = "label22";
             // 
             // label29
             // 
-            resources.ApplyResources(this.label29, "label29");
-            this.errorProvider1.SetError(this.label29, resources.GetString("label29.Error"));
-            this.label29.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label29, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label29.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label29, ((int)(resources.GetObject("label29.IconPadding"))));
-            this.label29.Name = "label29";
-            this.toolTip1.SetToolTip(this.label29, resources.GetString("label29.ToolTip"));
+            resources.ApplyResources(label29, "label29");
+            label29.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label29.Name = "label29";
             // 
             // label30
             // 
-            resources.ApplyResources(this.label30, "label30");
-            this.errorProvider1.SetError(this.label30, resources.GetString("label30.Error"));
-            this.label30.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label30, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label30.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label30, ((int)(resources.GetObject("label30.IconPadding"))));
-            this.label30.Name = "label30";
-            this.toolTip1.SetToolTip(this.label30, resources.GetString("label30.ToolTip"));
+            resources.ApplyResources(label30, "label30");
+            label30.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label30.Name = "label30";
             // 
             // label31
             // 
-            resources.ApplyResources(this.label31, "label31");
-            this.errorProvider1.SetError(this.label31, resources.GetString("label31.Error"));
-            this.label31.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label31, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label31.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label31, ((int)(resources.GetObject("label31.IconPadding"))));
-            this.label31.Name = "label31";
-            this.toolTip1.SetToolTip(this.label31, resources.GetString("label31.ToolTip"));
+            resources.ApplyResources(label31, "label31");
+            label31.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label31.Name = "label31";
             // 
             // label32
             // 
-            resources.ApplyResources(this.label32, "label32");
-            this.errorProvider1.SetError(this.label32, resources.GetString("label32.Error"));
-            this.label32.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label32, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label32.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label32, ((int)(resources.GetObject("label32.IconPadding"))));
-            this.label32.Name = "label32";
-            this.toolTip1.SetToolTip(this.label32, resources.GetString("label32.ToolTip"));
+            resources.ApplyResources(label32, "label32");
+            label32.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label32.Name = "label32";
             // 
             // label33
             // 
-            resources.ApplyResources(this.label33, "label33");
-            this.errorProvider1.SetError(this.label33, resources.GetString("label33.Error"));
-            this.label33.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label33, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label33.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label33, ((int)(resources.GetObject("label33.IconPadding"))));
-            this.label33.Name = "label33";
-            this.toolTip1.SetToolTip(this.label33, resources.GetString("label33.ToolTip"));
+            resources.ApplyResources(label33, "label33");
+            label33.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label33.Name = "label33";
             // 
             // label34
             // 
-            resources.ApplyResources(this.label34, "label34");
-            this.errorProvider1.SetError(this.label34, resources.GetString("label34.Error"));
-            this.label34.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label34, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label34.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label34, ((int)(resources.GetObject("label34.IconPadding"))));
-            this.label34.Name = "label34";
-            this.toolTip1.SetToolTip(this.label34, resources.GetString("label34.ToolTip"));
+            resources.ApplyResources(label34, "label34");
+            label34.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label34.Name = "label34";
             // 
             // label35
             // 
-            resources.ApplyResources(this.label35, "label35");
-            this.errorProvider1.SetError(this.label35, resources.GetString("label35.Error"));
-            this.label35.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label35, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label35.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label35, ((int)(resources.GetObject("label35.IconPadding"))));
-            this.label35.Name = "label35";
-            this.toolTip1.SetToolTip(this.label35, resources.GetString("label35.ToolTip"));
+            resources.ApplyResources(label35, "label35");
+            label35.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label35.Name = "label35";
             // 
             // label36
             // 
-            resources.ApplyResources(this.label36, "label36");
-            this.errorProvider1.SetError(this.label36, resources.GetString("label36.Error"));
-            this.label36.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label36, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label36.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label36, ((int)(resources.GetObject("label36.IconPadding"))));
-            this.label36.Name = "label36";
-            this.toolTip1.SetToolTip(this.label36, resources.GetString("label36.ToolTip"));
+            resources.ApplyResources(label36, "label36");
+            label36.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label36.Name = "label36";
             // 
             // label37
             // 
-            resources.ApplyResources(this.label37, "label37");
-            this.errorProvider1.SetError(this.label37, resources.GetString("label37.Error"));
-            this.label37.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label37, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label37.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label37, ((int)(resources.GetObject("label37.IconPadding"))));
-            this.label37.Name = "label37";
-            this.toolTip1.SetToolTip(this.label37, resources.GetString("label37.ToolTip"));
+            resources.ApplyResources(label37, "label37");
+            label37.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label37.Name = "label37";
             // 
             // label38
             // 
-            resources.ApplyResources(this.label38, "label38");
-            this.errorProvider1.SetError(this.label38, resources.GetString("label38.Error"));
-            this.label38.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label38, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label38.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label38, ((int)(resources.GetObject("label38.IconPadding"))));
-            this.label38.Name = "label38";
-            this.toolTip1.SetToolTip(this.label38, resources.GetString("label38.ToolTip"));
+            resources.ApplyResources(label38, "label38");
+            label38.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label38.Name = "label38";
             // 
             // label13
             // 
-            resources.ApplyResources(this.label13, "label13");
-            this.errorProvider1.SetError(this.label13, resources.GetString("label13.Error"));
-            this.label13.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label13, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label13.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label13, ((int)(resources.GetObject("label13.IconPadding"))));
-            this.label13.Name = "label13";
-            this.toolTip1.SetToolTip(this.label13, resources.GetString("label13.ToolTip"));
+            resources.ApplyResources(label13, "label13");
+            label13.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label13.Name = "label13";
             // 
             // label28
             // 
-            resources.ApplyResources(this.label28, "label28");
-            this.errorProvider1.SetError(this.label28, resources.GetString("label28.Error"));
-            this.label28.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.errorProvider1.SetIconAlignment(this.label28, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label28.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label28, ((int)(resources.GetObject("label28.IconPadding"))));
-            this.label28.Name = "label28";
-            this.toolTip1.SetToolTip(this.label28, resources.GetString("label28.ToolTip"));
+            resources.ApplyResources(label28, "label28");
+            label28.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            label28.Name = "label28";
             // 
             // label6
             // 
-            resources.ApplyResources(this.label6, "label6");
-            this.errorProvider1.SetError(this.label6, resources.GetString("label6.Error"));
-            this.errorProvider1.SetIconAlignment(this.label6, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label6.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label6, ((int)(resources.GetObject("label6.IconPadding"))));
-            this.label6.Name = "label6";
-            this.toolTip1.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
+            resources.ApplyResources(label6, "label6");
+            label6.Name = "label6";
             // 
             // label1
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.errorProvider1.SetError(this.label1, resources.GetString("label1.Error"));
-            this.errorProvider1.SetIconAlignment(this.label1, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label1.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label1, ((int)(resources.GetObject("label1.IconPadding"))));
-            this.label1.Name = "label1";
-            this.toolTip1.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
+            resources.ApplyResources(label1, "label1");
+            label1.Name = "label1";
             // 
             // buttonDeleteCondition
             // 
-            resources.ApplyResources(this.buttonDeleteCondition, "buttonDeleteCondition");
-            this.errorProvider1.SetError(this.buttonDeleteCondition, resources.GetString("buttonDeleteCondition.Error"));
-            this.errorProvider1.SetIconAlignment(this.buttonDeleteCondition, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("buttonDeleteCondition.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.buttonDeleteCondition, ((int)(resources.GetObject("buttonDeleteCondition.IconPadding"))));
-            this.buttonDeleteCondition.Name = "buttonDeleteCondition";
-            this.toolTip1.SetToolTip(this.buttonDeleteCondition, resources.GetString("buttonDeleteCondition.ToolTip"));
-            this.buttonDeleteCondition.UseVisualStyleBackColor = true;
-            this.buttonDeleteCondition.Click += new System.EventHandler(this.buttonDeleteCondition_Click);
+            resources.ApplyResources(buttonDeleteCondition, "buttonDeleteCondition");
+            buttonDeleteCondition.Name = "buttonDeleteCondition";
+            buttonDeleteCondition.UseVisualStyleBackColor = true;
+            buttonDeleteCondition.Click += buttonDeleteCondition_Click;
             // 
             // buttonDeleteTrack
             // 
-            resources.ApplyResources(this.buttonDeleteTrack, "buttonDeleteTrack");
-            this.errorProvider1.SetError(this.buttonDeleteTrack, resources.GetString("buttonDeleteTrack.Error"));
-            this.errorProvider1.SetIconAlignment(this.buttonDeleteTrack, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("buttonDeleteTrack.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.buttonDeleteTrack, ((int)(resources.GetObject("buttonDeleteTrack.IconPadding"))));
-            this.buttonDeleteTrack.Name = "buttonDeleteTrack";
-            this.toolTip1.SetToolTip(this.buttonDeleteTrack, resources.GetString("buttonDeleteTrack.ToolTip"));
-            this.buttonDeleteTrack.UseVisualStyleBackColor = true;
-            this.buttonDeleteTrack.Click += new System.EventHandler(this.buttonDeleteTrack_Click);
+            resources.ApplyResources(buttonDeleteTrack, "buttonDeleteTrack");
+            buttonDeleteTrack.Name = "buttonDeleteTrack";
+            buttonDeleteTrack.UseVisualStyleBackColor = true;
+            buttonDeleteTrack.Click += buttonDeleteTrack_Click;
             // 
             // buttonAddCondition
             // 
-            resources.ApplyResources(this.buttonAddCondition, "buttonAddCondition");
-            this.errorProvider1.SetError(this.buttonAddCondition, resources.GetString("buttonAddCondition.Error"));
-            this.errorProvider1.SetIconAlignment(this.buttonAddCondition, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("buttonAddCondition.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.buttonAddCondition, ((int)(resources.GetObject("buttonAddCondition.IconPadding"))));
-            this.buttonAddCondition.Name = "buttonAddCondition";
-            this.toolTip1.SetToolTip(this.buttonAddCondition, resources.GetString("buttonAddCondition.ToolTip"));
-            this.buttonAddCondition.UseVisualStyleBackColor = true;
-            this.buttonAddCondition.Click += new System.EventHandler(this.buttonAddCondition_Click);
+            resources.ApplyResources(buttonAddCondition, "buttonAddCondition");
+            buttonAddCondition.Name = "buttonAddCondition";
+            buttonAddCondition.UseVisualStyleBackColor = true;
+            buttonAddCondition.Click += buttonAddCondition_Click;
             // 
             // buttonAddTrack
             // 
-            resources.ApplyResources(this.buttonAddTrack, "buttonAddTrack");
-            this.errorProvider1.SetError(this.buttonAddTrack, resources.GetString("buttonAddTrack.Error"));
-            this.errorProvider1.SetIconAlignment(this.buttonAddTrack, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("buttonAddTrack.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.buttonAddTrack, ((int)(resources.GetObject("buttonAddTrack.IconPadding"))));
-            this.buttonAddTrack.Name = "buttonAddTrack";
-            this.toolTip1.SetToolTip(this.buttonAddTrack, resources.GetString("buttonAddTrack.ToolTip"));
-            this.buttonAddTrack.UseVisualStyleBackColor = true;
-            this.buttonAddTrack.Click += new System.EventHandler(this.buttonAddTrack_Click);
+            resources.ApplyResources(buttonAddTrack, "buttonAddTrack");
+            buttonAddTrack.Name = "buttonAddTrack";
+            buttonAddTrack.UseVisualStyleBackColor = true;
+            buttonAddTrack.Click += buttonAddTrack_Click;
             // 
             // listBoxTracks
             // 
-            resources.ApplyResources(this.listBoxTracks, "listBoxTracks");
-            this.errorProvider1.SetError(this.listBoxTracks, resources.GetString("listBoxTracks.Error"));
-            this.listBoxTracks.FormattingEnabled = true;
-            this.errorProvider1.SetIconAlignment(this.listBoxTracks, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("listBoxTracks.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.listBoxTracks, ((int)(resources.GetObject("listBoxTracks.IconPadding"))));
-            this.listBoxTracks.Name = "listBoxTracks";
-            this.toolTip1.SetToolTip(this.listBoxTracks, resources.GetString("listBoxTracks.ToolTip"));
-            this.listBoxTracks.SelectedIndexChanged += new System.EventHandler(this.listBoxTracks_SelectedIndexChanged);
+            resources.ApplyResources(listBoxTracks, "listBoxTracks");
+            listBoxTracks.FormattingEnabled = true;
+            listBoxTracks.Name = "listBoxTracks";
+            listBoxTracks.SelectedIndexChanged += listBoxTracks_SelectedIndexChanged;
             // 
             // dataGridViewTracks
             // 
-            resources.ApplyResources(this.dataGridViewTracks, "dataGridViewTracks");
-            this.dataGridViewTracks.AllowUserToAddRows = false;
-            this.dataGridViewTracks.AllowUserToDeleteRows = false;
-            this.dataGridViewTracks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridViewTracks.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridViewTracks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.errorProvider1.SetError(this.dataGridViewTracks, resources.GetString("dataGridViewTracks.Error"));
-            this.errorProvider1.SetIconAlignment(this.dataGridViewTracks, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("dataGridViewTracks.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.dataGridViewTracks, ((int)(resources.GetObject("dataGridViewTracks.IconPadding"))));
-            this.dataGridViewTracks.Name = "dataGridViewTracks";
-            this.dataGridViewTracks.RowHeadersVisible = false;
-            this.dataGridViewTracks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.toolTip1.SetToolTip(this.dataGridViewTracks, resources.GetString("dataGridViewTracks.ToolTip"));
-            this.dataGridViewTracks.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTracks_CellValueChanged);
-            this.dataGridViewTracks.CurrentCellDirtyStateChanged += new System.EventHandler(this.dataGridViewTracks_CurrentCellDirtyStateChanged);
+            dataGridViewTracks.AllowUserToAddRows = false;
+            dataGridViewTracks.AllowUserToDeleteRows = false;
+            resources.ApplyResources(dataGridViewTracks, "dataGridViewTracks");
+            dataGridViewTracks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewTracks.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewTracks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewTracks.Name = "dataGridViewTracks";
+            dataGridViewTracks.RowHeadersVisible = false;
+            dataGridViewTracks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewTracks.CellValueChanged += dataGridViewTracks_CellValueChanged;
+            dataGridViewTracks.CurrentCellDirtyStateChanged += dataGridViewTracks_CurrentCellDirtyStateChanged;
             // 
             // tabPageInformation
             // 
-            resources.ApplyResources(this.tabPageInformation, "tabPageInformation");
-            this.tabPageInformation.Controls.Add(this.DGInfo);
-            this.errorProvider1.SetError(this.tabPageInformation, resources.GetString("tabPageInformation.Error"));
-            this.errorProvider1.SetIconAlignment(this.tabPageInformation, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("tabPageInformation.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.tabPageInformation, ((int)(resources.GetObject("tabPageInformation.IconPadding"))));
-            this.tabPageInformation.Name = "tabPageInformation";
-            this.toolTip1.SetToolTip(this.tabPageInformation, resources.GetString("tabPageInformation.ToolTip"));
-            this.tabPageInformation.UseVisualStyleBackColor = true;
+            tabPageInformation.Controls.Add(DGInfo);
+            resources.ApplyResources(tabPageInformation, "tabPageInformation");
+            tabPageInformation.Name = "tabPageInformation";
+            tabPageInformation.UseVisualStyleBackColor = true;
             // 
             // DGInfo
             // 
-            resources.ApplyResources(this.DGInfo, "DGInfo");
-            this.DGInfo.AllowUserToAddRows = false;
-            this.DGInfo.AllowUserToDeleteRows = false;
-            this.DGInfo.AllowUserToResizeRows = false;
-            this.DGInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DGInfo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.DGInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGInfo.ColumnHeadersVisible = false;
-            this.DGInfo.ContextMenuStrip = this.contextMenuStripInfo;
-            this.errorProvider1.SetError(this.DGInfo, resources.GetString("DGInfo.Error"));
-            this.errorProvider1.SetIconAlignment(this.DGInfo, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("DGInfo.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.DGInfo, ((int)(resources.GetObject("DGInfo.IconPadding"))));
-            this.DGInfo.MultiSelect = false;
-            this.DGInfo.Name = "DGInfo";
-            this.DGInfo.ReadOnly = true;
-            this.DGInfo.RowHeadersVisible = false;
-            this.toolTip1.SetToolTip(this.DGInfo, resources.GetString("DGInfo.ToolTip"));
+            DGInfo.AllowUserToAddRows = false;
+            DGInfo.AllowUserToDeleteRows = false;
+            DGInfo.AllowUserToResizeRows = false;
+            resources.ApplyResources(DGInfo, "DGInfo");
+            DGInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            DGInfo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            DGInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DGInfo.ColumnHeadersVisible = false;
+            DGInfo.ContextMenuStrip = contextMenuStripInfo;
+            DGInfo.MultiSelect = false;
+            DGInfo.Name = "DGInfo";
+            DGInfo.ReadOnly = true;
+            DGInfo.RowHeadersVisible = false;
             // 
             // contextMenuStripInfo
             // 
-            resources.ApplyResources(this.contextMenuStripInfo, "contextMenuStripInfo");
-            this.errorProvider1.SetError(this.contextMenuStripInfo, resources.GetString("contextMenuStripInfo.Error"));
-            this.errorProvider1.SetIconAlignment(this.contextMenuStripInfo, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("contextMenuStripInfo.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.contextMenuStripInfo, ((int)(resources.GetObject("contextMenuStripInfo.IconPadding"))));
-            this.contextMenuStripInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemFilesCopyClipboard});
-            this.contextMenuStripInfo.Name = "contextMenuStripDG";
-            this.toolTip1.SetToolTip(this.contextMenuStripInfo, resources.GetString("contextMenuStripInfo.ToolTip"));
-            this.contextMenuStripInfo.MouseClick += new System.Windows.Forms.MouseEventHandler(this.contextMenuStripInfo_MouseClick);
+            contextMenuStripInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItemFilesCopyClipboard });
+            contextMenuStripInfo.Name = "contextMenuStripDG";
+            resources.ApplyResources(contextMenuStripInfo, "contextMenuStripInfo");
+            contextMenuStripInfo.MouseClick += contextMenuStripInfo_MouseClick;
             // 
             // toolStripMenuItemFilesCopyClipboard
             // 
-            resources.ApplyResources(this.toolStripMenuItemFilesCopyClipboard, "toolStripMenuItemFilesCopyClipboard");
-            this.toolStripMenuItemFilesCopyClipboard.Name = "toolStripMenuItemFilesCopyClipboard";
-            this.toolStripMenuItemFilesCopyClipboard.Click += new System.EventHandler(this.toolStripMenuItemFilesCopyClipboard_Click);
+            toolStripMenuItemFilesCopyClipboard.Name = "toolStripMenuItemFilesCopyClipboard";
+            resources.ApplyResources(toolStripMenuItemFilesCopyClipboard, "toolStripMenuItemFilesCopyClipboard");
+            toolStripMenuItemFilesCopyClipboard.Click += toolStripMenuItemFilesCopyClipboard_Click;
             // 
             // moreinfoprofilelink
             // 
-            resources.ApplyResources(this.moreinfoprofilelink, "moreinfoprofilelink");
-            this.errorProvider1.SetError(this.moreinfoprofilelink, resources.GetString("moreinfoprofilelink.Error"));
-            this.errorProvider1.SetIconAlignment(this.moreinfoprofilelink, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("moreinfoprofilelink.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.moreinfoprofilelink, ((int)(resources.GetObject("moreinfoprofilelink.IconPadding"))));
-            this.moreinfoprofilelink.Name = "moreinfoprofilelink";
-            this.moreinfoprofilelink.TabStop = true;
-            this.toolTip1.SetToolTip(this.moreinfoprofilelink, resources.GetString("moreinfoprofilelink.ToolTip"));
-            this.moreinfoprofilelink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.moreinfoprofilelink_LinkClicked);
+            resources.ApplyResources(moreinfoprofilelink, "moreinfoprofilelink");
+            moreinfoprofilelink.Name = "moreinfoprofilelink";
+            moreinfoprofilelink.TabStop = true;
+            moreinfoprofilelink.LinkClicked += moreinfoprofilelink_LinkClicked;
             // 
             // labelFilterTitle
             // 
-            resources.ApplyResources(this.labelFilterTitle, "labelFilterTitle");
-            this.errorProvider1.SetError(this.labelFilterTitle, resources.GetString("labelFilterTitle.Error"));
-            this.labelFilterTitle.ForeColor = System.Drawing.Color.DarkBlue;
-            this.errorProvider1.SetIconAlignment(this.labelFilterTitle, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("labelFilterTitle.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.labelFilterTitle, ((int)(resources.GetObject("labelFilterTitle.IconPadding"))));
-            this.labelFilterTitle.Name = "labelFilterTitle";
-            this.toolTip1.SetToolTip(this.labelFilterTitle, resources.GetString("labelFilterTitle.ToolTip"));
+            resources.ApplyResources(labelFilterTitle, "labelFilterTitle");
+            labelFilterTitle.ForeColor = System.Drawing.Color.DarkBlue;
+            labelFilterTitle.Name = "labelFilterTitle";
             // 
             // textBoxAssetName
             // 
-            resources.ApplyResources(this.textBoxAssetName, "textBoxAssetName");
-            this.errorProvider1.SetError(this.textBoxAssetName, resources.GetString("textBoxAssetName.Error"));
-            this.errorProvider1.SetIconAlignment(this.textBoxAssetName, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("textBoxAssetName.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.textBoxAssetName, ((int)(resources.GetObject("textBoxAssetName.IconPadding"))));
-            this.textBoxAssetName.Name = "textBoxAssetName";
-            this.textBoxAssetName.ReadOnly = true;
-            this.toolTip1.SetToolTip(this.textBoxAssetName, resources.GetString("textBoxAssetName.ToolTip"));
+            resources.ApplyResources(textBoxAssetName, "textBoxAssetName");
+            textBoxAssetName.Name = "textBoxAssetName";
+            textBoxAssetName.ReadOnly = true;
             // 
             // labelassetname
             // 
-            resources.ApplyResources(this.labelassetname, "labelassetname");
-            this.errorProvider1.SetError(this.labelassetname, resources.GetString("labelassetname.Error"));
-            this.errorProvider1.SetIconAlignment(this.labelassetname, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("labelassetname.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.labelassetname, ((int)(resources.GetObject("labelassetname.IconPadding"))));
-            this.labelassetname.Name = "labelassetname";
-            this.toolTip1.SetToolTip(this.labelassetname, resources.GetString("labelassetname.ToolTip"));
+            resources.ApplyResources(labelassetname, "labelassetname");
+            labelassetname.Name = "labelassetname";
             // 
             // textBoxAssetDuration
             // 
-            resources.ApplyResources(this.textBoxAssetDuration, "textBoxAssetDuration");
-            this.errorProvider1.SetError(this.textBoxAssetDuration, resources.GetString("textBoxAssetDuration.Error"));
-            this.errorProvider1.SetIconAlignment(this.textBoxAssetDuration, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("textBoxAssetDuration.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.textBoxAssetDuration, ((int)(resources.GetObject("textBoxAssetDuration.IconPadding"))));
-            this.textBoxAssetDuration.Name = "textBoxAssetDuration";
-            this.textBoxAssetDuration.ReadOnly = true;
-            this.toolTip1.SetToolTip(this.textBoxAssetDuration, resources.GetString("textBoxAssetDuration.ToolTip"));
+            resources.ApplyResources(textBoxAssetDuration, "textBoxAssetDuration");
+            textBoxAssetDuration.Name = "textBoxAssetDuration";
+            textBoxAssetDuration.ReadOnly = true;            
             // 
             // labelassetduration
             // 
-            resources.ApplyResources(this.labelassetduration, "labelassetduration");
-            this.errorProvider1.SetError(this.labelassetduration, resources.GetString("labelassetduration.Error"));
-            this.errorProvider1.SetIconAlignment(this.labelassetduration, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("labelassetduration.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.labelassetduration, ((int)(resources.GetObject("labelassetduration.IconPadding"))));
-            this.labelassetduration.Name = "labelassetduration";
-            this.toolTip1.SetToolTip(this.labelassetduration, resources.GetString("labelassetduration.ToolTip"));
+            resources.ApplyResources(labelassetduration, "labelassetduration");
+            labelassetduration.Name = "labelassetduration";
             // 
             // textBoxFilterTimeScale
             // 
-            resources.ApplyResources(this.textBoxFilterTimeScale, "textBoxFilterTimeScale");
-            this.errorProvider1.SetError(this.textBoxFilterTimeScale, resources.GetString("textBoxFilterTimeScale.Error"));
-            this.errorProvider1.SetIconAlignment(this.textBoxFilterTimeScale, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("textBoxFilterTimeScale.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.textBoxFilterTimeScale, ((int)(resources.GetObject("textBoxFilterTimeScale.IconPadding"))));
-            this.textBoxFilterTimeScale.Name = "textBoxFilterTimeScale";
-            this.textBoxFilterTimeScale.ReadOnly = true;
-            this.toolTip1.SetToolTip(this.textBoxFilterTimeScale, resources.GetString("textBoxFilterTimeScale.ToolTip"));
+            resources.ApplyResources(textBoxFilterTimeScale, "textBoxFilterTimeScale");
+            textBoxFilterTimeScale.Name = "textBoxFilterTimeScale";
+            textBoxFilterTimeScale.ReadOnly = true;
             // 
             // label2
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.errorProvider1.SetError(this.label2, resources.GetString("label2.Error"));
-            this.errorProvider1.SetIconAlignment(this.label2, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label2.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.label2, ((int)(resources.GetObject("label2.IconPadding"))));
-            this.label2.Name = "label2";
-            this.toolTip1.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
+            resources.ApplyResources(label2, "label2");
+            label2.Name = "label2";
             // 
             // textBoxOffset
             // 
-            resources.ApplyResources(this.textBoxOffset, "textBoxOffset");
-            this.errorProvider1.SetError(this.textBoxOffset, resources.GetString("textBoxOffset.Error"));
-            this.errorProvider1.SetIconAlignment(this.textBoxOffset, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("textBoxOffset.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.textBoxOffset, ((int)(resources.GetObject("textBoxOffset.IconPadding"))));
-            this.textBoxOffset.Name = "textBoxOffset";
-            this.textBoxOffset.ReadOnly = true;
-            this.toolTip1.SetToolTip(this.textBoxOffset, resources.GetString("textBoxOffset.ToolTip"));
+            resources.ApplyResources(textBoxOffset, "textBoxOffset");
+            textBoxOffset.Name = "textBoxOffset";
+            textBoxOffset.ReadOnly = true;
             // 
             // labelOffset
             // 
-            resources.ApplyResources(this.labelOffset, "labelOffset");
-            this.errorProvider1.SetError(this.labelOffset, resources.GetString("labelOffset.Error"));
-            this.errorProvider1.SetIconAlignment(this.labelOffset, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("labelOffset.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.labelOffset, ((int)(resources.GetObject("labelOffset.IconPadding"))));
-            this.labelOffset.Name = "labelOffset";
-            this.toolTip1.SetToolTip(this.labelOffset, resources.GetString("labelOffset.ToolTip"));
+            resources.ApplyResources(labelOffset, "labelOffset");
+            labelOffset.Name = "labelOffset";
             // 
             // checkBoxRawMode
             // 
-            resources.ApplyResources(this.checkBoxRawMode, "checkBoxRawMode");
-            this.errorProvider1.SetError(this.checkBoxRawMode, resources.GetString("checkBoxRawMode.Error"));
-            this.errorProvider1.SetIconAlignment(this.checkBoxRawMode, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("checkBoxRawMode.IconAlignment"))));
-            this.errorProvider1.SetIconPadding(this.checkBoxRawMode, ((int)(resources.GetObject("checkBoxRawMode.IconPadding"))));
-            this.checkBoxRawMode.Name = "checkBoxRawMode";
-            this.toolTip1.SetToolTip(this.checkBoxRawMode, resources.GetString("checkBoxRawMode.ToolTip"));
-            this.checkBoxRawMode.UseVisualStyleBackColor = true;
-            this.checkBoxRawMode.CheckedChanged += new System.EventHandler(this.checkBoxRawMode_CheckedChanged);
+            resources.ApplyResources(checkBoxRawMode, "checkBoxRawMode");
+            checkBoxRawMode.Name = "checkBoxRawMode";
+            checkBoxRawMode.UseVisualStyleBackColor = true;
+            checkBoxRawMode.CheckedChanged += checkBoxRawMode_CheckedChanged;
             // 
             // errorProvider1
             // 
-            this.errorProvider1.ContainerControl = this;
-            resources.ApplyResources(this.errorProvider1, "errorProvider1");
+            errorProvider1.ContainerControl = this;
             // 
             // DynManifestFilter
             // 
-            this.AcceptButton = this.buttonOk;
+            AcceptButton = buttonOk;
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.SystemColors.Window;
-            this.CancelButton = this.buttonCancel;
-            this.Controls.Add(this.checkBoxRawMode);
-            this.Controls.Add(this.textBoxOffset);
-            this.Controls.Add(this.labelOffset);
-            this.Controls.Add(this.textBoxFilterTimeScale);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBoxAssetDuration);
-            this.Controls.Add(this.labelassetduration);
-            this.Controls.Add(this.textBoxAssetName);
-            this.Controls.Add(this.labelassetname);
-            this.Controls.Add(this.labelFilterTitle);
-            this.Controls.Add(this.moreinfoprofilelink);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.textBoxFilterName);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.panel1);
-            this.Name = "DynManifestFilter";
-            this.toolTip1.SetToolTip(this, resources.GetString("$this.ToolTip"));
-            this.Load += new System.EventHandler(this.DynManifestFilter_Load);
-            this.Shown += new System.EventHandler(this.DynManifestFilter_Shown);
-            this.DpiChanged += new System.Windows.Forms.DpiChangedEventHandler(this.DynManifestFilter_DpiChanged);
-            this.panel1.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPageTR.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBackoffSeconds)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.tabPageTRRaw.ResumeLayout(false);
-            this.tabPageTRRaw.PerformLayout();
-            this.tabPageTF.ResumeLayout(false);
-            this.tabPageTF.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFirstQualityBitrate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTracks)).EndInit();
-            this.tabPageInformation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DGInfo)).EndInit();
-            this.contextMenuStripInfo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            BackColor = System.Drawing.SystemColors.Window;
+            CancelButton = buttonCancel;
+            Controls.Add(checkBoxRawMode);
+            Controls.Add(textBoxOffset);
+            Controls.Add(labelOffset);
+            Controls.Add(textBoxFilterTimeScale);
+            Controls.Add(label2);
+            Controls.Add(textBoxAssetDuration);
+            Controls.Add(labelassetduration);
+            Controls.Add(textBoxAssetName);
+            Controls.Add(labelassetname);
+            Controls.Add(labelFilterTitle);
+            Controls.Add(moreinfoprofilelink);
+            Controls.Add(tabControl1);
+            Controls.Add(textBoxFilterName);
+            Controls.Add(label4);
+            Controls.Add(panel1);
+            Name = "DynManifestFilter";
+            Load += DynManifestFilter_Load;
+            Shown += DynManifestFilter_Shown;
+            DpiChanged += DynManifestFilter_DpiChanged;
+            panel1.ResumeLayout(false);
+            tabControl1.ResumeLayout(false);
+            tabPageTR.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownBackoffSeconds).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            tabPageTRRaw.ResumeLayout(false);
+            tabPageTRRaw.PerformLayout();
+            tabPageTF.ResumeLayout(false);
+            tabPageTF.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownFirstQualityBitrate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTracks).EndInit();
+            tabPageInformation.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)DGInfo).EndInit();
+            contextMenuStripInfo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

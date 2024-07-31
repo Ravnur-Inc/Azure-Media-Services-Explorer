@@ -191,7 +191,10 @@ namespace AMSExplorer
             if (DisplayTrackBar)
             {
                 //double scale = (timescale == null) ? 1d : TimeSpan.TicksPerSecond / ((double)timescale);
-                trackBarTime.Value = (int)(value.TotalMilliseconds / _TotalDuration.TotalMilliseconds * 1000d);
+                if (_TotalDuration.TotalMilliseconds > 0 && value.TotalMilliseconds > 0)
+                {
+                    trackBarTime.Value = (int)(value.TotalMilliseconds / _TotalDuration.TotalMilliseconds * 1000d);
+                }
             }
 
             numericUpDownDays.Value = value.Days;
