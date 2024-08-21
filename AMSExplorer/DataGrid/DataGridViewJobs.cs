@@ -300,33 +300,23 @@ namespace AMSExplorer
 
             var jobsQuery = transformResource.GetMediaJobs().GetAllAsync(filter: odataQuery.Filter, orderby: odataQuery.OrderBy);
 
-            if (pagetodisplay == 1)
+            string continuationToken = null;
+            _currentPageNumber = 1;
+            await foreach (var item in jobsQuery.AsPages(continuationToken))
             {
-                //firstpage = await amsClient.AMSclient.Jobs.ListAsync(amsClient.credentialsEntry.ResourceGroup, amsClient.credentialsEntry.AccountName, transform, odataQuery);
-                currentPage = (await jobsQuery.AsPages(null).FirstAsync()).Values;
-            }
-            else
-            {
-                string continuationToken = null;
-
-                _currentPageNumber = 1;
-                do
+                if (_currentPageNumber == pagetodisplay)
                 {
-                    _currentPageNumber++;
-                    await foreach (var item in jobsQuery.AsPages(continuationToken))
-                    {
-                        continuationToken = item.ContinuationToken;
-                        currentPage = item.Values;
-                    }
+                    continuationToken = item.ContinuationToken;
+                    currentPage = item.Values;
                 }
-                while (continuationToken != null && pagetodisplay > _currentPageNumber);
 
-                if (continuationToken == null)
-                {
-                    _currentPageNumberIsMax = true; // we reached max
-                }
+                _currentPageNumber++;
             }
 
+            if (continuationToken == null)
+            {
+                _currentPageNumberIsMax = true; // we reached max
+            }
 
             IEnumerable<JobEntryV3> jobs = currentPage.Select(job => new JobEntryV3
             {

@@ -110,10 +110,10 @@ namespace AMSExplorer
             _enableMKIOInfo = enableMKIOInfo;
 
             Pageable<MediaAssetResource> assetsList = Task.Run(() =>
-                                        client.AMSclient.GetMediaAssets().GetAll()
+                                        client.AMSclient.GetMediaAssets().GetAll(orderby: "properties/created desc")
                                         ).GetAwaiter().GetResult();
 
-            IEnumerable<AssetEntry> assets = assetsList.Select(a => new AssetEntry(_syncontext)
+            IEnumerable<AssetEntry> assets = assetsList.Take(50).Select(a => new AssetEntry(_syncontext)
             {
                 Name = a.Data.Name,
                 AssetId = a.Data.AssetId,
@@ -586,13 +586,14 @@ Properties/StorageId
             const int nbItemsPerPage = 50;
             int nSkip = (pagetodisplay - 1) * nbItemsPerPage;
 
-            _currentPageNumber++;
-            await foreach (var item in assetsQuery.AsPages())
-            {
-                currentPage = item.Values.Skip(nSkip).Take(nbItemsPerPage);
-            }
+            // Not ideal but we lose nothing taking into account previous logic which returned the last page and scrolled through all items
+            // causing many requests to the server
+            var restApiPage = await assetsQuery.AsPages().FirstAsync();
 
-            _currentPageNumberIsMax = currentPage.Count() < 50;
+            currentPage = restApiPage.Values.Skip(nSkip).Take(nbItemsPerPage);
+
+            _currentPageNumber = pagetodisplay;
+            _currentPageNumberIsMax = restApiPage.ContinuationToken == null && (restApiPage.Values.Count() - nSkip) <= 50;
 
             IEnumerable<AssetEntry> assets;
             lock (cacheAssetentriesV3)
