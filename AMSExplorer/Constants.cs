@@ -27,10 +27,10 @@ namespace AMSExplorer
         public const string Webview2RegPath32 = "SOFTWARE\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}";
         public const string Webview2MinVersion = "119.0.2151.40";
 
-        public const string GitHubAMSEVersionPrimaryV3 = "https://raw.githubusercontent.com/Azure/Azure-Media-Services-Explorer/main/versionv3.json";
-        public const string GitHubAMSEVersionSecondaryV3 = "https://amsexplorer.azureedge.net/release/versionv3.json";
+        public const string GitHubAMSEVersionPrimaryV3 = "https://raw.githubusercontent.com/Ravnur-Inc/Azure-Media-Services-Explorer/ravnur-independent/versionv3.json";
+        public const string GitHubAMSEVersionSecondaryV3 = "https://raw.githubusercontent.com/Ravnur-Inc/Azure-Media-Services-Explorer/ravnur-independent/versionv3.json";
 
-        public const string GitHubAMSEReleases = "https://github.com/Azure/Azure-Media-Services-Explorer/releases";
+        public const string GitHubAMSEReleases = "https://github.com/Ravnur-Inc/Azure-Media-Services-Explorer/releases";
         public const string GitHubAMSELink = "http://aka.ms/amse";
 
         public const string NameconvInputasset = "{Input Asset Name}";
@@ -153,8 +153,8 @@ namespace AMSExplorer
 
         public const string LinkAMSE = "https://aka.ms/amse";
         public const string LinkMailtoAMSE = "mailto:amse@microsoft.com?subject=Azure Media Services Explorer - Question/Comment";
-        public const string LinkReportBugAMSE = @"https://github.com/Azure/Azure-Media-Services-Explorer/issues";
-        public const string LinkAMSEReleaseNotes = @"https://github.com/Azure/Azure-Media-Services-Explorer/blob/main/AllReleaseNotes.md";
+        public const string LinkReportBugAMSE = @"https://github.com/Ravnur-Inc/Azure-Media-Services-Explorer/issues";
+        public const string LinkAMSEReleaseNotes = @"https://github.com/Ravnur-Inc/Azure-Media-Services-Explorer/blob/ravnur-independent/AllReleaseNotes.md";
 
         public const long maxSlateJPGFileSize = 3 * 1000 * 1000; // Max 3 MB
         public const int maxSlateJPGHorizontalResolution = 1920;

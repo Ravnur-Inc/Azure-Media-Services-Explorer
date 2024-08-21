@@ -27,7 +27,7 @@ winget install Microsoft.AzureMediaServicesExplorer
 
 ## Manual installation
 
-**The latest binary for Windows (with a MSI installer) is available in the [releases section](https://github.com/Azure/Azure-Media-Services-Explorer/releases)**.
+**The latest binary for Windows (with a MSI installer) is available in the [releases section](https://github.com/Ravnur-Inc/Azure-Media-Services-Explorer/releases)**.
 
 This application requires the installation of
 
@@ -62,7 +62,7 @@ AMSE relies on the MK/IO SDK available [here](https://www.nuget.org/packages/MK.
 
 Learn more on the migration:
 
-[<img src="https://github.com/Azure/Azure-Media-Services-Explorer/assets/8104205/6f65b990-90be-4edc-adef-ef594d49162f" width="600" height="381"
+[<img src="https://github.com/Ravnur-Inc/Azure-Media-Services-Explorer/assets/8104205/6f65b990-90be-4edc-adef-ef594d49162f" width="600" height="381"
 />](https://youtu.be/uMRn7bDcb-o)
 
 ## Notes
@@ -75,7 +75,7 @@ AMSE uses Application Insights for Telemetry. This feature can be turned off in 
 
 Contact: <amse@microsoft.com>
 
-Open a bug [here](https://github.com/Azure/Azure-Media-Services-Explorer/issues/new).
+Open a bug [here](https://github.com/Ravnur-Inc/Azure-Media-Services-Explorer/issues/new).
 
 ![Screen capture](https://user-images.githubusercontent.com/8104205/116678834-17935c80-a9aa-11eb-9419-6c79de82b8ca.png)
 
