@@ -101,7 +101,7 @@ namespace AMSExplorer
 
         internal static void Flush()
         {
-            _telemetry.Flush();
+            _telemetry?.Flush();
         }
 
 
