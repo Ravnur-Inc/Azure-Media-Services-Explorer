@@ -281,20 +281,16 @@ namespace AMSExplorer
                     TextBoxLogWriteLine("There is no streaming endpoint running in this account.", true); // Warning
                 }
 
+                var leResults = _amsClient.AMSclient.GetMediaLiveEvents().GetAllAsync().ToListAsync().Result;
+                double nbLiveEvents = leResults.Count();
                 double nbse = seResults.Count();
-                dictionaryM.Add("StreamingEndpointsCount", nbse);
-
-                if (!_amsClient.IsRavnurClient)
+                if (nbse > 0 && nbLiveEvents > 0 && (nbLiveEvents / nbse) > 5)
                 {
-                    var leResults = _amsClient.AMSclient.GetMediaLiveEvents().GetAllAsync().ToListAsync().Result;
-                    double nbLiveEvents = leResults.Count();
-                    if (nbse > 0 && nbLiveEvents > 0 && (nbLiveEvents / nbse) > 5)
-                    {
-                        TextBoxLogWriteLine("There are {0} live events and {1} streaming endpoint(s). Recommandation is to provision at least 1 streaming endpoint per group of 5 live events.", nbLiveEvents, nbse, true); // Warning
-                    }
-
-                    dictionaryM.Add("LiveEventsCount", nbLiveEvents);
+                    TextBoxLogWriteLine("There are {0} live events and {1} streaming endpoint(s). Recommandation is to provision at least 1 streaming endpoint per group of 5 live events.", nbLiveEvents, nbse, true); // Warning
                 }
+
+                dictionaryM.Add("StreamingEndpointsCount", nbse);
+                dictionaryM.Add("LiveEventsCount", nbLiveEvents);
             }
             catch (Exception ex)
             {
@@ -317,13 +313,9 @@ namespace AMSExplorer
         private void HideAMSOnlyFeatures()
         {
             // Hide Live Events feature
-            tabControlMain.TabPages.Remove(tabPageLive);
-            liveLiveEventToolStripMenuItem.Visible = false;
+            //tabControlMain.TabPages.Remove(tabPageLive);
+            //liveLiveEventToolStripMenuItem.Visible = false;
             subclipToolStripMenuItem.Visible = false;
-
-            // Hide Asset Filters feature
-            tabControlMain.TabPages.Remove(tabPageFilters);
-            createAnAssetFilterToolStripMenuItem.Visible = false;
 
             // Hide Streaming Endpoints feature
             originToolStripMenuItem.Visible = false;
@@ -331,10 +323,6 @@ namespace AMSExplorer
             ContextMenuItemOriginStop.Visible = false;
             ContextMenuItemOriginDelete.Visible = false;
             createStreamingEndpointToolStripMenuItem.Visible = false;
-
-            // Hide Attach/Detach storage account feature
-            attachAnotherStorageAccountToolStripMenuItem.Visible = false;
-            attachAnotherStoragheAccountToolStripMenuItem.Visible = false;
 
             // Hide Key Delivery Configuration feature
             keyDeliveryConfigurationToolStripMenuItem.Visible = false;
@@ -345,7 +333,6 @@ namespace AMSExplorer
 
             // Ravnur doesn't use *.ism or *.ismc manifest files
             generateClientManifestsismcWhenNeededToolStripMenuItem.Visible = false;
-
         }
 
         private void ShowRavnurOnlyFeatures()
@@ -2440,14 +2427,8 @@ namespace AMSExplorer
                                 {
                                     bool laststep = (i == formCencDelivery.GetNumberOfAuthorizationPolicyOptionsPlayReady - 1) && (formCencDelivery.GetNumberOfAuthorizationPolicyOptionsWidevine == 0);
 
-                                    formPlayreadyTokenClaims.Add(
-                                        new form_DRM_Config_TokenClaims(step++, i + 1, "PlayReady", tokenSymKey, false)
-                                        {
-                                            Left = left,
-                                            Top = top,
-                                            AllowX509Certificate = !_amsClient.IsRavnurClient,
-                                            AllowOpenId = !_amsClient.IsRavnurClient,
-                                        });
+                                    formPlayreadyTokenClaims.Add(new form_DRM_Config_TokenClaims(step++, i + 1, "PlayReady", tokenSymKey, false)
+                                    { Left = left, Top = top });
 
                                     if (formPlayreadyTokenClaims[i].ShowDialog() != DialogResult.OK)
                                     {
@@ -2482,14 +2463,7 @@ namespace AMSExplorer
                                 {
                                     bool laststep = (i == formCencDelivery.GetNumberOfAuthorizationPolicyOptionsWidevine - 1);
 
-                                    formWidevineTokenClaims.Add(
-                                        new form_DRM_Config_TokenClaims(step++, i + 1, "Widevine", tokenSymKey, false)
-                                        {
-                                            Left = left,
-                                            Top = top,
-                                            AllowX509Certificate = !_amsClient.IsRavnurClient,
-                                            AllowOpenId = !_amsClient.IsRavnurClient,
-                                        });
+                                    formWidevineTokenClaims.Add(new form_DRM_Config_TokenClaims(step++, i + 1, "Widevine", tokenSymKey, false) { Left = left, Top = top });
 
                                     if (formWidevineTokenClaims[i].ShowDialog() != DialogResult.OK)
                                     {
@@ -2525,14 +2499,7 @@ namespace AMSExplorer
                                 {
                                     bool laststep = (i == formCencDelivery.GetNumberOfAuthorizationPolicyOptionsFairPlay - 1);
 
-                                    formFairPlayTokenClaims.Add(
-                                        new form_DRM_Config_TokenClaims(step++, i + 1, "FairPlay", tokenSymKey, false)
-                                        {
-                                            Left = left,
-                                            Top = top,
-                                            AllowX509Certificate = !_amsClient.IsRavnurClient,
-                                            AllowOpenId = !_amsClient.IsRavnurClient,
-                                        });
+                                    formFairPlayTokenClaims.Add(new form_DRM_Config_TokenClaims(step++, i + 1, "FairPlay", tokenSymKey, false) { Left = left, Top = top });
 
                                     if (formFairPlayTokenClaims[i].ShowDialog() != DialogResult.OK)
                                     {
@@ -2576,14 +2543,7 @@ namespace AMSExplorer
                             {
                                 dictionaryM.Add("AuthorizationPolicyOptionsClearKey", 1);
 
-                                formClearKeyTokenClaims.Add(
-                                    new form_DRM_Config_TokenClaims(1, 1, "Clear Key", tokenSymKey, true)
-                                    {
-                                        Left = left,
-                                        Top = top,
-                                        AllowX509Certificate = !_amsClient.IsRavnurClient,
-                                        AllowOpenId = !_amsClient.IsRavnurClient,
-                                    });
+                                formClearKeyTokenClaims.Add(new form_DRM_Config_TokenClaims(1, 1, "Clear Key", tokenSymKey, true) { Left = left, Top = top });
 
                                 if (formClearKeyTokenClaims[0].ShowDialog() != DialogResult.OK)
                                 {
@@ -4481,11 +4441,6 @@ namespace AMSExplorer
 
         private async Task DoRefreshGridLiveEventVAsync(bool firstime)
         {
-            if (_amsClient.IsRavnurClient)
-            {
-                return;
-            }
-
             if (firstime)
             {
                 await dataGridViewLiveEventsV.InitAsync(_amsClient);
@@ -4512,11 +4467,6 @@ namespace AMSExplorer
 
         private void DoRefreshGridLiveOutputV(bool firstime)
         {
-            if (_amsClient.IsRavnurClient)
-            {
-                return;
-            }
-
             if (firstime)
             {
                 Debug.WriteLine("DoRefreshGridProgramVforsttime");
@@ -6691,6 +6641,19 @@ namespace AMSExplorer
                     Telemetry.TrackEvent("DoAttachAnotherStorageAccountAsync configupdated");
 
                     await DoRefreshGridStorageVAsync(false);
+
+                    if (_amsClient.IsRavnurClient)
+                    {
+                        var showDocsAnswer = MessageBox.Show("The storage account will not be accessible by RMS until you grant the RMS User-Assigned Managed Identity the 'Storage Blob Data Contributor' role for your storage account. Do you wish to see documentation?", string.Empty, MessageBoxButtons.YesNo);
+                        if (showDocsAnswer == DialogResult.Yes)
+                        {
+                            Process.Start(new ProcessStartInfo
+                            {
+                                FileName = "https://github.com/Ravnur-Inc/ams-api-replacement-demo-app/blob/main/docs/custom-storage.md",
+                                UseShellExecute = true
+                            });
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
