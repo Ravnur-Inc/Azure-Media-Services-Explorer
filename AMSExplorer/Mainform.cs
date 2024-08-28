@@ -3495,26 +3495,20 @@ namespace AMSExplorer
 
         private void butNextPageAsset_Click(object sender, EventArgs e)
         {
-            int page = GetTextBoxAssetsPageNumber() + 1;
+            _ = dataGridViewAssetsV.DisplayNextPageAsync(_amsClient)
+                .ContinueWith(
+                    x =>
+                    {
+                        if (x.Exception != null)
+                        {
+                            TextBoxLogWriteLine(x.Exception.InnerException);
+                            Telemetry.TrackException(x.Exception.InnerException);
+                            return;
+                        }
 
-            Task.Run(async () =>
-            {
-                try
-                {
-                    await dataGridViewAssetsV.RefreshAssetsAsync(page, _amsClient);
-                }
-                catch (Exception ex)
-                {
-                    TextBoxLogWriteLine(ex);
-                    Telemetry.TrackException(ex);
-                }
-
-            });
-
-            if (!dataGridViewAssetsV.CurrentPageIsMax)
-            {
-                SetTextBoxAssetsPageNumber(page);
-            }
+                        SetTextBoxAssetsPageNumber(dataGridViewAssetsV.CurrentPageNumber);
+                    },
+                    TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         private void butPrevPageAsset_Click(object sender, EventArgs e)
@@ -3523,34 +3517,30 @@ namespace AMSExplorer
             {
                 int page = GetTextBoxAssetsPageNumber() - 1;
 
-                Task.Run(async () =>
-                {
-                    try
-                    {
-                        await dataGridViewAssetsV.RefreshAssetsAsync(page, _amsClient);
-                    }
-                    catch (Exception ex)
-                    {
-                        TextBoxLogWriteLine(ex);
-                        Telemetry.TrackException(ex);
-                    }
-                });
+                _ = dataGridViewAssetsV.DisplayPreviousPageAsync(_amsClient)
+                    .ContinueWith(
+                        x =>
+                        {
+                            if (x.Exception != null)
+                            {
+                                TextBoxLogWriteLine(x.Exception.InnerException);
+                                Telemetry.TrackException(x.Exception.InnerException);
+                                return;
+                            }
 
-                SetTextBoxAssetsPageNumber(page);
+                            SetTextBoxAssetsPageNumber(dataGridViewAssetsV.CurrentPageNumber);
+                        },
+                        TaskScheduler.FromCurrentSynchronizationContext());
             }
         }
 
         private void butNextPageJob_Click(object sender, EventArgs e)
         {
             int page = GetTextBoxJobsPageNumber() + 1;
-            Task.Run(async () =>
-            {
-                await dataGridViewJobsV.RefreshjobsAsync(page, _amsClient);
-            });
-            if (!dataGridViewJobsV.CurrentPageIsMax)
-            {
-                SetTextBoxJobsPageNumber(page);
-            }
+            _ = dataGridViewJobsV.DisplayNextPageAsync(_amsClient)
+                .ContinueWith(
+                    _ => SetTextBoxJobsPageNumber(dataGridViewJobsV.CurrentPage),
+                    TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         private void butPrevPageJob_Click(object sender, EventArgs e)
@@ -3558,12 +3548,10 @@ namespace AMSExplorer
             if (GetTextBoxJobsPageNumber() > 1)
             {
                 int page = GetTextBoxJobsPageNumber() - 1;
-                Task.Run(async () =>
-                {
-                    await dataGridViewJobsV.RefreshjobsAsync(page, _amsClient);
-                });
-
-                SetTextBoxJobsPageNumber(page);
+                _ = dataGridViewJobsV.DisplayPreviousPageAsync(_amsClient)
+                    .ContinueWith(
+                        _ => SetTextBoxJobsPageNumber(dataGridViewJobsV.CurrentPage),
+                        TaskScheduler.FromCurrentSynchronizationContext());
             }
         }
 

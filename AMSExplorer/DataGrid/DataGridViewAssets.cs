@@ -15,6 +15,7 @@
 //--------------------------------------------------------------------------------------------- 
 
 
+using AMSExplorer.Utils;
 using Azure;
 using Azure.ResourceManager.Media;
 using Azure.ResourceManager.Media.Models;
@@ -35,6 +36,8 @@ namespace AMSExplorer
 {
     public class DataGridViewAssets : DataGridView
     {
+        private const int PageSize = 50;
+
         public string _publication = "Publication";
         public string _dynEnc = "DynamicEncryption";
         public string _filter = "Filters";
@@ -47,8 +50,9 @@ namespace AMSExplorer
         public string _assetwarning = "AssetWarning";
         private static readonly Dictionary<string, AssetEntry> cacheAssetentriesV3 = new();
 
-        private static int _currentPageNumber = 0;
-        private static bool _currentPageNumberIsMax = false; // true when we reached the max
+        private static readonly SemaphoreSlim _pagesSyncronyzer = new SemaphoreSlim(1);
+        private static readonly PageIterator<MediaAssetResource> _pageIterator = new PageIterator<MediaAssetResource>(PageSize);
+
         private static bool _initialized = false;
         private static SearchObject _searchinname = new() { SearchType = SearchIn.AssetNameEquals, Text = "" };
         private static string _statefilter = string.Empty;
@@ -67,9 +71,7 @@ namespace AMSExplorer
         private SynchronizationContext _syncontext;
         private bool _enableMKIOInfo;
 
-        public int CurrentPage => _currentPageNumber;
-
-        public bool CurrentPageIsMax => _currentPageNumberIsMax;
+        public int CurrentPageNumber => _pageIterator.CurrentPageNumber;
 
         public string OrderAssetsInGrid
         {
@@ -113,7 +115,7 @@ namespace AMSExplorer
                                         client.AMSclient.GetMediaAssets().GetAll(orderby: "properties/created desc")
                                         ).GetAwaiter().GetResult();
 
-            IEnumerable<AssetEntry> assets = assetsList.Take(50).Select(a => new AssetEntry(_syncontext)
+            IEnumerable<AssetEntry> assets = assetsList.Take(PageSize).Select(a => new AssetEntry(_syncontext)
             {
                 Name = a.Data.Name,
                 AssetId = a.Data.AssetId,
@@ -216,7 +218,6 @@ namespace AMSExplorer
 
             _initialized = true;
         }
-
 
         private async Task WorkerAnalyzeAssets_DoWorkAsync(AMSClientV3 amsClient)
         {
@@ -451,7 +452,6 @@ namespace AMSExplorer
                 // cancel the analyze.
                 _analyzeAssetTaskTokenSource.Cancel();
             }
-            BeginInvoke(new Action(() => FindForm().Cursor = Cursors.WaitCursor));
 
             /*
               
@@ -579,22 +579,42 @@ Properties/StorageId
             }
 
             // Paging
+            await ExecutePagingActionAsync(
+                amsClient,
+                () =>
+                {
+                    var assetsQuery = amsClient.AMSclient.GetMediaAssets().GetAllAsync(filter: odataQuery.Filter, orderby: odataQuery.OrderBy);
+                    return _pageIterator.ResetAsync(assetsQuery, pagetodisplay);
+                });
+        }
 
-            IEnumerable<MediaAssetResource> currentPage = null;
-            var assetsQuery = amsClient.AMSclient.GetMediaAssets().GetAllAsync(filter: odataQuery.Filter, orderby: odataQuery.OrderBy);
+        public Task DisplayNextPageAsync(AMSClientV3 amsClient) => ExecutePagingActionAsync(amsClient, _pageIterator.MoveNextAsync);
 
-            const int nbItemsPerPage = 50;
-            int nSkip = (pagetodisplay - 1) * nbItemsPerPage;
+        public Task DisplayPreviousPageAsync(AMSClientV3 amsClient) => ExecutePagingActionAsync(amsClient, _pageIterator.GoToPreviousPageAsync);
 
-            // Not ideal but we lose nothing taking into account previous logic which returned the last page and scrolled through all items
-            // causing many requests to the server
-            var restApiPage = await assetsQuery.AsPages().FirstAsync();
+        private async Task ExecutePagingActionAsync(AMSClientV3 amsClient, Func<Task> action)
+        {
+            if (!_initialized)
+            {
+                return;
+            }
 
-            currentPage = restApiPage.Values.Skip(nSkip).Take(nbItemsPerPage);
+            await _pagesSyncronyzer.WaitAsync();
+            BeginInvoke(new Action(() => FindForm().Cursor = Cursors.WaitCursor));
+            try
+            {
+                await action();
+                DisplayPage(amsClient, _pageIterator.CurrentPage);
+            }
+            finally
+            {
+                BeginInvoke(new Action(() => FindForm().Cursor = Cursors.Default));
+                _pagesSyncronyzer.Release();
+            }
+        }
 
-            _currentPageNumber = pagetodisplay;
-            _currentPageNumberIsMax = restApiPage.ContinuationToken == null && (restApiPage.Values.Count() - nSkip) <= 50;
-
+        private void DisplayPage(AMSClientV3 amsClient, IEnumerable<MediaAssetResource> currentPage)
+        {
             IEnumerable<AssetEntry> assets;
             lock (cacheAssetentriesV3)
             {
@@ -621,9 +641,7 @@ Properties/StorageId
             Invoke(new Action(() => DataSource = _MyObservAssetV3));
 
             Debug.WriteLine("RefreshAssets End");
-            await ReLaunchAnalyzeOfAssetsAsync(amsClient);
-
-            BeginInvoke(new Action(() => FindForm().Cursor = Cursors.Default));
+            _ = ReLaunchAnalyzeOfAssetsAsync(amsClient);
         }
 
         /// <summary>
