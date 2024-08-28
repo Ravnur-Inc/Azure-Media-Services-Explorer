@@ -15,6 +15,7 @@
 //--------------------------------------------------------------------------------------------- 
 
 
+using AMSExplorer.Utils;
 using Azure.ResourceManager.Media;
 using Azure.ResourceManager.Media.Models;
 using Microsoft.Rest.Azure.OData;
@@ -36,10 +37,9 @@ namespace AMSExplorer
         private static BindingList<JobEntryV3> _MyObservJobV3 = new();
         private static readonly Dictionary<string, CancellationTokenSource> _MyListJobsMonitored = new(); // List of jobs monitored. It contains the jobs ids. Used when a new job is discovered (created by another program) to activate the display of job progress
 
-        private static int _jobsperpage = 50; //nb of items per page
-        private static readonly int _pagecount = 1;
-        private static readonly int _currentpage = 1;
+        private static int _jobsperpage = 50;
         public bool _initialized = false;
+
         private static string _orderjobs = OrderJobs.CreatedDescending;
         private static string _filterjobsstate = "All";
         private static SearchObject _searchinname = new() { SearchType = SearchIn.JobName, Text = string.Empty };
@@ -48,18 +48,21 @@ namespace AMSExplorer
         private const int DefaultJobRefreshIntervalInMilliseconds = 2500;
         private static int JobRefreshIntervalInMilliseconds = DefaultJobRefreshIntervalInMilliseconds;
         private List<string> _transformName = new();
-        private bool _currentPageNumberIsMax;
-        private int _currentPageNumber;
 
-        public bool CurrentPageIsMax => _currentPageNumberIsMax;
+        private static SemaphoreSlim _pagesSynchronizer = new SemaphoreSlim(1);
+        private static PageIterator<MediaJobResource> _pageIterator = new PageIterator<MediaJobResource>(_jobsperpage);
 
         public int JobssPerPage
         {
             get => _jobsperpage;
-            set => _jobsperpage = value;
+            set
+            {
+                _jobsperpage = value;
+                _pageIterator = new PageIterator<MediaJobResource>(_jobsperpage);
+            }
         }
-        public int PageCount => _pagecount;
-        public int CurrentPage => _currentpage;
+
+        public int CurrentPage => _pageIterator.CurrentPageNumber;
         public string OrderJobsInGrid
         {
             get => _orderjobs;
@@ -90,7 +93,6 @@ namespace AMSExplorer
             get => _timefilterTimeRange;
             set => _timefilterTimeRange = value;
         }
-        public int DisplayedCount => _MyObservJobV3.Count;
 
         public void Init(AMSClientV3 client)
         {
@@ -211,7 +213,7 @@ namespace AMSExplorer
                         break;
 
                     // Search on Asset name starts with
-                    case SearchIn.JobId:                        
+                    case SearchIn.JobId:
                         odataQuery.Filter = "id eq " + "'" + Uri.EscapeDataString(search) + "'";
 
                         break;
@@ -281,43 +283,56 @@ namespace AMSExplorer
                 odataQuery.Filter += $"Properties/Created lt {dateTimeRangeEnd:o}";
             }
 
-
-            // Paging
             string transformName = _transformName.First();
-            MediaTransformResource transformResource;
-            try
+            await ExecutePagingActionAsync(
+                amsClient,
+                transformName,
+                async () =>
+                {
+                    // Paging
+                    MediaTransformResource transformResource;
+                    try
+                    {
+                        transformResource = (await amsClient.AMSclient.GetMediaTransformAsync(transformName)).Value;
+                    }
+                    catch (Exception)
+                    {
+                        // transform no there anymore
+                        return;
+                    }
+
+                    var query = transformResource.GetMediaJobs().GetAllAsync(filter: odataQuery.Filter, orderby: odataQuery.OrderBy);
+                    await _pageIterator.ResetAsync(query, pagetodisplay);
+                });
+        }
+        
+        public Task DisplayNextPageAsync(AMSClientV3 amsClient) => ExecutePagingActionAsync(amsClient, _transformName.First(), _pageIterator.MoveNextAsync);
+
+        public Task DisplayPreviousPageAsync(AMSClientV3 amsClient) => ExecutePagingActionAsync(amsClient, _transformName.First(), _pageIterator.GoToPreviousPageAsync);
+
+        private async Task ExecutePagingActionAsync(AMSClientV3 amsClient, string transformName, Func<Task> action)
+        {
+            if (!_initialized)
             {
-                transformResource = (await amsClient.AMSclient.GetMediaTransformAsync(transformName)).Value;
-            }
-            catch (Exception)
-            {
-                // transform no there anymore
                 return;
             }
 
-
-            IReadOnlyList<MediaJobResource> currentPage = null;
-
-            var jobsQuery = transformResource.GetMediaJobs().GetAllAsync(filter: odataQuery.Filter, orderby: odataQuery.OrderBy);
-
-            string continuationToken = null;
-            _currentPageNumber = 1;
-            await foreach (var item in jobsQuery.AsPages(continuationToken))
+            await _pagesSynchronizer.WaitAsync();
+            BeginInvoke(new Action(() => FindForm().Cursor = Cursors.WaitCursor));
+            try
             {
-                if (_currentPageNumber == pagetodisplay)
-                {
-                    continuationToken = item.ContinuationToken;
-                    currentPage = item.Values;
-                }
-
-                _currentPageNumber++;
+                await action();
+                await DisplayPage(amsClient, transformName, _pageIterator.CurrentPage);
             }
-
-            if (continuationToken == null)
+            finally
             {
-                _currentPageNumberIsMax = true; // we reached max
+                BeginInvoke(new Action(() => FindForm().Cursor = Cursors.Default));
+                _pagesSynchronizer.Release();
             }
+        }
 
+        private async Task DisplayPage(AMSClientV3 amsClient, string transformName, IReadOnlyCollection<MediaJobResource> currentPage)
+        {
             IEnumerable<JobEntryV3> jobs = currentPage.Select(job => new JobEntryV3
             {
                 Name = job.Data.Name,
@@ -333,7 +348,7 @@ namespace AMSExplorer
                 Duration = ReportDuration(job.Data)
                 // progress;  we don't want the progress bar to be displayed
             }
-         );
+                     );
 
             _MyObservJobV3 = new BindingList<JobEntryV3>(jobs.ToList());
 
@@ -342,10 +357,7 @@ namespace AMSExplorer
             Debug.WriteLine("RefreshJobs End");
 
             await RestoreJobProgressAsync(new List<string> { transformName }, amsClient);
-
-            BeginInvoke(new Action(() => FindForm().Cursor = Cursors.Default));
         }
-
 
 
         // Used to restore job progress. 2 cases: when app is launched or when a job has been created by an external program
