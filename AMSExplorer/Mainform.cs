@@ -313,8 +313,8 @@ namespace AMSExplorer
         private void HideAMSOnlyFeatures()
         {
             // Hide Live Events feature
-            //tabControlMain.TabPages.Remove(tabPageLive);
-            //liveLiveEventToolStripMenuItem.Visible = false;
+            tabControlMain.TabPages.Remove(tabPageLive);
+            liveLiveEventToolStripMenuItem.Visible = false;
             subclipToolStripMenuItem.Visible = false;
 
             // Hide Streaming Endpoints feature
