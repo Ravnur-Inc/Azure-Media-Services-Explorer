@@ -324,6 +324,10 @@ namespace AMSExplorer
             ContextMenuItemOriginDelete.Visible = false;
             createStreamingEndpointToolStripMenuItem.Visible = false;
 
+            // Hide Attach/Detach storage account feature
+            attachAnotherStorageAccountToolStripMenuItem.Visible = false;
+            attachAnotherStoragheAccountToolStripMenuItem.Visible = false;
+
             // Hide Key Delivery Configuration feature
             keyDeliveryConfigurationToolStripMenuItem.Visible = false;
             keyDeliveryConfigurationToolStripMenuItem1.Visible = false;
