@@ -64,10 +64,16 @@ namespace AMSExplorer.Utils
             }
 
             _pagesIterator = pages.Skip(targetPage - 1).GetAsyncEnumerator();
-            await _pagesIterator.MoveNextAsync();
-
-            CurrentPage = _pagesIterator.Current;
-            CurrentPageNumber = targetPage;
+            if (await _pagesIterator.MoveNextAsync())
+            {
+                CurrentPage = _pagesIterator.Current;
+                CurrentPageNumber = targetPage;
+            }
+            else
+            {
+                CurrentPage = new List<T>();
+                CurrentPageNumber = 1;
+            }
         }
     }
 }
