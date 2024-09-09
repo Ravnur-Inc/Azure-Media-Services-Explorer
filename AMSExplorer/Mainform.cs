@@ -4445,6 +4445,11 @@ namespace AMSExplorer
 
         private async Task DoRefreshGridLiveEventVAsync(bool firstime)
         {
+            if (_amsClient.IsRavnurClient)
+            {
+                return;
+            }
+
             if (firstime)
             {
                 await dataGridViewLiveEventsV.InitAsync(_amsClient);
@@ -4471,6 +4476,11 @@ namespace AMSExplorer
 
         private void DoRefreshGridLiveOutputV(bool firstime)
         {
+            if (_amsClient.IsRavnurClient)
+            {
+                return;
+            }
+
             if (firstime)
             {
                 Debug.WriteLine("DoRefreshGridProgramVforsttime");
