@@ -67,13 +67,13 @@ namespace AMSExplorer.Utils
             if (await _pagesIterator.MoveNextAsync())
             {
                 CurrentPage = _pagesIterator.Current;
-                CurrentPageNumber = targetPage;
             }
             else
             {
                 CurrentPage = new List<T>();
-                CurrentPageNumber = 1;
             }
+
+            CurrentPageNumber = targetPage;
         }
     }
 }

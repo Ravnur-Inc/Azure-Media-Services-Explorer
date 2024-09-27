@@ -3874,6 +3874,7 @@ namespace AMSExplorer
             {
                 SearchIn stype = (SearchIn)Enum.Parse(typeof(SearchIn), (comboBoxSearchAssetOption.SelectedItem as Item).Value);
                 dataGridViewAssetsV.SearchInName = new SearchObject { Text = textBoxAssetSearch.Text, SearchType = stype };
+                SetTextBoxAssetsPageNumber(1);
                 DoRefreshGridAssetV(false);
             }
         }
@@ -3886,6 +3887,7 @@ namespace AMSExplorer
             {
                 SearchIn stype = (SearchIn)Enum.Parse(typeof(SearchIn), (comboBoxSearchJobOption.SelectedItem as Item).Value);
                 dataGridViewJobsV.SearchInName = new SearchObject { Text = textBoxJobSearch.Text, SearchType = stype };
+                SetTextBoxJobsPageNumber(1);
                 DoRefreshGridJobV(false);
             }
         }
