@@ -313,8 +313,8 @@ namespace AMSExplorer
         private void HideAMSOnlyFeatures()
         {
             // Hide Live Events feature
-            //tabControlMain.TabPages.Remove(tabPageLive);
-            //liveLiveEventToolStripMenuItem.Visible = false;
+            tabControlMain.TabPages.Remove(tabPageLive);
+            liveLiveEventToolStripMenuItem.Visible = false;
             subclipToolStripMenuItem.Visible = false;
 
             // Hide Streaming Endpoints feature
@@ -323,6 +323,10 @@ namespace AMSExplorer
             ContextMenuItemOriginStop.Visible = false;
             ContextMenuItemOriginDelete.Visible = false;
             createStreamingEndpointToolStripMenuItem.Visible = false;
+
+            // Hide Attach/Detach storage account feature
+            attachAnotherStorageAccountToolStripMenuItem.Visible = false;
+            attachAnotherStoragheAccountToolStripMenuItem.Visible = false;
 
             // Hide Key Delivery Configuration feature
             keyDeliveryConfigurationToolStripMenuItem.Visible = false;
@@ -3870,6 +3874,7 @@ namespace AMSExplorer
             {
                 SearchIn stype = (SearchIn)Enum.Parse(typeof(SearchIn), (comboBoxSearchAssetOption.SelectedItem as Item).Value);
                 dataGridViewAssetsV.SearchInName = new SearchObject { Text = textBoxAssetSearch.Text, SearchType = stype };
+                SetTextBoxAssetsPageNumber(1);
                 DoRefreshGridAssetV(false);
             }
         }
@@ -3882,6 +3887,7 @@ namespace AMSExplorer
             {
                 SearchIn stype = (SearchIn)Enum.Parse(typeof(SearchIn), (comboBoxSearchJobOption.SelectedItem as Item).Value);
                 dataGridViewJobsV.SearchInName = new SearchObject { Text = textBoxJobSearch.Text, SearchType = stype };
+                SetTextBoxJobsPageNumber(1);
                 DoRefreshGridJobV(false);
             }
         }
@@ -4441,6 +4447,11 @@ namespace AMSExplorer
 
         private async Task DoRefreshGridLiveEventVAsync(bool firstime)
         {
+            if (_amsClient.IsRavnurClient)
+            {
+                return;
+            }
+
             if (firstime)
             {
                 await dataGridViewLiveEventsV.InitAsync(_amsClient);
@@ -4467,6 +4478,11 @@ namespace AMSExplorer
 
         private void DoRefreshGridLiveOutputV(bool firstime)
         {
+            if (_amsClient.IsRavnurClient)
+            {
+                return;
+            }
+
             if (firstime)
             {
                 Debug.WriteLine("DoRefreshGridProgramVforsttime");
