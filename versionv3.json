@@ -1,7 +1,7 @@
 {
-    "Version": "5.9.5.0",
+    "Version": "5.9.6.0",
     "ReleaseNotesUrl": "http://htmlpreview.github.io/?https://github.com/Ravnur-Inc/Azure-Media-Services-Explorer/blob/ravnur-independent/ReleaseNotes.html",
     "AllReleaseNotesUrl": "https://github.com/Ravnur-Inc/Azure-Media-Services-Explorer/releases",
-    "BinaryUrl": "https://github.com/Ravnur-Inc/Azure-Media-Services-Explorer/releases/download/v5.9.5.0-ravnur/AMSExplorerSetup_v5.9.5.msi",
+    "BinaryUrl": "https://github.com/Ravnur-Inc/Azure-Media-Services-Explorer/releases/download/v5.9.6.0-ravnur/AMSExplorerSetup_v5.9.6.msi",
     "Parameters": ""
 }
