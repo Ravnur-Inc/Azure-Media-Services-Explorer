@@ -85,10 +85,6 @@
             toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             ContextMenuItemPlaybackWithMPEGDASHIFReference = new System.Windows.Forms.ToolStripMenuItem();
             withCustomPlayerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
-            toolStripMenuMKIOGeneral = new System.Windows.Forms.ToolStripMenuItem();
-            createMKIOAssetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            deleteSelectedAssetsFromMKIOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             textBoxAssetsPageNumber = new System.Windows.Forms.TextBox();
             butNextPageAsset = new System.Windows.Forms.Button();
             textBoxAssetSearch = new System.Windows.Forms.TextBox();
@@ -116,9 +112,6 @@
             toolStripMenuItemCKDelete = new System.Windows.Forms.ToolStripMenuItem();
             toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             keyDeliveryConfigurationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            MKIOCKGeneral = new System.Windows.Forms.ToolStripMenuItem();
-            toolStripMenuItemCreateCKInMKIO = new System.Windows.Forms.ToolStripMenuItem();
-            deleteFromMKIOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             tabPageTransfers = new System.Windows.Forms.TabPage();
             tableLayoutPanelTransfers = new System.Windows.Forms.TableLayoutPanel();
             label8 = new System.Windows.Forms.Label();
@@ -249,10 +242,6 @@
             toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             attachAnotherStorageAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             storageSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
-            MKIOStorageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            toolStripMenuItemAddStorageMKIO = new System.Windows.Forms.ToolStripMenuItem();
-            toolStripMenuItemRemoveStorageMKIO = new System.Windows.Forms.ToolStripMenuItem();
             richTextBoxLog = new System.Windows.Forms.RichTextBox();
             contextMenuStripLog = new System.Windows.Forms.ContextMenuStrip(components);
             copyToClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -313,7 +302,6 @@
             ravnurPlayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             toolStripSeparator29 = new System.Windows.Forms.ToolStripSeparator();
             hTML5CaptionMakerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            mKIOPortalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ravnurPortalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             azureMediaHelpFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -344,7 +332,6 @@
             buttonRefreshTab = new System.Windows.Forms.Button();
             panelButtons = new System.Windows.Forms.Panel();
             notifyIcon1 = new System.Windows.Forms.NotifyIcon(components);
-            pictureBoxMKIO = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)splitContainerMain).BeginInit();
             splitContainerMain.Panel1.SuspendLayout();
             splitContainerMain.Panel2.SuspendLayout();
@@ -397,7 +384,6 @@
             menuStripMain.SuspendLayout();
             statusStrip1.SuspendLayout();
             panelButtons.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxMKIO).BeginInit();
             SuspendLayout();
             // 
             // splitContainerMain
@@ -497,7 +483,7 @@
             // contextMenuStripAssets
             // 
             contextMenuStripAssets.ImageScalingSize = new System.Drawing.Size(20, 20);
-            contextMenuStripAssets.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { refreshToolStripMenuItem1, toolStripSeparator9, ContextMenuItemAssetDisplayInfo, displayAssetReportToolStripMenuItem, ContextMenuItemAssetEditDescription, editAlternateIdToolStripMenuItem, ContextMenuItemAssetDelete, toolsToolStripMenuItem, toolStripSeparator36, newAssetToolStripMenuItem, toolStripMenuItem17, importToolStripMenuItem1, exportToolStripMenuItem, toolStripMenuItem37, toolStripSeparator5, toolStripMenuItem32, subclipToolStripMenuItem, toolStripSeparator6, publishToolStripMenuItem1, displayOutputUrlsToolStripMenuItem, ContextMenuItemAssetPlayback, toolStripSeparator11, toolStripMenuMKIOGeneral });
+            contextMenuStripAssets.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { refreshToolStripMenuItem1, toolStripSeparator9, ContextMenuItemAssetDisplayInfo, displayAssetReportToolStripMenuItem, ContextMenuItemAssetEditDescription, editAlternateIdToolStripMenuItem, ContextMenuItemAssetDelete, toolsToolStripMenuItem, toolStripSeparator36, newAssetToolStripMenuItem, toolStripMenuItem17, importToolStripMenuItem1, exportToolStripMenuItem, toolStripMenuItem37, toolStripSeparator5, toolStripMenuItem32, subclipToolStripMenuItem, toolStripSeparator6, publishToolStripMenuItem1, displayOutputUrlsToolStripMenuItem, ContextMenuItemAssetPlayback });
             contextMenuStripAssets.Name = "contextMenuStripAssets";
             resources.ApplyResources(contextMenuStripAssets, "contextMenuStripAssets");
             contextMenuStripAssets.Opening += contextMenuStripAssets_Opening;
@@ -768,31 +754,6 @@
             resources.ApplyResources(withCustomPlayerToolStripMenuItem1, "withCustomPlayerToolStripMenuItem1");
             withCustomPlayerToolStripMenuItem1.Click += withCustomPlayerToolStripMenuItem1_Click;
             // 
-            // toolStripSeparator11
-            // 
-            toolStripSeparator11.Name = "toolStripSeparator11";
-            resources.ApplyResources(toolStripSeparator11, "toolStripSeparator11");
-            // 
-            // toolStripMenuMKIOGeneral
-            // 
-            toolStripMenuMKIOGeneral.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { createMKIOAssetToolStripMenuItem, deleteSelectedAssetsFromMKIOToolStripMenuItem });
-            toolStripMenuMKIOGeneral.Name = "toolStripMenuMKIOGeneral";
-            resources.ApplyResources(toolStripMenuMKIOGeneral, "toolStripMenuMKIOGeneral");
-            // 
-            // createMKIOAssetToolStripMenuItem
-            // 
-            createMKIOAssetToolStripMenuItem.Image = Bitmaps.create;
-            createMKIOAssetToolStripMenuItem.Name = "createMKIOAssetToolStripMenuItem";
-            resources.ApplyResources(createMKIOAssetToolStripMenuItem, "createMKIOAssetToolStripMenuItem");
-            createMKIOAssetToolStripMenuItem.Click += createAssetToolStripMenuItem_Click;
-            // 
-            // deleteSelectedAssetsFromMKIOToolStripMenuItem
-            // 
-            deleteSelectedAssetsFromMKIOToolStripMenuItem.Image = Bitmaps.delete;
-            deleteSelectedAssetsFromMKIOToolStripMenuItem.Name = "deleteSelectedAssetsFromMKIOToolStripMenuItem";
-            resources.ApplyResources(deleteSelectedAssetsFromMKIOToolStripMenuItem, "deleteSelectedAssetsFromMKIOToolStripMenuItem");
-            deleteSelectedAssetsFromMKIOToolStripMenuItem.Click += deleteSelectedAssetsFromMKIOToolStripMenuItem_Click;
-            // 
             // textBoxAssetsPageNumber
             // 
             resources.ApplyResources(textBoxAssetsPageNumber, "textBoxAssetsPageNumber");
@@ -946,10 +907,9 @@
             // contextMenuStripCKPolicies
             // 
             contextMenuStripCKPolicies.ImageScalingSize = new System.Drawing.Size(20, 20);
-            contextMenuStripCKPolicies.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItemCKRefresh, toolStripMenuItemCKInfo, toolStripMenuItemCKCreate, toolStripMenuItemCKDelete, toolStripSeparator7, keyDeliveryConfigurationToolStripMenuItem1, MKIOCKGeneral });
+            contextMenuStripCKPolicies.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItemCKRefresh, toolStripMenuItemCKInfo, toolStripMenuItemCKCreate, toolStripMenuItemCKDelete, toolStripSeparator7, keyDeliveryConfigurationToolStripMenuItem1 });
             contextMenuStripCKPolicies.Name = "contextMenuStripStreamingEndpoints";
             resources.ApplyResources(contextMenuStripCKPolicies, "contextMenuStripCKPolicies");
-            contextMenuStripCKPolicies.Opening += contextMenuStripCKPolicies_Opening;
             // 
             // toolStripMenuItemCKRefresh
             // 
@@ -985,25 +945,6 @@
             keyDeliveryConfigurationToolStripMenuItem1.Name = "keyDeliveryConfigurationToolStripMenuItem1";
             resources.ApplyResources(keyDeliveryConfigurationToolStripMenuItem1, "keyDeliveryConfigurationToolStripMenuItem1");
             keyDeliveryConfigurationToolStripMenuItem1.Click += keyDeliveryConfigurationToolStripMenuItem1_Click;
-            // 
-            // MKIOCKGeneral
-            // 
-            MKIOCKGeneral.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItemCreateCKInMKIO, deleteFromMKIOToolStripMenuItem });
-            MKIOCKGeneral.Name = "MKIOCKGeneral";
-            resources.ApplyResources(MKIOCKGeneral, "MKIOCKGeneral");
-            // 
-            // toolStripMenuItemCreateCKInMKIO
-            // 
-            toolStripMenuItemCreateCKInMKIO.Image = Bitmaps.create;
-            toolStripMenuItemCreateCKInMKIO.Name = "toolStripMenuItemCreateCKInMKIO";
-            resources.ApplyResources(toolStripMenuItemCreateCKInMKIO, "toolStripMenuItemCreateCKInMKIO");
-            toolStripMenuItemCreateCKInMKIO.Click += toolStripMenuItemCreateCKInMKIO_Click;
-            // 
-            // deleteFromMKIOToolStripMenuItem
-            // 
-            deleteFromMKIOToolStripMenuItem.Name = "deleteFromMKIOToolStripMenuItem";
-            resources.ApplyResources(deleteFromMKIOToolStripMenuItem, "deleteFromMKIOToolStripMenuItem");
-            deleteFromMKIOToolStripMenuItem.Click += deleteCKPolFromMKIOToolStripMenuItem_Click;
             // 
             // tabPageTransfers
             // 
@@ -1965,10 +1906,9 @@
             // contextMenuStripStorage
             // 
             contextMenuStripStorage.ImageScalingSize = new System.Drawing.Size(20, 20);
-            contextMenuStripStorage.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItem2, attachAnotherStorageAccountToolStripMenuItem, storageSettingsToolStripMenuItem, toolStripSeparator17, MKIOStorageToolStripMenuItem });
+            contextMenuStripStorage.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItem2, attachAnotherStorageAccountToolStripMenuItem, storageSettingsToolStripMenuItem });
             contextMenuStripStorage.Name = "contextMenuStripStreamingEndpoints";
             resources.ApplyResources(contextMenuStripStorage, "contextMenuStripStorage");
-            contextMenuStripStorage.Opening += contextMenuStripStorage_Opening;
             // 
             // toolStripMenuItem2
             // 
@@ -1987,29 +1927,6 @@
             storageSettingsToolStripMenuItem.Name = "storageSettingsToolStripMenuItem";
             resources.ApplyResources(storageSettingsToolStripMenuItem, "storageSettingsToolStripMenuItem");
             storageSettingsToolStripMenuItem.Click += storageSettingsToolStripMenuItem_Click;
-            // 
-            // toolStripSeparator17
-            // 
-            toolStripSeparator17.Name = "toolStripSeparator17";
-            resources.ApplyResources(toolStripSeparator17, "toolStripSeparator17");
-            // 
-            // MKIOStorageToolStripMenuItem
-            // 
-            MKIOStorageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItemAddStorageMKIO, toolStripMenuItemRemoveStorageMKIO });
-            MKIOStorageToolStripMenuItem.Name = "MKIOStorageToolStripMenuItem";
-            resources.ApplyResources(MKIOStorageToolStripMenuItem, "MKIOStorageToolStripMenuItem");
-            // 
-            // toolStripMenuItemAddStorageMKIO
-            // 
-            toolStripMenuItemAddStorageMKIO.Name = "toolStripMenuItemAddStorageMKIO";
-            resources.ApplyResources(toolStripMenuItemAddStorageMKIO, "toolStripMenuItemAddStorageMKIO");
-            toolStripMenuItemAddStorageMKIO.Click += toolStripMenuItemAddStorageMKIO_Click;
-            // 
-            // toolStripMenuItemRemoveStorageMKIO
-            // 
-            toolStripMenuItemRemoveStorageMKIO.Name = "toolStripMenuItemRemoveStorageMKIO";
-            resources.ApplyResources(toolStripMenuItemRemoveStorageMKIO, "toolStripMenuItemRemoveStorageMKIO");
-            toolStripMenuItemRemoveStorageMKIO.Click += toolStripMenuItemRemoveStorageMKIO_Click;
             // 
             // richTextBoxLog
             // 
@@ -2302,7 +2219,7 @@
             // 
             // samplePlayersToolStripMenuItem
             // 
-            samplePlayersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItemAzureUpdates, azureMediaBlogToolStripMenuItem, toolStripSeparator1, azureMediaServicesPlayerPageToolStripMenuItem, dASHIFHTML5ReferencePlayerToolStripMenuItem, hTML5VideoElementToolStripMenuItem, jwPlayerToolStripMenuItem, tHEOPlayerToolStripMenuItem, ravnurPlayerToolStripMenuItem, toolStripSeparator29, hTML5CaptionMakerToolStripMenuItem, mKIOPortalToolStripMenuItem, ravnurPortalToolStripMenuItem });
+            samplePlayersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItemAzureUpdates, azureMediaBlogToolStripMenuItem, toolStripSeparator1, azureMediaServicesPlayerPageToolStripMenuItem, dASHIFHTML5ReferencePlayerToolStripMenuItem, hTML5VideoElementToolStripMenuItem, jwPlayerToolStripMenuItem, tHEOPlayerToolStripMenuItem, ravnurPlayerToolStripMenuItem, toolStripSeparator29, hTML5CaptionMakerToolStripMenuItem, ravnurPortalToolStripMenuItem });
             samplePlayersToolStripMenuItem.Name = "samplePlayersToolStripMenuItem";
             resources.ApplyResources(samplePlayersToolStripMenuItem, "samplePlayersToolStripMenuItem");
             // 
@@ -2369,13 +2286,6 @@
             resources.ApplyResources(hTML5CaptionMakerToolStripMenuItem, "hTML5CaptionMakerToolStripMenuItem");
             hTML5CaptionMakerToolStripMenuItem.Name = "hTML5CaptionMakerToolStripMenuItem";
             hTML5CaptionMakerToolStripMenuItem.Click += hTML5CaptionMakerToolStripMenuItem_Click;
-            // 
-            // mKIOPortalToolStripMenuItem
-            // 
-            mKIOPortalToolStripMenuItem.Image = Bitmaps.external_link;
-            mKIOPortalToolStripMenuItem.Name = "mKIOPortalToolStripMenuItem";
-            resources.ApplyResources(mKIOPortalToolStripMenuItem, "mKIOPortalToolStripMenuItem");
-            mKIOPortalToolStripMenuItem.Click += mKIOPortalToolStripMenuItem_Click;
             // 
             // ravnurPortalToolStripMenuItem
             // 
@@ -2548,22 +2458,11 @@
             notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             resources.ApplyResources(notifyIcon1, "notifyIcon1");
             // 
-            // pictureBoxMKIO
-            // 
-            resources.ApplyResources(pictureBoxMKIO, "pictureBoxMKIO");
-            pictureBoxMKIO.Image = Bitmaps.mk_io_blue;
-            pictureBoxMKIO.Name = "pictureBoxMKIO";
-            pictureBoxMKIO.TabStop = false;
-            pictureBoxMKIO.Click += pictureBoxMKIO_Click;
-            pictureBoxMKIO.MouseEnter += pictureBoxMKIO_MouseEnter;
-            pictureBoxMKIO.MouseLeave += pictureBoxMKIO_MouseLeave;
-            // 
             // Mainform
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             BackColor = System.Drawing.Color.WhiteSmoke;
-            Controls.Add(pictureBoxMKIO);
             Controls.Add(panelButtons);
             Controls.Add(splitContainerMain);
             Controls.Add(statusStrip1);
@@ -2634,7 +2533,6 @@
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
             panelButtons.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBoxMKIO).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -2936,22 +2834,8 @@
         private System.Windows.Forms.ToolStripMenuItem keyDeliveryConfigurationToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem displayOutputUrlsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuMKIOGeneral;
-        private System.Windows.Forms.ToolStripMenuItem createMKIOAssetToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator17;
-        private System.Windows.Forms.ToolStripMenuItem MKIOStorageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAddStorageMKIO;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRemoveStorageMKIO;
-        private System.Windows.Forms.PictureBox pictureBoxMKIO;
-        private System.Windows.Forms.ToolStripMenuItem mKIOPortalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem MKIOCKGeneral;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCreateCKInMKIO;
-        private System.Windows.Forms.ToolStripMenuItem deleteSelectedAssetsFromMKIOToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteFromMKIOToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ravnurPlayerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ravnurPortalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ravnurConsoleToolStripMenuItem;
     }
 }
-

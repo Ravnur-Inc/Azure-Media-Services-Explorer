@@ -30,9 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AssetInformation));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -130,14 +127,6 @@
             buttonAzureMediaPlayer = new System.Windows.Forms.Button();
             buttonDASH = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
-            tabPageMKIO = new System.Windows.Forms.TabPage();
-            pictureBoxMKIO = new System.Windows.Forms.PictureBox();
-            label16 = new System.Windows.Forms.Label();
-            label15 = new System.Windows.Forms.Label();
-            TreeViewLocatorsMKIO = new System.Windows.Forms.TreeView();
-            label14 = new System.Windows.Forms.Label();
-            comboBoxSEMKIO = new System.Windows.Forms.ComboBox();
-            DGMKIOInfo = new System.Windows.Forms.DataGridView();
             contextMenuStripKey = new System.Windows.Forms.ContextMenuStrip(components);
             removeKeyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             labelAssetNameTitle = new System.Windows.Forms.Label();
@@ -185,9 +174,6 @@
             tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewKeys).BeginInit();
             tabPage3.SuspendLayout();
-            tabPageMKIO.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxMKIO).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)DGMKIOInfo).BeginInit();
             contextMenuStripKey.SuspendLayout();
             panel1.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
@@ -388,7 +374,6 @@
             tabControl1.Controls.Add(tabPageAssetFilters);
             tabControl1.Controls.Add(tabPagePolicy);
             tabControl1.Controls.Add(tabPage3);
-            tabControl1.Controls.Add(tabPageMKIO);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             tabControl1.Selected += tabControl1_Selected;
@@ -505,36 +490,36 @@
             resources.ApplyResources(dGTracks, "dGTracks");
             dGTracks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             dGTracks.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dGTracks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dGTracks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dGTracks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dGTracks.ColumnHeadersVisible = false;
             dGTracks.ContextMenuStrip = contextMenuStripDG;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            dGTracks.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dGTracks.DefaultCellStyle = dataGridViewCellStyle2;
             dGTracks.MultiSelect = false;
             dGTracks.Name = "dGTracks";
             dGTracks.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dGTracks.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dGTracks.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dGTracks.RowHeadersVisible = false;
             // 
             // listViewTracks
@@ -939,96 +924,6 @@
             resources.ApplyResources(label1, "label1");
             label1.Name = "label1";
             // 
-            // tabPageMKIO
-            // 
-            tabPageMKIO.Controls.Add(pictureBoxMKIO);
-            tabPageMKIO.Controls.Add(label16);
-            tabPageMKIO.Controls.Add(label15);
-            tabPageMKIO.Controls.Add(TreeViewLocatorsMKIO);
-            tabPageMKIO.Controls.Add(label14);
-            tabPageMKIO.Controls.Add(comboBoxSEMKIO);
-            tabPageMKIO.Controls.Add(DGMKIOInfo);
-            resources.ApplyResources(tabPageMKIO, "tabPageMKIO");
-            tabPageMKIO.Name = "tabPageMKIO";
-            tabPageMKIO.UseVisualStyleBackColor = true;
-            tabPageMKIO.Enter += tabPageMKIO_Enter;
-            // 
-            // pictureBoxMKIO
-            // 
-            resources.ApplyResources(pictureBoxMKIO, "pictureBoxMKIO");
-            pictureBoxMKIO.Image = Bitmaps.mk_io_blue;
-            pictureBoxMKIO.Name = "pictureBoxMKIO";
-            pictureBoxMKIO.TabStop = false;
-            // 
-            // label16
-            // 
-            resources.ApplyResources(label16, "label16");
-            label16.Name = "label16";
-            // 
-            // label15
-            // 
-            resources.ApplyResources(label15, "label15");
-            label15.Name = "label15";
-            // 
-            // TreeViewLocatorsMKIO
-            // 
-            resources.ApplyResources(TreeViewLocatorsMKIO, "TreeViewLocatorsMKIO");
-            TreeViewLocatorsMKIO.ContextMenuStrip = contextMenuStripLocators;
-            TreeViewLocatorsMKIO.Name = "TreeViewLocatorsMKIO";
-            // 
-            // label14
-            // 
-            resources.ApplyResources(label14, "label14");
-            label14.Name = "label14";
-            // 
-            // comboBoxSEMKIO
-            // 
-            resources.ApplyResources(comboBoxSEMKIO, "comboBoxSEMKIO");
-            comboBoxSEMKIO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            comboBoxSEMKIO.FormattingEnabled = true;
-            comboBoxSEMKIO.Name = "comboBoxSEMKIO";
-            comboBoxSEMKIO.SelectedIndexChanged += comboBoxSEMKIO_SelectedIndexChanged;
-            // 
-            // DGMKIOInfo
-            // 
-            DGMKIOInfo.AllowUserToAddRows = false;
-            DGMKIOInfo.AllowUserToDeleteRows = false;
-            DGMKIOInfo.AllowUserToResizeRows = false;
-            resources.ApplyResources(DGMKIOInfo, "DGMKIOInfo");
-            DGMKIOInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            DGMKIOInfo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            DGMKIOInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            DGMKIOInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGMKIOInfo.ColumnHeadersVisible = false;
-            DGMKIOInfo.ContextMenuStrip = contextMenuStripDG;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            DGMKIOInfo.DefaultCellStyle = dataGridViewCellStyle2;
-            DGMKIOInfo.MultiSelect = false;
-            DGMKIOInfo.Name = "DGMKIOInfo";
-            DGMKIOInfo.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            DGMKIOInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            DGMKIOInfo.RowHeadersVisible = false;
-            // 
             // contextMenuStripKey
             // 
             contextMenuStripKey.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -1189,10 +1084,6 @@
             ((System.ComponentModel.ISupportInitialize)dataGridViewKeys).EndInit();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
-            tabPageMKIO.ResumeLayout(false);
-            tabPageMKIO.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxMKIO).EndInit();
-            ((System.ComponentModel.ISupportInitialize)DGMKIOInfo).EndInit();
             contextMenuStripKey.ResumeLayout(false);
             panel1.ResumeLayout(false);
             contextMenuStrip1.ResumeLayout(false);
@@ -1318,13 +1209,5 @@
         private System.Windows.Forms.ToolStripMenuItem addTrackToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createAnAudioTrackFromThisBlobToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editSettingsToolStripMenuItem;
-        private System.Windows.Forms.TabPage tabPageMKIO;
-        private System.Windows.Forms.TreeView TreeViewLocatorsMKIO;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox comboBoxSEMKIO;
-        private System.Windows.Forms.DataGridView DGMKIOInfo;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.PictureBox pictureBoxMKIO;
     }
 }

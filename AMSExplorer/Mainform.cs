@@ -29,8 +29,6 @@ using Microsoft.Azure.Storage.Auth;
 using Microsoft.Azure.Storage.Blob;
 using Microsoft.Azure.Storage.DataMovement;
 using Microsoft.Azure.Storage.Shared.Protocol;
-using MK.IO;
-using MK.IO.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -89,14 +87,6 @@ namespace AMSExplorer
 
         private record QuotaMetrics(string Name, string CountMetric, string QuotaMetric);
         private Dictionary<string, double?> QuotasValues;
-
-        public MKIOClient MKIOclient;
-        public string MKIOSubscriptionName;
-        public string MKIOToken;
-
-        public List<AssetSchema> migratedAssetsToMKIO;
-        public List<StorageResponseSchema> migratedStorageAccountsToMKIO;
-        public List<ContentKeyPolicySchema> migratedContentKeyPoliciesToMKIO;
 
         public Mainform(string[] args)
         {
@@ -188,38 +178,8 @@ namespace AMSExplorer
                 }
             });
 
-            // MKIO Connection            
-            MKIOclient = null;
-
-            if (_amsClient.useMKIOConnection)
-            {
-                try
-                {
-                    MKIOclient = new MKIOClient(_amsClient.credentialsEntry.MKIOSubscriptionName, _amsClient.credentialsEntry.MKIOClearToken);
-                    migratedAssetsToMKIO = MKIOclient.Assets.List();
-                    migratedStorageAccountsToMKIO = MKIOclient.StorageAccounts.List();
-                    migratedContentKeyPoliciesToMKIO = MKIOclient.ContentKeyPolicies.List();
-
-                    if (migratedStorageAccountsToMKIO.Count == 0)
-                    {
-                        MessageBox.Show($"No storage account found in MK/IO.{Constants.endline}Please add the storage account(s) of this AMS account to MK/IO by going to the Storage tab, right click and select 'MediaKind MK/IO' / 'Add Storage...'", "No MK/IO Storage Account");
-                    }
-                }
-                catch
-                {
-                    MKIOclient = null;
-                    MessageBox.Show("Connection to MediaKind MK/IO failed. Restart the application to try again.", "No MK/IO Connection");
-                }
-            }
-
             // mainform title
             toolStripStatusLabelConnection.Text = string.Format("Version {0} for Media Services v3 - Connected to '{1}' ({2})", Assembly.GetExecutingAssembly().GetName().Version, _accountname, _amsClient.AMSclient.Data.Location.DisplayName);
-
-            if (MKIOclient != null)
-            {
-                toolStripStatusLabelConnection.Text += $" and '{_amsClient.credentialsEntry.MKIOSubscriptionName}' (MK/IO)";
-                pictureBoxMKIO.Visible = true;
-            }
 
             // notification title
             notifyIcon1.Text = string.Format(notifyIcon1.Text, _accountname);
@@ -543,11 +503,7 @@ namespace AMSExplorer
 
                 try
                 {
-                    dataGridViewAssetsV.Init(_amsClient, SynchronizationContext.Current, MKIOclient != null);
-                    if (MKIOclient != null)
-                    {
-                        dataGridViewAssetsV.ListMKIOAssets = migratedAssetsToMKIO;
-                    }
+                    dataGridViewAssetsV.Init(_amsClient, SynchronizationContext.Current);
                 }
                 catch (Exception ex)
                 {
@@ -567,13 +523,6 @@ namespace AMSExplorer
             {
                 try
                 {
-                    if (!firstime && MKIOclient != null)
-                    {
-                        //Refresh MK/IO Assets
-                        migratedAssetsToMKIO = await MKIOclient.Assets.ListAsync();
-                        dataGridViewAssetsV.ListMKIOAssets = migratedAssetsToMKIO;
-                    }
-
                     await dataGridViewAssetsV.RefreshAssetsAsync(page, _amsClient);
                 }
                 catch (Exception ex)
@@ -1974,8 +1923,7 @@ namespace AMSExplorer
                             this,
                             _amsClient,
                             asset,
-                            dataGridViewStreamingEndpointsV.GetDisplayedStreamingEndpoints(_amsClient), // we want to keep the same sorting
-                            MKIOclient
+                            dataGridViewStreamingEndpointsV.GetDisplayedStreamingEndpoints(_amsClient) // we want to keep the same sorting
                         );
 
                         dialogResult = form.ShowDialog(this);
@@ -3757,8 +3705,6 @@ namespace AMSExplorer
             ContextMenuItemAssetEditDescription.Enabled =
             editAlternateIdToolStripMenuItem.Enabled =
             createAnAssetFilterToolStripMenuItem.Enabled = singleitem;
-
-            toolStripMenuMKIOGeneral.Enabled = MKIOclient != null;
         }
 
 
@@ -4531,23 +4477,10 @@ namespace AMSExplorer
                 dataGridViewStorage.Columns[1].HeaderText = "Id";
                 dataGridViewStorage.Columns[1].Width = 700;
 
-                // MK/IO column
                 dataGridViewStorage.Columns.RemoveAt(2);
-                var c = new DataGridViewCheckBoxColumn();
-                c.ValueType = typeof(bool);
-                c.HeaderText = "in MK/IO";
-                c.Name = "MKIOMigrated";
-                c.Visible = MKIOclient != null;
-                c.Width = 700;
-                dataGridViewStorage.Columns.Insert(2, c);
             }
 
             dataGridViewStorage.Rows.Clear();
-
-            if (MKIOclient != null)
-            {
-                migratedStorageAccountsToMKIO = await MKIOclient.StorageAccounts.ListAsync();
-            }
 
             foreach (var storage in amsaccount.StorageAccounts)
             {
@@ -4563,19 +4496,6 @@ namespace AMSExplorer
                 {
                     dataGridViewStorage.Rows[rowi].Cells[0].Style.ForeColor = Color.Blue;
                     dataGridViewStorage.Rows[rowi].Cells[0].ToolTipText = "Primary storage account";
-                }
-
-                // MK/IO flag storage display
-                if (MKIOclient != null)
-                {
-                    if (migratedStorageAccountsToMKIO.Select(s => s.Spec.Name).ToList().Contains(name))
-                    {
-                        dataGridViewStorage.Rows[rowi].Cells[2].Value = true;
-                    }
-                    else
-                    {
-                        dataGridViewStorage.Rows[rowi].Cells[2].Value = false;
-                    }
                 }
             }
             tabPageStorage.Invoke(t => t.Text = string.Format(AMSExplorer.Properties.Resources.TabStorage + " ({0})", amsaccount.StorageAccounts.Count));
@@ -4696,22 +4616,10 @@ namespace AMSExplorer
                 dataGridViewCKPolicies.Columns[4].Name = "LastModified";
                 dataGridViewCKPolicies.Columns[4].Width = 110;
 
-                // MK/IO column
                 dataGridViewCKPolicies.Columns.RemoveAt(5);
-                var c = new DataGridViewCheckBoxColumn();
-                c.ValueType = typeof(bool);
-                c.HeaderText = "in MK/IO";
-                c.Name = "MKIOMigrated";
-                c.Visible = MKIOclient != null;
-                c.Width = 700;
-                dataGridViewCKPolicies.Columns.Insert(5, c);
+
             }
             dataGridViewCKPolicies.Rows.Clear();
-
-            if (MKIOclient != null)
-            {
-                migratedContentKeyPoliciesToMKIO = await MKIOclient.ContentKeyPolicies.ListAsync();
-            }
 
             var ckPolicies = _amsClient.AMSclient.GetContentKeyPolicies().GetAllAsync();
             int nbPol = 0;
@@ -4751,12 +4659,6 @@ namespace AMSExplorer
                 catch
                 {
                     rowi = dataGridViewCKPolicies.Rows.Add(ckPolicy.Data.Name, "Error");
-                }
-
-                // MK/IO flag storage display
-                if (MKIOclient != null)
-                {
-                    dataGridViewCKPolicies.Rows[rowi].Cells[5].Value = migratedContentKeyPoliciesToMKIO.Select(s => s.Name).ToList().Contains(ckPolicy.Data.Name);
                 }
             }
 
@@ -7288,12 +7190,6 @@ namespace AMSExplorer
             }
         }
 
-
-        private void contextMenuStripStorage_Opening(object sender, CancelEventArgs e)
-        {
-            MKIOStorageToolStripMenuItem.Enabled = MKIOclient != null;
-        }
-
         private async void toolStripMenuItem12_Click_1(object sender, EventArgs e)
         {
             await DoRefreshGridFiltersVAsync(false);
@@ -7589,7 +7485,7 @@ namespace AMSExplorer
         private async Task DoExportMetadataAsync()
         {
             Telemetry.TrackEvent("DoExportMetadataAsync");
-            ExportToExcel form = new(_amsClient, await ReturnSelectedAssetsAsync(), MKIOclient);
+            ExportToExcel form = new(_amsClient, await ReturnSelectedAssetsAsync());
             if (form.ShowDialog() == DialogResult.OK)
             {
 
@@ -9937,72 +9833,6 @@ namespace AMSExplorer
         private async void displayOutputUrlsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             await DoDisplayOutputURLAssetOrProgramToWindowAsync();
-        }
-
-        private async void createAssetToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            await MKIOCreateAssetAsync();
-        }
-
-
-        private async void toolStripMenuItemRemoveStorageMKIO_Click(object sender, EventArgs e)
-        {
-            await DoMKIOStorageRemoveAsync();
-        }
-
-
-        private async void toolStripMenuItemAddStorageMKIO_Click(object sender, EventArgs e)
-        {
-            await DoMKIOStorageAddAsync();
-        }
-
-
-        private void mKIOPortalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var p = new Process
-            {
-                StartInfo = new ProcessStartInfo
-                {
-                    FileName = Constants.DemoCaptionMaker,
-                    UseShellExecute = true
-                }
-            };
-            p.Start();
-        }
-
-        private async void toolStripMenuItemCreateCKInMKIO_Click(object sender, EventArgs e)
-        {
-            await DoMKIOCreateContentKeyPolicyAsync();
-        }
-
-        private async void deleteSelectedAssetsFromMKIOToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            await MKIODeleteAssetAsync();
-        }
-
-        private async void deleteCKPolFromMKIOToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            await MKIODeleteCKPolAsync();
-        }
-
-        private void contextMenuStripCKPolicies_Opening(object sender, CancelEventArgs e)
-        {
-            MKIOCKGeneral.Enabled = MKIOclient != null;
-        }
-
-        private void pictureBoxMKIO_Click(object sender, EventArgs e)
-        {
-            OpenExternalLink(Constants.MKIOApp + _amsClient.credentialsEntry.MKIOSubscriptionName);
-        }
-
-        private void pictureBoxMKIO_MouseEnter(object sender, EventArgs e)
-        {
-            Cursor = Cursors.Hand;
-        }
-
-        private void pictureBoxMKIO_MouseLeave(object sender, EventArgs e)
-        {
-            Cursor = Cursors.Arrow;
         }
 
         private void ravnurPlayerToolStripMenuItem_Click(object sender, EventArgs e)

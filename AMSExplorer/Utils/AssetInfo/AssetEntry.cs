@@ -281,20 +281,6 @@ namespace AMSExplorer
             }
         }
 
-        private bool _MKIOMigrated;
-        public bool MKIOMigrated
-        {
-            get => _MKIOMigrated;
-            set
-            {
-                if (value != _MKIOMigrated)
-                {
-                    _MKIOMigrated = value;
-                    NotifyPropertyChanged();
-                }
-            }
-        }
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void NotifyPropertyChanged([CallerMemberName] string p = "")

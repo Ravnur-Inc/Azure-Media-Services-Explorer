@@ -47,7 +47,6 @@ namespace AMSExplorer
         private readonly string[] scopes, scopes2, scopes3;
         private bool firstTimeAuth = true;
         private readonly System.Timers.Timer TimerAutoRefreshAuthToken;
-        public bool useMKIOConnection = false;
 
         public bool IsRavnurClient => credentialsEntry.RavnurApiEndpoint != null;
         public string RavnurAccessToken;
@@ -109,7 +108,7 @@ namespace AMSExplorer
         }
 
 
-        public async Task<MediaServicesAccountResource> ConnectAndGetNewClientV3Async(Form callerForm = null, bool connectToMKIO = true)
+        public async Task<MediaServicesAccountResource> ConnectAndGetNewClientV3Async(Form callerForm = null)
         {
             if (!credentialsEntry.UseSPAuth)
             {
@@ -179,19 +178,6 @@ namespace AMSExplorer
                                                          .ExecuteAsync()
                                                          .ConfigureAwait(false);
 
-            }
-
-            if (firstTimeAuth && connectToMKIO && !IsRavnurClient)
-            {
-                // form for MK/IO
-                MKIOConnection mkioConnectionForm = new(credentialsEntry.MKIOSubscriptionName, credentialsEntry.MKIOClearToken);
-
-                if (mkioConnectionForm.ShowDialog() == DialogResult.OK)
-                {
-                    useMKIOConnection = true;
-                    credentialsEntry.MKIOSubscriptionName = mkioConnectionForm.MKIOSubscriptionName;
-                    credentialsEntry.MKIOClearToken = mkioConnectionForm.MKIOToken;
-                }
             }
 
             credentials = new TokenCredentials(authResult.AccessToken, "Bearer");

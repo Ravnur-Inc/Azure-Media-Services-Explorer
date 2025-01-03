@@ -19,8 +19,6 @@ using Azure.ResourceManager.Media.Models;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
-using MK.IO;
-using MK.IO.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,17 +38,15 @@ namespace AMSExplorer
     {
         private readonly AMSClientV3 _amsClient;
         private readonly List<MediaAssetResource> _selassets;
-        private readonly MKIOClient _mkioClient;
         private string filename;
         private CancellationTokenSource source = new CancellationTokenSource();
 
-        public ExportToExcel(AMSClientV3 amsClient, List<MediaAssetResource> selassets, MKIOClient mkioClient)
+        public ExportToExcel(AMSClientV3 amsClient, List<MediaAssetResource> selassets)
         {
             InitializeComponent();
             this.Icon = Bitmaps.Azure_Explorer_ico;
             _amsClient = amsClient;
             _selassets = selassets;
-            _mkioClient = mkioClient;
         }
 
 
@@ -125,7 +121,7 @@ namespace AMSExplorer
         }
 
 
-        private async Task<(int?, Row)> ExportAssetExcelAsync(MediaAssetResource asset, uint row, bool detailed, bool localtime, List<StreamingEndpointResource> seList, AssetSchema mkioAsset)
+        private async Task<(int?, Row)> ExportAssetExcelAsync(MediaAssetResource asset, uint row, bool detailed, bool localtime, List<StreamingEndpointResource> seList)
         {
             int? nbLocators = null;
 
@@ -150,10 +146,6 @@ namespace AMSExplorer
             IList<MediaAssetStreamingLocator> locators = asset.GetStreamingLocators().ToList();
             nbLocators = locators.Count();
             listContent.Add((decimal)nbLocators);
-            if (_mkioClient != null)
-            {
-                listContent.Add((mkioAsset != null).ToString());
-            }
 
             if (detailed)
             {
@@ -186,7 +178,7 @@ namespace AMSExplorer
             return localtime ? ((DateTimeOffset)time?.ToLocalTime()).DateTime : ((DateTimeOffset)time).DateTime;
         }
 
-        private async Task<CsvLineResult> ExportAssetCSVLineAsync(MediaAssetResource asset, bool detailed, bool localtime, List<StreamingEndpointResource> seList, AssetSchema mkioAsset)
+        private async Task<CsvLineResult> ExportAssetCSVLineAsync(MediaAssetResource asset, bool detailed, bool localtime, List<StreamingEndpointResource> seList)
         {
             int? nbLocators = null;
 
@@ -212,11 +204,6 @@ namespace AMSExplorer
             IList<MediaAssetStreamingLocator> locators = asset.GetStreamingLocators().ToList();
             nbLocators = locators.Count();
             linec.Add(nbLocators.ToString());
-
-            if (_mkioClient != null)
-            {
-                linec.Add((mkioAsset != null).ToString());
-            }
 
             if (detailed)
             {
@@ -321,22 +308,6 @@ namespace AMSExplorer
                 Row rowAMSENote = CreateNewRow(AMSENote);
 
 
-                // MK/IO
-                var allMKIOAssets = new List<AssetSchema>();
-
-                if (_mkioClient != null)
-                {
-                    // list assets with pages
-                    var mkioAssetsResult = await _mkioClient.Assets.ListAsPageAsync(null, 20);
-                    while (true)
-                    {
-                        // do stuff here using mkioAssetsResult.Results
-                        allMKIOAssets.AddRange(mkioAssetsResult.Results);
-                        if (mkioAssetsResult.NextPageLink == null) break;
-                        mkioAssetsResult = await _mkioClient.Assets.ListAsPageNextAsync(mkioAssetsResult.NextPageLink);
-                    }
-                }
-
                 // ASSET ROWS
 
                 uint row = 4;
@@ -348,13 +319,7 @@ namespace AMSExplorer
 
                     await foreach (MediaAssetResource asset in allAssets)
                     {
-                        AssetSchema assetMKIO = null;
-                        if (_mkioClient != null)
-                        {
-                            assetMKIO = allMKIOAssets.Where(a => a.Properties.StorageAccountName == asset.Data.StorageAccountName && a.Properties.Container == asset.Data.Container).FirstOrDefault();
-                        }
-
-                        var output = await ExportAssetExcelAsync(asset, row, detailed, checkBoxLocalTime.Checked, selist, assetMKIO);
+                        var output = await ExportAssetExcelAsync(asset, row, detailed, checkBoxLocalTime.Checked, selist);
                         if (output.Item1 != null)
                             numberMaxLocators = Math.Max(numberMaxLocators, (int)output.Item1);
                         Rows.Add(output.Item2);
@@ -382,13 +347,7 @@ namespace AMSExplorer
 
                     foreach (var asset in _selassets)
                     {
-                        AssetSchema assetMKIO = null;
-                        if (_mkioClient != null)
-                        {
-                            assetMKIO = allMKIOAssets.Where(a => a.Properties.StorageAccountName == asset.Data.StorageAccountName && a.Properties.Container == asset.Data.Container).FirstOrDefault();
-                        }
-
-                        var output = await ExportAssetExcelAsync(asset, row, detailed, checkBoxLocalTime.Checked, selist, assetMKIO);
+                        var output = await ExportAssetExcelAsync(asset, row, detailed, checkBoxLocalTime.Checked, selist);
                         if (output.Item1 != null)
                             numberMaxLocators = Math.Max(numberMaxLocators, (int)output.Item1);
 
@@ -425,10 +384,6 @@ namespace AMSExplorer
                     listHeader.Add("Size");
                 }
                 listHeader.Add("Streaming locators count");
-                if (_mkioClient != null)
-                {
-                    listHeader.Add("In MK/IO");
-                }
 
                 if (detailed)
                 {
@@ -709,22 +664,6 @@ namespace AMSExplorer
                 var streamingEndpoints = _amsClient.AMSclient.GetStreamingEndpoints().GetAllAsync().ToListAsync();
                 var selist = streamingEndpoints.Result;
 
-                // MK/IO
-                var allMKIOAssets = new List<AssetSchema>();
-
-                if (_mkioClient != null)
-                {
-                    // list assets with pages
-                    var mkioAssetsResult = _mkioClient.Assets.ListAsPage(null, 20);
-                    while (true)
-                    {
-                        // do stuff here using mkioAssetsResult.Results
-                        allMKIOAssets.AddRange(mkioAssetsResult.Results);
-                        if (mkioAssetsResult.NextPageLink == null) break;
-                        mkioAssetsResult = _mkioClient.Assets.ListAsPageNext(mkioAssetsResult.NextPageLink);
-                    }
-                }
-
                 // Asset lines 
                 int index = 1;
 
@@ -734,13 +673,7 @@ namespace AMSExplorer
 
                     await foreach (var asset in assets)
                     {
-                        AssetSchema assetMKIO = null;
-                        if (_mkioClient != null)
-                        {
-                            assetMKIO = allMKIOAssets.Where(a => a.Properties.StorageAccountName == asset.Data.StorageAccountName && a.Properties.Container == asset.Data.Container).FirstOrDefault();
-                        }
-
-                        var res = await ExportAssetCSVLineAsync(asset, detailed, checkBoxLocalTime.Checked, selist, assetMKIO);
+                        var res = await ExportAssetCSVLineAsync(asset, detailed, checkBoxLocalTime.Checked, selist);
                         csv.AppendLine(res.line);
                         if (res.locatorCount != null)
                             numberMaxLocators = Math.Max(numberMaxLocators, (int)res.locatorCount);
@@ -759,13 +692,7 @@ namespace AMSExplorer
 
                     foreach (var asset in _selassets)
                     {
-                        AssetSchema assetMKIO = null;
-                        if (_mkioClient != null)
-                        {
-                            assetMKIO = allMKIOAssets.Where(a => a.Properties.StorageAccountName == asset.Data.StorageAccountName && a.Properties.Container == asset.Data.Container).FirstOrDefault();
-                        }
-
-                        var res = await ExportAssetCSVLineAsync(asset, detailed, checkBoxLocalTime.Checked, selist, assetMKIO);
+                        var res = await ExportAssetCSVLineAsync(asset, detailed, checkBoxLocalTime.Checked, selist);
                         csv.AppendLine(res.line);
                         if (res.locatorCount != null)
                             numberMaxLocators = Math.Max(numberMaxLocators, (int)res.locatorCount);
@@ -817,11 +744,6 @@ namespace AMSExplorer
                 }
 
                 linec.Add("Streaming locators count");
-
-                if (_mkioClient != null)
-                {
-                    linec.Add("In MK/IO");
-                }
 
                 if (detailed)
                 {

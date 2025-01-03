@@ -92,9 +92,6 @@ namespace AMSExplorer
 
         public const string DemoCaptionMaker = @"https://testdrive-archive.azurewebsites.net/Graphics/CaptionMaker/Default.html";
 
-        public const string MKIOPortal = @"https://io.mediakind.com";
-        public const string MKIOApp = @"https://app.io.mediakind.com/";
-
         public const string RavnurPortal = @"https://www.ravnur.com/";
         public const string RavnurPlayerDemo = @"https://strmsdemo.z13.web.core.windows.net/";
         public const string RavnurPlayerDemoTemplate = @"https://strmsdemo.z13.web.core.windows.net/?url={0}";
@@ -147,9 +144,6 @@ namespace AMSExplorer
         public const string LinkAMSAvailabilityZones = "https://learn.microsoft.com/en-us/azure/media-services/latest/concept-availability-zones";
         public const string LinkAMSManagedIdentities = "https://learn.microsoft.com/en-us/azure/media-services/latest/concept-managed-identities";
         public const string LinkAMSCustomerManagedKeys = "https://learn.microsoft.com/en-us/azure/media-services/latest/concept-use-customer-managed-keys-byok";
-
-        public const string LinkMKIOPortal = "https://io.mediakind.com";
-        public const string LinkMKIOMigrationDoc = "https://docs.io.mediakind.com/docs/migrating-from-ams";
 
         public const string LinkAMSE = "https://aka.ms/amse";
         public const string LinkMailtoAMSE = "mailto:amse@microsoft.com?subject=Azure Media Services Explorer - Question/Comment";

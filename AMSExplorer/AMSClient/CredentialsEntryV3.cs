@@ -26,10 +26,6 @@ namespace AMSExplorer
         //  A contract is used to ignore this property when exporting the entry
         public string EncryptedADSPClientSecret;
 
-        public string MKIOSubscriptionName;
-        //  A contract is used to ignore this property when exporting the entry
-        public string MKIOEncryptedToken;
-
         public Uri RavnurApiEndpoint;
         //  A contract is used to ignore this property when exporting the entry
         public string RavnurEncryptedApiKey;
@@ -66,13 +62,6 @@ namespace AMSExplorer
         {
             get => EncryptedADSPClientSecret != null ? DecryptSecret(EncryptedADSPClientSecret) : null;
             set => EncryptedADSPClientSecret = (value != null) ? EncryptSecret(value) : null;
-        }
-
-        //  A contract is used to ignore this property when saving settings to disk
-        public string MKIOClearToken
-        {
-            get => MKIOEncryptedToken != null ? DecryptSecret(MKIOEncryptedToken) : null;
-            set => MKIOEncryptedToken = (value != null) ? EncryptSecret(value) : null;
         }
 
         //  A contract is used to ignore this property when saving settings to disk

@@ -163,7 +163,7 @@ namespace AMSExplorer
                 return;
             }
 
-            // let's save the credentials (SP) and MK/IO settings. They may be updated by the user when connecting
+            // let's save the credentials (SP). They may be updated by the user when connecting
             CredentialList.MediaServicesAccounts[listViewAccounts.SelectedIndices[0]] = AmsClient.credentialsEntry;
             SaveCredentialsToSettings();
 
@@ -236,11 +236,10 @@ namespace AMSExplorer
                 exportSPSecrets = form.checkBoxIncludeSPSecrets.Checked;
 
                 PropertyRenameAndIgnoreSerializerContractResolver jsonResolver = new();
-                List<string> properties = new() { "EncryptedADSPClientSecret", "MKIOEncryptedToken", "RavnurEncryptedApiKey" };
+                List<string> properties = new() { "EncryptedADSPClientSecret", "RavnurEncryptedApiKey" };
                 if (!exportSPSecrets)
                 {
                     properties.Add("ClearADSPClientSecret");
-                    properties.Add("MKIOClearToken");
                     properties.Add("RavnurClearApiKey");
                 }
 
@@ -342,7 +341,6 @@ namespace AMSExplorer
         {
             PropertyRenameAndIgnoreSerializerContractResolver jsonResolver = new();
             jsonResolver.IgnoreProperty(typeof(CredentialsEntryV4), "ClearADSPClientSecret"); // let's not save the clear SP secret
-            jsonResolver.IgnoreProperty(typeof(CredentialsEntryV4), "MKIOClearToken"); // let's not save the MK/IO token secret
             jsonResolver.IgnoreProperty(typeof(CredentialsEntryV4), "RavnurClearApiKey"); // let's not save the clear Ravnur API Key
             JsonSerializerSettings settings = new() { ContractResolver = jsonResolver };
             Properties.Settings.Default.LoginListRPv4JSON = JsonConvert.SerializeObject(CredentialList, settings);

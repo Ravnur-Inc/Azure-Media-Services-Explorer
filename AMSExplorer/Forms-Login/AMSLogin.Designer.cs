@@ -58,7 +58,6 @@
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             textBoxSubscription = new System.Windows.Forms.TextBox();
             label2 = new System.Windows.Forms.Label();
-            pictureBoxMKIO = new System.Windows.Forms.PictureBox();
             errorProvider1 = new System.Windows.Forms.ErrorProvider(components);
             pictureBoxRavnur = new System.Windows.Forms.PictureBox();
             buttonConnectRavnur = new System.Windows.Forms.Button();
@@ -66,7 +65,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxJob).BeginInit();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxMKIO).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxRavnur).BeginInit();
             SuspendLayout();
@@ -257,13 +255,6 @@
             resources.ApplyResources(label2, "label2");
             label2.Name = "label2";
             // 
-            // pictureBoxMKIO
-            // 
-            resources.ApplyResources(pictureBoxMKIO, "pictureBoxMKIO");
-            pictureBoxMKIO.Image = Bitmaps.mk_io_blue;
-            pictureBoxMKIO.Name = "pictureBoxMKIO";
-            pictureBoxMKIO.TabStop = false;
-            // 
             // errorProvider1
             // 
             errorProvider1.ContainerControl = this;
@@ -290,7 +281,6 @@
             CancelButton = buttonCancel;
             Controls.Add(buttonConnectRavnur);
             Controls.Add(pictureBoxRavnur);
-            Controls.Add(pictureBoxMKIO);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(linkLabelAMSOfflineDoc);
             Controls.Add(listViewAccounts);
@@ -315,7 +305,6 @@
             panel1.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxMKIO).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxRavnur).EndInit();
             ResumeLayout(false);
@@ -353,7 +342,6 @@
         private System.Windows.Forms.TextBox textBoxSubscription;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.LinkLabel linkLabelAMSRetire;
-        private System.Windows.Forms.PictureBox pictureBoxMKIO;
         private System.Windows.Forms.PictureBox pictureBoxRavnur;
         private System.Windows.Forms.Button buttonConnectRavnur;
     }

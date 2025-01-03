@@ -172,7 +172,7 @@ namespace AMSExplorer
             MediaServicesAccountResource response;
             try
             {
-                response = await DestinationAmsClient.ConnectAndGetNewClientV3Async(this, false);
+                response = await DestinationAmsClient.ConnectAndGetNewClientV3Async(this);
             }
             catch (Exception ex)
             {

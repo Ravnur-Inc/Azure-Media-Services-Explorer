@@ -22,8 +22,6 @@ using Azure.ResourceManager.Media;
 using Azure.ResourceManager.Media.Models;
 using Microsoft.Azure.Storage.Blob;
 using Microsoft.Azure.Storage.DataMovement;
-using MK.IO;
-using MK.IO.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -59,11 +57,8 @@ namespace AMSExplorer
         private Uri _containerSasUrl = null;
         private string _serverManifestName = null;
         private AmsClientRest _restClient;
-        private MKIOClient _MKIOclient;
-        private List<StreamingEndpointSchema> _MKIOStreamingEndpointList;
-        private AssetSchema _mkioasset = null;
 
-        public AssetInformation(Mainform mainform, AMSClientV3 amsClient, MediaAssetResource asset, IEnumerable<StreamingEndpointResource> streamingEndpoints, MKIOClient MKIOclient = null)
+        public AssetInformation(Mainform mainform, AMSClientV3 amsClient, MediaAssetResource asset, IEnumerable<StreamingEndpointResource> streamingEndpoints)
         {
             InitializeComponent();
             Icon = Bitmaps.Azure_Explorer_ico;
@@ -72,7 +67,6 @@ namespace AMSExplorer
             _asset = asset;
             _streamingEndpoints = streamingEndpoints;
             _restClient = new AmsClientRest(_amsClient);
-            _MKIOclient = MKIOclient;
         }
 
         private async void AssetInformation_Load(object sender, EventArgs e)
@@ -93,7 +87,6 @@ namespace AMSExplorer
             dGTracks.Columns[0].DefaultCellStyle.BackColor = Color.Gainsboro;
             dataGridViewKeys.ColumnCount = 2;
             dataGridViewKeys.Columns[0].DefaultCellStyle.BackColor = Color.Gainsboro;
-            DGMKIOInfo.ColumnCount = 2;
 
             // asset info
             DGAsset.Columns[0].DefaultCellStyle.BackColor = Color.Gainsboro;
@@ -115,11 +108,6 @@ namespace AMSExplorer
 
             DGAsset.Rows.Add(AMSExplorer.Properties.Resources.AssetInformation_AssetInformation_Load_Created, _asset.Data.CreatedOn?.DateTime.ToLocalTime().ToString("G"));
             DGAsset.Rows.Add(AMSExplorer.Properties.Resources.AssetInformation_AssetInformation_Load_LastModified, _asset.Data.LastModifiedOn?.DateTime.ToLocalTime().ToString("G"));
-
-            if (_MKIOclient == null)
-            {
-                tabControl1.TabPages.Remove(tabPageMKIO);
-            }
 
             if (_streamingEndpoints == null)
             {
@@ -2786,189 +2774,6 @@ namespace AMSExplorer
                 }
                 await DoDisplayTrackPropertiesAsync();
             }
-        }
-
-        private async void tabPageMKIO_Enter(object sender, EventArgs e)
-        {
-            await DisplayMKIOAssetInfoAsync();
-        }
-
-        private async Task DisplayMKIOAssetInfoAsync()
-        {
-            if (myMainForm.migratedAssetsToMKIO != null)
-            {
-                _mkioasset = myMainForm.migratedAssetsToMKIO.FirstOrDefault(a => a.Properties.StorageAccountName == _asset.Data.StorageAccountName && a.Properties.Container == _asset.Data.Container);
-
-                if (_mkioasset == null)
-                {
-                    return;
-                }
-            }
-            else
-            {
-                return;
-            }
-
-            DGMKIOInfo.Rows.Clear();
-
-            DGMKIOInfo.Rows.Add("MK/IO Name", _mkioasset.Name);
-            DGMKIOInfo.Rows.Add("MK/IO Description", _mkioasset.Properties.Description);
-
-            // fill the combo with list of MK/IO streaming endpoints
-            _MKIOStreamingEndpointList = await _MKIOclient.StreamingEndpoints.ListAsync();
-            comboBoxSEMKIO.Items.Clear();
-            foreach (var se in _MKIOStreamingEndpointList)
-            {
-                comboBoxSEMKIO.Items.Add(new Item(se.Name, se.Properties.HostName));
-            }
-
-            // let's select the fist in the list
-            if (_MKIOStreamingEndpointList.Any())
-            {
-                comboBoxSEMKIO.SelectedIndex = 0;
-            }
-        }
-
-        /// <summary>
-        /// Build the treeview of locators for MK/IO
-        /// </summary>
-        /// <returns></returns>
-        private async Task BuildMKIOLocatorsTreeAsync(AssetSchema mkioasset)
-        {
-            // LOCATORS TREE
-            if (!oktobuildlocator)
-            {
-                return;
-            }
-
-            var SelectedSE = ReturnSelectedMKIOStreamingEndpoint();
-
-            if (SelectedSE == null)
-            {
-                return;
-            }
-
-            UriBuilder uriBuilder = new()
-            {
-                Scheme = checkBoxHttps.Checked ? "https" : "http",
-                Host = SelectedSE.Properties.HostName
-            };
-
-            if (SelectedSE != null)
-            {
-                Cursor = Cursors.WaitCursor;
-
-                Color colornodeRU = Color.Black;
-
-                TreeViewLocatorsMKIO.BeginUpdate();
-                TreeViewLocatorsMKIO.Nodes.Clear();
-                int indexloc = -1;
-
-                List<AssetStreamingLocator> locators;
-                try
-                {
-                    locators = await _MKIOclient.Assets.ListStreamingLocatorsAsync(mkioasset.Name);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(Program.GetErrorMessage(ex), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                foreach (var locatorbase in locators)
-                {
-                    var locator = await _MKIOclient.StreamingLocators.GetAsync(locatorbase.Name);
-                    var listPaths = await _MKIOclient.StreamingLocators.ListUrlPathsAsync(locatorbase.Name);
-
-                    indexloc++;
-                    string locatorstatus = string.Empty;
-
-                    Color colornode = Color.Black;
-                    if (SelectedSE.Properties.ResourceState != MK.IO.Models.StreamingEndpointResourceState.Running)
-                    {
-                        colornode = Color.Red;
-                    }
-
-                    TreeNode myLocNode = new(locator.Name)
-                    {
-                        ForeColor = colornode
-                    };
-
-                    TreeViewLocatorsMKIO.Nodes.Add(myLocNode);
-                    TreeViewLocatorsMKIO.Nodes[indexloc].Nodes.Add(new TreeNode(AMSExplorer.Properties.Resources.AssetInformation_BuildLocatorsTree_LocatorInformation));
-
-                    LocTreeAddTextEntryToNode(TreeViewLocatorsMKIO, indexloc, 0, "Streaming locator Id: {0}", locator.Properties.StreamingLocatorId);
-                    LocTreeAddTextEntryToNode(TreeViewLocatorsMKIO, indexloc, 0, AMSExplorer.Properties.Resources.AssetInformation_BuildLocatorsTree_Name0, locator.Name);
-                    LocTreeAddTextEntryToNode(TreeViewLocatorsMKIO, indexloc, 0, "Streaming policy name: {0}", locator.Properties.StreamingPolicyName);
-                    LocTreeAddTextEntryToNode(TreeViewLocatorsMKIO, indexloc, 0, "Default content key policy name: {0}", locator.Properties.DefaultContentKeyPolicyName);
-                    LocTreeAddTextEntryToNode(TreeViewLocatorsMKIO, indexloc, 0, "Alt media Id: {0}", locator.Properties.AlternativeMediaId);
-
-                    string startTimeS = locator.Properties.StartTime.ToString();
-                    LocTreeAddTextEntryToNode(TreeViewLocatorsMKIO, indexloc, 0, "Start time: {0}", startTimeS);
-
-                    string endTimeS = locator.Properties.EndTime.ToString(); ;
-                    LocTreeAddTextEntryToNode(TreeViewLocatorsMKIO, indexloc, 0, "End time: {0}", endTimeS);
-
-                    LocTreeAddTextEntryToNode(TreeViewLocatorsMKIO, indexloc, 0, "Filters: {0}", string.Join(", ", locator.Properties.Filters != null ? locator.Properties.Filters.ToArray() : new List<string>()));
-
-                    int indexn = 1;
-                    if (listPaths.StreamingPaths.Count > 0)
-                    {
-                        string appendExtension = string.Empty;
-                        foreach (var path in listPaths.StreamingPaths)
-                        {
-                            TreeViewLocatorsMKIO.Nodes[indexloc].Nodes.Add(new TreeNode(path.StreamingProtocol.ToString()) { ForeColor = colornodeRU });
-                            foreach (string p in path.Paths)
-                            {
-                                appendExtension = string.Empty;
-                                if (path.StreamingProtocol == StreamingPathsStreamingProtocol.Dash && !p.EndsWith(Constants.mpd))
-                                {
-                                    appendExtension = Constants.mpd;
-                                }
-                                else if (path.StreamingProtocol == StreamingPathsStreamingProtocol.Hls && !p.EndsWith(Constants.m3u8))
-                                {
-                                    appendExtension = Constants.m3u8;
-                                }
-                                uriBuilder.Path = p + appendExtension;
-                                TreeViewLocatorsMKIO.Nodes[indexloc].Nodes[indexn].Nodes.Add(new TreeNode(uriBuilder.ToString()) { ForeColor = colornodeRU });
-                            }
-                            indexn += 1;
-                        }
-                    }
-
-                    if (listPaths.DownloadPaths.Count > 0)
-                    {
-                        TreeViewLocatorsMKIO.Nodes[indexloc].Nodes.Add(new TreeNode("Download") { ForeColor = colornodeRU });
-
-                        foreach (string p in listPaths.DownloadPaths)
-                        {
-                            uriBuilder.Path = p;
-                            TreeViewLocatorsMKIO.Nodes[indexloc].Nodes[indexn].Nodes.Add(new TreeNode(uriBuilder.ToString()));
-                        }
-                    }
-                }
-                TreeViewLocatorsMKIO.EndUpdate();
-                Cursor = Cursors.Arrow;
-            }
-        }
-
-
-        private StreamingEndpointSchema ReturnSelectedMKIOStreamingEndpoint()
-        {
-            if (comboBoxSEMKIO.SelectedItem != null)
-            {
-                string hostname = ((Item)comboBoxSEMKIO.SelectedItem).Value;
-                return _MKIOStreamingEndpointList.Where(se => se.Properties.HostName == hostname).FirstOrDefault();
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        private async void comboBoxSEMKIO_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            await BuildMKIOLocatorsTreeAsync(_mkioasset);
         }
     }
 }
