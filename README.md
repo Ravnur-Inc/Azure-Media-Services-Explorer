@@ -7,13 +7,20 @@ products:
 - azure-media-services
 ---
 
-# Azure Media Services Explorer (for AMS v3)
+# Azure Media Services Explorer for Ravnur
 
-Azure Media Services Explorer (AMSE) is a .NET 7.0 (C#) application for Windows that does upload, download, encode and stream VOD and live content with [Azure Media Services v3](https://azure.microsoft.com/services/media-services/).
+The Azure Media Services Explorer (AMSE), an open-source project from Microsoft, is a Windows desktop application that allows users to work with Azure Media Services (AMS) for uploading, encoding and streaming media assets. It connects to AMS using the AMS v3 API, which means that it can natively connect to [Ravnur Media Services (RMS)](https://www.ravnur.com/). Now that Microsoft has retired AMS, Ravnur has forked the library and maintains a version that works with RMS, which we call AMSE for RMS. 
 
-Important : Azure Media Services will be [retired on June 30th, 2024](https://learn.microsoft.com/azure/media-services/latest/azure-media-services-retirement).
+Using the AMSE for RMS, you can:
 
-This tool can help you migrate to MediaKind [MK/IO](https://io.mediakind.com).
+- upload assets
+- download encoded assets
+- encode assets using standard or custom transforms
+- protect assets using AES and DRM encryption
+- stream VOD and live content.
+
+
+The AMSE for RMS can be downloaded from [the Releases page](https://github.com/Ravnur-Inc/Azure-Media-Services-Explorer/releases).
 
 ## Installing the tool with Winget
 
@@ -42,28 +49,21 @@ You need to install the [Microsoft Visual Studio Installer Projects](https://mar
 
 This solution requires [.NET SDK 7.0](https://dotnet.microsoft.com/download/dotnet/7.0) to compile.
 
-## MediaKind MK/IO
 
-This version of the Azure Media Services Explorer supports creating assets in MediaKind MK/IO from existing AMS assets.
+> [!NOTE]
+> This is a console application to help you test the Ravnur Media Services API. The link above is not the repo for Ravnur Media Services. You will require the deployed RMS managed application from the Azure Marketplace.
 
-You must have an active MediaKind MK/IO subscription and access to the MediaKind I/O portal:
-[https://io.mediakind.com](https://io.mediakind.com)
+## Connect AMSE to RMS
 
-To connect with MK I/O you will need:
+1. Get your [RMS account credentials](https://github.com/Ravnur-Inc/ams-api-replacement-demo-app/blob/main/docs/how-to-get-credentials.md) and copy them.
+2. Open Azure Media Service Explorer on your PC and select __Pick-up Ravnur account…__
+3. Select the appropriate environment that corresponds to the Azure environment where RMS is deployed.
+4. When the pop-up appears, paste the credentials you copied earlier and click Save.
+5. Click on Connect in the AMSE main menu and authenticate using your Microsoft Entra account credentials.
 
-- Subscription Name
-- MK/IO Token
+> [!NOTE]
+> All users connecting to the same RMS account in AMSE for RMS have access to the same list of saved transforms and the same job history. The data is tied to the RMS account, not to individual users. Thus, saved records in the account are available to anyone who connects to it.
 
-The subscription name is also called the resource name and is available in the portal.
-
-An MK/IO token can be obtained by following the directions contained in this [article](https://support.mediakind.com/portal/en/kb/articles/how-to-use-mkio-apis-step-by-step).
-
-AMSE relies on the MK/IO SDK available [here](https://www.nuget.org/packages/MK.IO).
-
-Learn more on the migration:
-
-[<img src="https://github.com/Azure/Azure-Media-Services-Explorer/assets/8104205/6f65b990-90be-4edc-adef-ef594d49162f" width="600" height="381"
-/>](https://youtu.be/uMRn7bDcb-o)
 
 ## Notes
 
@@ -73,11 +73,7 @@ AMSE uses Application Insights for Telemetry. This feature can be turned off in 
 
 ## Contacts
 
-Contact: <amse@microsoft.com>
-
-Open a bug [here](https://github.com/Azure/Azure-Media-Services-Explorer/issues/new).
-
-![Screen capture](https://user-images.githubusercontent.com/8104205/116678834-17935c80-a9aa-11eb-9419-6c79de82b8ca.png)
+Contact: <support@ravnur.com>
 
 ## Contributing
 
